@@ -1,0 +1,67 @@
+{% extends 'dashboard_layout.html' %}
+<!-- search banner-->
+ 
+ <!-- end search banner-->
+  <!-- about-->
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-2">     
+    {% include 'admin/menu.html' %}    
+</div>
+
+	<div class="col-md-9 p-3">
+    <!-- For the Dashboard-->
+     
+    <div class="row hero pt-4">
+		{% with messages = get_flashed_messages(with_categories=True) %}
+		{% if messages %}
+			{% for cat,msg in messages %}
+				{% if cat == 'error' %}
+					<div class="alert alert-danger">{{ msg }}</div>
+				{% else %}
+					<div class="alert alert-success">{{ msg }}</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+		<div class="col pt-5 d-flex align-items-center justify-content-center front-sec-container">
+			<div class="form-cont">
+				<div class="form-cont1 col-md-7 m-auto">
+					<div class="form-head text-center">
+						 <p class="log mb-4">Add New Brand</p>
+						 <p>Please Fill the information below:</p>
+					</div>
+
+
+					<form action="/admin/add_new_brand/" method="post" enctype="multipart/form-data">
+						{{ adform.csrf_token }}
+
+
+						<div class="form-floating mb-2 user-cont">
+							{{adform.brand_name.label}}
+							{{adform.brand_name(placeholder='Brand Name', class="form-control")}}
+							{% if adform.brand_name.errors %}
+								{% for error in adform.brand_name.errors %}
+									<span class='err-msg'> {{error}} </span>
+								{% endfor %}
+							{% endif %}
+						</div>
+
+
+
+						<div class="log-btn">
+							{{adform.submit(class='btn btn-lg col-12 log-btn')}}
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  
+  	</div>
+</div>
+{% endblock content %}

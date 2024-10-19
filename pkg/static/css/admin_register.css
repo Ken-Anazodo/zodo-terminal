@@ -1,0 +1,858 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  a{
+	text-decoration: none;
+	color: #09090b;
+}
+
+.ball {
+	width: 20px;
+	height: 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 1000000000;
+	mix-blend-mode: difference;
+  }
+
+  .home-container, .footer-container{
+	background-color: #e9e2d5;
+	color: #09090b;
+	font-family: "Helvetica Regular";
+	font-size: 10px;
+	font-weight: 200;
+	line-height: 12px;
+	text-transform: uppercase;
+}
+
+  .home-container, .nav-custom {
+    background-color: #e9e2d5;
+  }
+
+  .nav-container {
+    width: 100vw;
+  }
+
+  .nav-container .nav-ul .flex-grow-1 {
+    flex: 1 1 auto;
+  }
+
+  .nav-container .nav-ul .col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .nav-container .nav-ul .col-3 {
+    flex: 0 0 auto;
+    width: 15%;
+  }
+
+  .brand-name {
+    display: none;
+  }
+  
+
+  .custom {
+    width: 100%;
+  }
+
+  .nav-ul {
+    justify-content: center;
+    border: 1px solid #09090b;
+  }
+
+  .nav-ul li {
+    border-right: 1px solid #09090b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0px;
+  }
+
+  .nav-ul .nav-last {
+    border-right: none;
+  }
+
+  .nav-ul li a {
+    font-family: "Inter Medium";
+    font-size: 0.75vw;
+    color: #09090b;
+  }
+
+  .nav-ul .zodoTerm a {
+    font-size: 1.5vw;
+    font-family: "Neue Montreal Regular";
+  }
+
+  .brand-name span, .nav-ul .zodoTerm a span {
+    font-family: "Monument Extended Bold";
+    text-transform: uppercase;
+  }
+
+  .brand-name {
+    font-family: "Neue Montreal Regular";
+  }
+
+  .brand-name a, .estavo {
+    font-family: "Monument Extended Bold";
+  }
+
+  .nav-ul .nav-last a {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-ul .nav-last a img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+
+
+
+  /* Dropdown shop styles */
+  .dropdown {
+    position: relative;
+  }
+
+  .dm {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ccad74;
+    z-index: 1000;
+	padding-top: 4px;
+	padding-bottom: 4px;
+  }
+
+  .dm .dropdown-submenu1 .dropdown-item {
+    padding: 5px 7px;
+    font-size: 1vw;
+    color: #09090b;
+    text-align: left;
+	text-transform: uppercase;
+  }
+
+  .dm .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Show dropdown menu on hover */
+  .dropdown:hover .dm {
+    display: block;
+  }
+
+  .dm .dropdown-submenu1 .dropdown-item:hover {
+    background-color: #09090b;
+	color: #fff;
+  }
+
+
+
+
+
+
+/* General Brand dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ccad74;
+    z-index: 1000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dropdown li a, .drop-menu li a, .drop-sub li a {
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 8px; 
+    padding: 3px 5px;
+    transition: background-color 0.2s ease;
+    text-transform: uppercase;
+    font-family: "Helvetica Regular";
+}
+
+.dropdown-menu li {
+    border: none;
+}
+
+.drop-menu li .drop-cat {
+    font-size: 1vw;
+}
+
+.drop-sub li a {
+    font-size: 1vw;
+    line-height: 0.65;
+}
+
+.dropdown-menu .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+/* Submenu positioning */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0; /* Set to 0 to align with category */
+    left: 98%; /* Position submenu to the right */
+    display: none; /* Initially hidden */
+}
+
+/* Hover over a specific category to display brands */
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block; /* Shows the submenu when a category is hovered */
+}
+
+/* Only show the main dropdown when it's hovered */
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px 2px;
+}
+
+.dropdown-item:hover {
+    background-color: #09090b;
+    color: #fff;
+    font-family: "Helvetica";
+}
+
+/* Adding right arrow to indicate submenu */
+.dropdown-menu > .dropdown-submenu > .dropdown-item::after {
+    content: "\f0da"; /* Add a right arrow icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; 
+    margin-left: 10px;
+    float: right;
+    border: none;
+}
+
+
+
+  
+
+
+
+/* SMALL SCREEN NAVIGATION */
+.container-fluid .brand-name{
+	z-index: 1051;
+}
+
+
+.full-screen-nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #e9e2d5;
+    z-index: 999;
+    overflow-y: auto; /* This allows the navbar content to scroll if it's longer than the screen */
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar-collapse.show {
+    display: flex !important;
+}
+
+.navbar-collapse.collapse {
+    display: none; /* Hidden when collapsed */
+}
+
+
+
+/* Remove focus outline on navbar toggler and links with !important */
+.navbar-toggler:focus, .navbar-toggler-icon:focus, .nav-link:focus {
+    outline: none !important;  
+    box-shadow: none !important;
+}
+
+/* Optionally, remove background change on focus */
+.navbar-toggler:focus, .nav-link:focus {
+    background-color: transparent !important; 
+}
+
+
+/* Target only Bootstrap's default icon and hide it */
+.navbar-toggler-icon {
+    background-image: none; 
+}
+
+/* Styling for the burger menu */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    position: relative;
+    width: 45px;
+    height: 30px;
+    z-index: 1051;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styling for the custom burger lines */
+.navbar-toggler span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #09090b;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 5px; 
+}
+
+/* Remove the last span margin-bottom */
+.navbar-toggler span:last-child {
+    margin-bottom: 0;
+}
+
+/* Open state transforms to form an 'X' */
+.navbar-toggler.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.navbar-toggler.open span:nth-child(2) {
+    opacity: 0;  /* Hide the middle line */
+}
+
+.navbar-toggler.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+
+/* Show the full menu on xl screens and above */
+@media (min-width: 1200px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .full-screen-nav, .navbar-nav{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+.landing-page{
+	width: 100%;
+	position: relative;
+	background-color: #e9e2d5;
+}
+
+
+
+.landing-content{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+.hero{
+	margin-top: 70px;
+	min-height: 100vh;
+	width: 100%;
+	padding-bottom: 50px;
+}
+
+.form-cont{
+	padding: 0px 5vw;
+}
+
+.form-cont, .user-cont, .logbtn{
+	width: 100%;
+}
+
+.form-head .log{
+	font-size: 2em;
+	font-family: "Helvetica";
+}
+
+.form-cont1{
+	width: 100%;
+}
+
+.user-cont input{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+.user-cont textarea{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+.user-cont .filefield{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+
+.form-cont .upload-desc{
+	color: #e9e2d5;
+	background-color: #09090b;
+	width: 30%;
+}
+
+.log-btn{
+	background-color: #09090b;
+	color: #e9e2d5;
+	font-family: "Helvetica Regular";
+	text-transform: uppercase;
+	font-size: 14px;
+	height: 55px;
+	border-radius: 7px;
+}
+
+.log-btn:hover{
+	background-color: #09090b;
+	color: #e9e2d5;
+	font-family: "Helvetica Regular";
+}
+
+.checkboxx input{
+	background-color: #e9e2d5;
+	height: 160px;
+	width: 160px;
+	border: 1px solid #09090b;
+	font-size: 25px;
+}
+
+
+
+
+
+
+
+
+/* OFFCANVAS CART */
+
+.myOffcanvas{
+	background-color: #e9e2d5;
+	font-family: "Helvetica Regular";
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+
+
+.myOffcanvas{
+	background-color: #e9e2d5;
+	font-family: "Helvetica Regular";
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#cart-items ul li{
+	list-style: none;
+}
+
+.cart-total{
+	font-size: 12px;
+}
+
+.item-desc-price{
+	font-size: 14px;
+}   
+
+.prod-name-price .prod-name{
+	font-family: "Helvetica";
+	font-size: 12px;
+}
+
+.quantity{
+	background-color: #e9e2d5;
+	border: 1px solid #09090b;
+}
+
+.update-quantity{
+	width: 40%;
+}
+
+.remove-btn, .checkout-btn{
+	background-color: #09090b;
+}
+
+.cart-img{
+	min-height: 200px;
+	width: 50%;
+}
+
+.cart-img img{
+	min-height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.oc{
+	z-index: 9999999;
+}
+
+
+
+
+
+
+
+/* OFFCANVAS SEARCH */
+
+.search-icon a i{
+	cursor: pointer;
+}
+
+.search-section{
+	display: none;
+}
+
+.search-input input{
+	background-color: #e9e2d5;
+	font-size: 13px;
+	border-bottom: 1px solid #646869;
+	border-radius: 0px;
+	font-family: "Helvetica Regular";
+	height: 30px;
+}
+
+.search-input input:focus{
+	background-color: transparent;
+}
+
+.search-input input::placeholder{
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.suggest-head, .cart-status{
+	font-size: 15px;
+	font-family: "Helvetica Regular";
+}
+
+.suggest-head{
+	font-size: 12px;
+}
+
+.sug-remove{
+	display: none;
+}
+
+
+.table-custom{
+	font-size: 0.75rem;
+	line-height: 0.95rem;
+	width: 100%;
+	text-transform: capitalize;
+}
+
+th{
+	font-family: "Helvetica";
+	font-weight: 500;
+	padding: 10px;
+	font-size: 0.8rem;
+	line-height: 1rem;
+	font-family: "Monument Extended Bold";
+}
+
+tr{
+	height: 30px;
+	border-top: 1px solid #09090b;
+	border-bottom: 1px solid #09090b;
+	background-color: #f6eddc;
+}
+
+td{
+	padding: 10px;
+}
+  
+  
+
+
+
+
+
+
+/* FOOTER */
+.footer-container{
+	background-color: #e9e2d5;
+	color: #09090b;
+	font-family: "Helvetica Regular";
+	font-size: 10px;
+	font-weight: 200;
+	line-height: 13px;
+	text-transform: uppercase;
+}
+
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+
+.nav1 ul li{
+	list-style: none;
+}
+
+.nav1 ul li a{
+	text-decoration: none;
+	color: #09090b;
+}
+
+.shipping div, .language div{
+	gap: 10px;
+	cursor: pointer;
+}
+
+form .count{
+	width: 60%;
+	height: 15px;
+	background-color: #e9e2d5;
+	font-size: 10px;
+	border: none;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+form .count:focus{
+	background-color: transparent;
+}
+
+.form-input div{
+	height: 40px;
+	width: 100%;
+}
+
+.form-input div input{
+	height: 100%;
+	width: 100%;
+	border: 1px solid gray;
+	background-color: #faf7f1;
+	font-size: 11px;
+}
+
+.subscribe-btn{
+	font-family: "Inter Medium";
+	background-color: #09090b;
+	font-size: 13px;
+	color: #e9e2d5;
+}
+
+.subscribe-btn:hover{
+	background-color: transparent;
+	color: #09090b;
+}
+
+.shop-btn{
+	font-family: "Inter Medium";
+	background-color: #09090b;
+	font-size: 12px;
+	color: #e9e2d5;
+}
+
+.shop-btn:hover{
+	font-family: "Inter Medium";
+	background-color: transparent;
+	color: #09090b;
+}
+
+.rights{
+	width: 55%;
+}
+
+.copy{
+	font-size: 9px;
+}
+
+
+
+
+
+
+@media screen and (min-width: 394px){
+	.brand-name a, .estavo{
+		font-size: 22px;
+		line-height: 23px;
+	}
+}
+
+
+@media screen and (min-width: 576px){
+	.brands-dropdown .dropdown-toggle{
+		line-height: 13px;
+		font-size: 11px;
+	}
+
+	.col-name-title, .col-name-title1{
+		font-size: 3.8vw;
+		padding: 0px 40px;
+	}
+
+	.home-container{
+		font-size: 11px;
+		font-weight: 200;
+		line-height: 13px;
+	}
+
+	.footer-container{
+		font-size: 10px;
+		font-weight: 200;
+		line-height: 12px;
+	}
+
+	.subscribe-btn {
+		font-size: 9px;
+	}
+
+}
+
+
+@media screen and (min-width: 768px){
+	.form-cont{
+		padding: 0px 15vw;
+	}
+}
+
+
+@media screen and (min-width: 992px){
+	.zodo-t{
+		min-height: 100vh;
+		width: 100%;
+	}
+	
+	.sec2{
+	font-size: 5.5vw;
+	}
+
+}
+
+@media screen and (min-width: 1280px){
+	.subscribe-btn {
+		font-size: 13px;
+	}
+}
+
+
+@media screen and (max-width: 992px){
+	.brand-name{
+		display: block;
+	}
+
+	.nav-ul{
+		border: none;
+	}
+
+	.nav-ul li{
+		border: none;
+	}
+
+	.nav-ul .zodoTerm a{
+		display: none;
+	}
+
+	.nav-ul li a{
+		font-size: 12px;
+	}
+
+	.nav-ul .nav-last a{
+		width: 50px;
+		height: 50px;
+	}
+
+	.navbar-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+		width: 100%;
+		height: 100%;
+        text-align: center;
+    }
+
+
+    .nav-link {
+        color: #09090b;
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    .nav-link:hover {
+        color: #f0a500;
+    }
+
+    .navbar-toggler {
+        z-index: 10000; 
+    }
+}
+
+
+@media screen and (max-width: 768px){
+	.t-body{
+		width: 90%;
+	}
+
+	.trend-prod{
+		height: 500px;
+		background-color: #fafaf9;
+		margin-top: 20px;
+	}
+
+	.trend-last{
+		height: 900px;
+	}
+
+	.sec5-about-content .d1 video{
+		border-top-left-radius: 25px;
+	}
+}
+
+

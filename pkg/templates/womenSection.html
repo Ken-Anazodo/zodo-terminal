@@ -1,0 +1,42 @@
+
+
+			{% extends "layout.html" %}
+
+			{% block stylesheet %}
+				<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css')}}"/>
+			{% endblock %}
+
+
+			{% block body1 %}
+			<div class="col-md-8 mt-4 mt-md-0 front-sec-container">
+				<div class="row">
+					<div class='col categoryname mt-5 text-center'>
+						<p>Category: <span>Women<span></p>
+					</div>
+				</div>
+				<div class="row">
+					{% for women_prod in women_prods %}
+					<div class="col-sm-6 col-md-4 front-img1">
+						<div class="front-sec-img-container front-p">
+							<div class="front-sec-img">
+								<a href="/choose_to_add_to_cart/{{women_prod.prod_id}}/"><img src="/static/uploads/{{women_prod.prod_image_url}}" alt="products"></a>								
+							</div>
+
+							<div class="shop-tag1">
+								<a href="/choose_to_add_to_cart/{{women_prod.prod_id}}/"><p>SHOP</p></a>
+							</div>
+	
+							<div class="front-sec-img-desc mt-2">
+								<p>{{ women_prod.prod_name }}</p>
+								<p class='price'>${{ women_prod.prod_price }}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>	
+			</div>
+			{% endblock %}
+
+
+			

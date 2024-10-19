@@ -1,0 +1,80 @@
+{% extends 'dashboard_layout.html' %}
+<!-- search banner-->
+ 
+ <!-- end search banner-->
+  <!-- about-->
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-2">
+      
+    {% include 'admin/menu.html' %}
+    
+</div>
+<div class="col-md-9 p-3">
+    <!-- For the Dashboard-->
+     
+    <div class="row">
+        <div class="col-md-12">
+		{% with messages = get_flashed_messages(with_categories=True) %}
+		{% if messages %}
+			{% for cat,msg in messages %}
+				{% if cat == 'error' %}
+					<div class="alert alert-danger">{{ msg }}</div>
+				{% else %}
+					<div class="alert alert-success">{{ msg }}</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+          <div class="d-flex align-items-center">
+            <a href="/admin/add_new_product/"><button id='add_prod' class="btn btn-success me-3" type='button' >Add New Products</button></a>
+          </div>
+
+
+		  <table class="table table-striped mt-5">
+			<thead>
+			  <tr>
+				<td>S/N</td>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Price</td>
+				<td>Product Image</td>
+				<td>Brand</td>
+				<td>Category</td>
+				<td>Description</td>
+				<td>added on</td>
+				<td>updated on</td>
+				<td>Features</td>
+				<td>update</td>
+				<td>Remove</td>
+			  </tr>
+			</thead>
+		
+			<tbody id='show'>  
+				{% for product in products %}
+				<tr>
+					<td>{{ loop.index }}</td>
+					<td>{{ product.prod_id }}</td>
+					<td>{{ product.prod_name }}</td>
+					<td>{{ product.prod_price }}</td>
+					<td>{{ product.prod_image_url }}</td>
+					<td>{{ product.prod_brand_id }}</td>
+					<td>{{ product.prod_category_id }}</td>
+					<td>{{ product.prod_description }}</td>
+					<td>{{ product.prod_added_on }}</td>
+					<td>{{ product.prod_updated_on }}</td>
+					<td>{{ product.prod_featured_id }}</td>
+					<td><a href="/admin/update_product/{{product.prod_id}}/"><button id='update_prod' class="btn btn-primary" type='button' >Update Product</button></a></td>
+					<td><a href="/admin/{{product.prod_id}}/delete_product/"><button id='delete_product' class="btn btn-danger" type='button'>Delete</button></a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		</div>
+		</div>
+  </div>
+</div>
+{% endblock content %}

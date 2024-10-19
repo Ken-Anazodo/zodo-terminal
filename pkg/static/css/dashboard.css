@@ -1,0 +1,388 @@
+body{
+    font-family: "Helvetica Regular";
+	font-size: 13px;
+	font-weight: 200;
+	line-height: 15px;
+	text-transform: uppercase;
+    background-color: #e9e2d5;
+}
+h3{
+    font-family: "Quicksand", sans-serif;
+}
+
+.foot{
+    background-color: #09090b;
+    color: #e9e2d5;
+}
+.heading-title{
+    text-decoration:underline;
+    text-decoration-color:#09090b;
+    text-decoration-thickness: 2px; 
+    text-decoration-style: double;
+    font-family: "Quicksand", sans-serif;
+    /* letter-spacing: 2px; */
+}
+.banner{
+    min-height:300px;
+    background-size: cover;
+    background-image:linear-gradient(to bottom, rgba(11, 9, 10, 0.199), rgba(203, 212, 194, 0.49)),url('../images/travel-1.jpg'); 	
+}
+.heading{
+    height:inherit;
+    
+}
+.menu{
+    background-color: #09090b;
+    color: #e9e2d5;
+}
+.menu a, .menu a ul li a{
+    color:white;
+}
+
+.menu a:hover, .menu a ul li a:hover{
+    color:white; 
+   
+}
+.navbar-nav li:hover{
+    
+    border-bottom: 1px solid #09090b;
+}
+.active,.show{
+    color: white !important;
+}
+.nav-item ul li a{ 
+    color:#09090b;
+}
+.nav-item ul li{ 
+    background-color:white;
+}
+.container{
+    background-color:  #09090b;
+}
+#top{
+    position:sticky !important;
+    top:0px;
+}
+
+
+.places img:hover{
+    box-shadow: 3px 3px 3px grey;
+}
+.places img{
+    border:4px ridge #09090b;
+    /* padding:10px; */
+}
+.places >div>div>div>div{
+    padding:10px;
+}
+.places h6{
+    color: #09090b;
+    font-weight: bold;
+}
+.user-menu{
+    background-color:#09090b;
+}
+
+
+
+
+
+
+.category-drop{
+    color:#09090b;
+}
+
+.category-drop a button{
+	font-family: "Helvetica Regular";
+	font-size: 13px;
+	font-weight: 200;
+	line-height: 15px;
+	text-transform: uppercase;
+	border: none;
+	text-align: start;
+	padding: 0px;
+    background-color: transparent;
+    color: #09090b;
+}
+
+.category-drop button{
+    background-color: transparent;
+    color: #09090b;
+    border: none;
+}
+
+.category-drop a button:hover{
+    background-color: transparent;
+    border: none;
+}
+
+.category-drop button:hover{
+    background-color: transparent;
+    color: #09090b;
+    border: none;
+}
+
+.dropdown-menu{
+    background-color: #ccad74;
+    padding: 5px 3px;
+}
+
+.dropdown-menu li a{
+    color: #09090b;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover{
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+.user-profile li a:hover{
+    background-color: white !important;
+    color:  #09090b;
+}
+.dropdown-menu li:hover,.dropdown-menu li a:hover{ 
+    background-color:#09090b;
+}
+.noround{
+    border-radius: 0px;
+}
+
+.tab-bg{
+	background-color:  #09090b;
+}
+ 
+.tab-btn .active{
+	border-radius: 0px;
+	background-color: #09090b;
+    color: #e9e2d5; 
+}
+ 
+.nav-pills .nav-link{
+	color: black;
+	font-weight: 500;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #09090b;
+    color: #e9e2d5;
+}
+.call-to-action{
+    min-height: inherit;
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+.call-to-action-bg{
+    min-height:200px;
+    background-attachment: fixed;
+    background-image: url('../images/travel-3.jpg');
+}
+.custom-btn{
+    color:white;
+    background-color: #09090b;
+}
+.custom-btn:hover{
+    color:white;
+    background-color: #09090b;
+}
+.blue-btn{
+    color:white;
+    background-color: #09090b;
+}
+.blue-btn:hover{
+    color:white;
+    background-color: #09090b;
+}
+.pix{
+    box-shadow: 3px 3px 3px grey;
+}
+
+
+
+
+
+
+
+
+
+.form-cont{
+	padding: 0px 5vw;
+}
+
+.form-cont, .user-cont, .logbtn{
+	width: 100%;
+}
+
+.form-head .log{
+	font-size: 2em;
+	font-family: "Helvetica";
+}
+
+.form-cont1{
+	width: 100%;
+}
+
+.user-cont input{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+.user-cont textarea{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+.user-cont select{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+.user-cont .filefield{
+	width: 100%;
+	background-color: #e9e2d5;
+	border: 1px solid #646869;
+}
+
+
+.form-cont .upload-desc{
+	color: #e9e2d5;
+	background-color: #09090b;
+	width: 30%;
+}
+
+.log-btn{
+	background-color: #09090b;
+	color: #e9e2d5;
+	font-family: "Helvetica Regular";
+	text-transform: uppercase;
+	font-size: 14px;
+	height: 55px;
+	border-radius: 7px;
+}
+
+.log-btn:hover{
+	background-color: #09090b;
+	color: #e9e2d5;
+	font-family: "Helvetica Regular";
+}
+
+.checkboxx input{
+	background-color: #e9e2d5;
+	height: 160px;
+	width: 160px;
+	border: 1px solid #09090b;
+	font-size: 25px;
+}
+
+
+
+
+
+
+/* For Product category */
+.front-sec-img-container{
+	width: 100%;
+	height: 80vh;
+	font-family: "Helvetica Regular";
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 200;
+	line-height: 13px;
+}
+
+.front-img1{
+	padding: 0px 3px;
+}
+
+
+.front-sec-img{
+	width: 100%;
+	height: 85%;
+	background-color: #09090b;
+}
+
+.front-sec-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+
+@media screen and (min-width: 360px){
+	.front-sec-desc .first{
+		width: 50%;
+	}
+}
+
+
+
+
+
+
+
+
+.footer{
+    padding:20px;
+    
+    background-color: #09090b;
+    color: #e9e2d5;
+    /* background-size: cover; */
+    /* background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0,0,0, 0.9)), url('../images/travel-1.jpg'); 
+    background-attachment: fixed; */
+}
+ .footer a{
+    color:white !important;
+    text-decoration: none;
+ }
+ .footer a:hover{
+    color:white !important;
+    text-decoration: underline;
+ }
+.section-title{
+    margin:10px 0px;
+}
+.descriptions{
+    padding:10px;
+    /* position:absolute; */
+    /* bottom:0px;
+    height:auto; */
+    width:100%;    
+    color:white;
+    background-color: #09090b;
+}
+.descriptions img:hover{
+    border: #031a48 2px solid;
+}
+ 
+.descriptions:hover{ 
+    padding:10px; 
+    width:100%; 
+    background-color: #09090b !important;
+}
+.box:hover{
+    box-shadow: 2px 2px 8px #ccc;
+}
+.box p{
+    font-size: 12px;
+    text-align: center;
+}
+.box img{
+    border-radius: 50%;
+    padding:10px;
+}
+ 
+      
+  

@@ -1,0 +1,68 @@
+
+						{% extends "layout_three.html" %}
+
+						{% block stylesheet %}
+							<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/admin_login.css')}}">
+						{% endblock %}
+
+						{% block body %}
+						<div class="row hero pt-4">
+							<div class="col pt-5 d-flex align-items-center justify-content-center front-sec-container">
+								<div class="form-cont">
+									{% with messages = get_flashed_messages(with_categories=True) %}
+									{% if messages %}
+									{% for cat,msg in messages %}
+										{% if cat == 'error' %}
+											<div class="alert alert-danger">{{ msg }}</div>
+										{% else %}
+											<div class="alert alert-success">{{ msg }}</div>
+										{% endif %}
+									{% endfor %}
+									{% endif %}
+								{% endwith %}
+
+									<div class="form-cont1 col-md-7 m-auto">
+										<div class="form-head text-center">
+											 <p class="log mb-4">Log In</p>
+											 <p>Enter Your Username and Password to Log In</p>
+										</div>
+				
+				
+										<form action="/submit/admin_login/" method="post">
+											{{ adform.csrf_token }}
+											<div class="form-floating mb-2 user-cont">
+												{{adform.username.label}}
+												{{adform.username(placeholder='Username', class="form-control user-cont")}}
+												{% if adform.username.errors %}
+													{% for error in adform.username.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+						
+											<div class="form-floating mb-2 user-cont">
+												{{adform.password.label}}
+												{{adform.password(placeholder="Enter your password", class="form-control user-cont")}}
+												{% if adform.password.errors %}
+													{% for error in adform.password.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+				
+											<div class="log-btn">
+												{{adform.submit(class='btn btn-lg col-12 log-btn')}}
+											</div>
+										</form>
+				
+										<div class="text-center mt-4">
+											<p>Don't have an account? <a href="/admin_register/"><u>Sign Up</u></a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endblock %}
+
+
+

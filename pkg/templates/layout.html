@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://db.onlinewebfonts.com/c/5c5a257758cff0acee4d28ff555f3bc5?family=Helvetica" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/a64ff11d2c24584c767f6257e880dc65?family=Helvetica+Regular" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/9a8c18bd1dbe8508bc2525be7e07d0ff?family=Helvetica+Light" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/eefaf210db33b5abee62154454f14ed7?family=Paganini+W00+Light" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/0d7b60e48285c3fa75a9537d55db1645?family=Paganini+W00+Regular" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/ad35788c241a4a27e79c68b4563b9035?family=Inter+Thin" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/61d1f920b74fc7eba0fdd179a7744d99?family=Inter+Medium" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/0c2686858879af34f6fc99179becd0a8?family=Inter+Extra+Bold" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/b2bf6541bf9ab3fc3138440f2bc8b592?family=Neue+Montreal+Light" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/7980cc1889b6b0b264dc47cca659f7c2?family=Neue+Montreal+Regular" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/c5c9157a20810aac79a10bf84a37bdb4?family=Neue+Montreal+Medium" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/55d433372d270829c51e2577a78ef12d?family=Monument+Extended+Bold" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/057cd976d666cc6a9466409de446b1b4?family=Paganini+W00+Bold" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/0d7b60e48285c3fa75a9537d55db1645?family=Paganini+W00+Regular" rel="stylesheet">
+	<link href="https://db.onlinewebfonts.com/c/eefaf210db33b5abee62154454f14ed7?family=Paganini+W00+Light" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap/css/bootstrap.css')}}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fa/css/all.css')}}"/>
+	<title>ZODO TERMINAL Official Online Store</title>
+	{% block stylesheet %} {% endblock %}
+
+	<meta name="keyword" content=" ZODO TERMINAL Shop for men Shop for women accessories summer winter "/>
+	<meta name="author" content="Estavo De'blanc"/>
+	<meta property="og:title" content="ZODO TERMINAL Official Online Store"/>
+	<meta property="og:description" content="Elevate your lifestyle with simplicity and elegance"/>
+	<meta property="og:image" content="images/estavo.jpg"/>
+	<meta property="og:locale" content="en-US"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:site" content="estavo.com"/>	
+</head>
+<body>
+	<div class="container-fluid home-container d-flex flex-column align-items-center">
+		
+	<div class="ball"></div>
+			
+		<div class="row hero pt-4">
+			<div class="col-md-2 px-md-0 nav-content">
+				<nav class="navbar navbar-expand-md p-0">
+					<div class="container-fluid px-0">
+						<div class="brand-name">
+							<a class="navbar-brand" href="/">ZODO TERMINAL</a>
+						</div>
+
+						<button class="navbar-toggler d-xl-none" type="button" aria-label="Toggle navigation">
+							<div class="navbar-toggler-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</button>
+
+					</div>
+				</nav>
+				
+
+
+				<div class="shop-men-women mt-3">
+					<div><a href="/men_section/">Shop Men</a></div>
+					<div><a href="/women_section/">Shop Women</a></div>
+				</div>
+
+				
+				<div class="brands mt-3">
+					{% include 'brandnav.html' %} 
+					<div><a href="/products/">Products</a></div>
+				</div>
+
+				<div class="summer mt-3">
+					<a href="/collection/summer/">Summer 360 Exclusive</a>
+				</div>
+
+
+				<div class="collection-container mt-3">
+					<div><p href="#"><span>U</span>nveiling</p></div>
+					<div><p href="#"><span>T</span>he latest</p></div>
+					<div><p href="#"><span>F</span>rom All your</p></div>
+					<div><p href="#"><span>F</span>avourite</p></div>
+					<div><p href="#"><span>F</span>ashion</p></div>
+					<div><p href="#"><span>B</span>rands...</p></div>
+				</div>
+
+				<div class="mt-3 d-flex align-items-center">
+					<div class="black"></div>
+					<div class='exclusive'>
+						<p href="#">Exclusive Now</p>
+					</div>
+				</div>
+				
+			</div>
+
+
+			{% block body1 %}
+
+            {% endblock %}
+			
+
+
+			<div class="col-md-2 px-md-0">
+				<div class="d-none d-md-flex flex-column align-items-end nav-sec">
+					<div class="search-icon">
+						<a data-bs-toggle="offcanvas" href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
+					</div>
+
+					<div class="shop-men-women mt-3 text-end">
+						<div><a data-bs-toggle="offcanvas" href="#offcanvasCart" role="button" aria-controls="offcanvasCart">Cart</a></div>
+						<div><a href="/information/client_support/">Client Support</a></div>
+						<div><a href="/policies/legal_notice/">Legal Notice</a></div>
+						{% if session.get('cust_id') == None %}
+						<div><a href="/signUp/">Sign up</a></div>
+						{% endif %}
+						{% if session.get('cust_id') == None %}
+						<div><a href="/logIn/">Login</a></div>
+						{% else %}
+						<div><a href="/update_profile/{{cust_details.cust_id}}/">Update Profile</a></div>
+						<div><a href="/customer/logout/">Logout</a></div>
+						{% endif %}
+					</div>
+
+
+					{% if session.get('cust_id') != None %}
+                        <div class='welcome-msg text-end p-0'>
+							<p>Welcome </p>
+							<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
+						</div>
+                      {% endif %}
+				</div>
+			</div>
+		</div>
+
+
+	
+
+
+		<!--Small Screen Nav-->
+		<div class="collapse navbar-collapse full-screen-nav" id="navbarMenu">
+			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				<li class="search-icon">
+					<a data-bs-toggle="offcanvas" class='nav-link' href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
+				</li>
+				<div><a data-bs-toggle="offcanvas" class='nav-link' href="#offcanvasCart" role="button" aria-controls="offcanvasCart">Cart</a></div>
+				<li class="nav-item">
+					<a class='nav-link' href="/information/client_support/">Client Support</a>
+				</li>
+				<li><a class='nav-link' href="/policies/legal_notice/">Legal Notice</a></li>
+				{% if session.get('cust_id') == None %}
+				<li><a class='nav-link' href="/signUp/">Sign up</a></li>
+				{% endif %}
+				{% if session.get('cust_id') == None %}
+				<li><a class='nav-link' href="/logIn/">Login</a></li>
+				{% else %}
+				<li><a class='nav-link' href="/update_profile/{{cust_details.cust_id}}/">Update Profile</a></li>
+				<li><a class='nav-link' href="/customer/logout/">Logout</a></li>
+				{% endif %}
+				
+			</ul>
+
+			<div class="search-footer"> 
+				<hr class="hr-footer m-0">
+				<div class="d-flex justify-content-end">
+					<p><a href="#">Help?</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% block body2 %}
+
+    {% endblock %}
+
+	
+
+	<!-- OFF CANVAS FOR SEARCH-->
+	<div class="offcanvas offcanvas-end myOffcanvas oc px-2" tabindex="-1" id="offcanvasSearch" aria-labelledby="offcanvasSearchLabel">
+		<div class="offcanvas-header">
+		  	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body d-flex flex-column"> 
+			<div class="flex-grow-1">
+				<form action="#">
+					<div class="search-input">
+						<input class="form-control p-0" id='search' type="search" name="search" placeholder="Enter Search Item..">
+					</div>
+				</form>
+
+				<div id='show'></div>
+	
+				<div class="mt-4">
+					<div>
+						<div>
+						<p class="suggest-head mb-2">
+							Suggestion
+						</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="search-footer"> <!-- Footer at the bottom -->
+					<hr class="hr-footer m-0">
+					<div class="d-flex justify-content-end">
+						<p><a href="#">Help?</a></p>
+					</div>
+			</div>
+		</div>
+	  </div>
+	  
+
+
+
+
+
+
+
+
+	  <!-- OFF CANVAS FOR CART-->
+	<div class="offcanvas offcanvas-end myOffcanvas oc px-2" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+		<div class="offcanvas-header">
+		  	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body d-flex flex-column"> 
+			<div id="cart-items">
+				<!-- Cart items will be loaded here dynamically -->
+
+
+				<div class="flex-grow-1 cart-status">
+					<div>
+						<p>Your Cart is empty</p>
+					</div>
+	
+					<div>
+						<a href='/men_section/'><button class="btn btn-dark btn-lg col-12 shop-btn" type="buton">SHOP MEN</button></a>
+					</div>
+		
+					<div class="mt-3">
+						<a href='/women_section/'><button class="btn btn-dark btn-lg col-12 shop-btn" type="buton">SHOP WOMEN</button></a>
+					</div>
+				</div>
+			</div>
+			
+
+				
+			<div class="search-footer"> <!-- Footer at the bottom -->
+					<hr class="hr-footer m-0">
+					<div class="d-flex justify-content-end">
+						<p><a href="#">Help?</a></p>
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- FOOTER -->
+	<hr class="hr-footer m-0">
+	<div class="container-fluid footer-container">
+		<div class="row pb-4 pt-3 footer px-2 px-md-0">
+			<div class="col-md-3">
+				<div class="shipping">
+					<p class="mb-0">Shipping To</p>
+					<form method='POST'>
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+						<select name="country" id="select-ctry" class="form-control mb-2 count px-0 py-0">
+							<option value="">Choose country (Change)</option>
+							{% if countries %}
+								{% for country in countries %}
+									<option value="{{ country.count_id }}"> {{ country.count_name }} </option>
+								{% endfor %}
+							{% endif %}
+						</select>
+					</form>
+				</div>
+
+				<div class="language mt-4">
+					<p class="mb-0">Language</p>
+					<div class="d-flex"><span>English (Change)</span> <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></div>
+				</div>
+			</div>
+
+			<div class="col-md-2 mt-3 mt-md-0">
+				<div class="nav1 n2">
+					<ul>
+						<li><a href="/about/company/">About Us</a></li>
+						<li><a href="/career/">Career</a></li>
+						<li><a href="/policies/cookie_notice/">Cookie Notice</a></li>
+						<li><a href="/policies/legal_notice/">Legal Notice</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<div class="nav1 n3">
+					<ul>
+						<li><a href="/information/client_support/">Client Support</a></li>
+						<li><a href="/pages/faq/">Faq</a></li>
+						<li><a href="/pages/return_policy/">Returns</a></li>
+						<li><a href="/policies/shipping_policy/">Shipping</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-2">
+				<div class="nav1 n4">
+					<ul>
+						<li><a href="#">Instagram</a></li>
+						<li><a href="#">X</a></li>
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Youtube</a></li>
+					</ul>
+				</div>
+			</div>	
+
+			<div class="col-md-3 mt-3 mt-md-0">
+				<div class="nav1 n5">
+					<div class="nav1 n1">
+						<p>Newsletter</p>
+						<p>Sign to our newsletter to receive exclusive update</p>
+	
+						<form action="#">
+							<div class="form-floating mb-3 form-input col-sm-6 col-md-12 sub">
+								<div>
+									<input type="email" name="" class="form-control" placeholder="E-mail">
+								</div>
+							</div>
+	
+							<button class="btn btn-dark col-6 subscribe-btn" type="buton">Subscribe</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="row align-items-center px-2 px-md-0">	
+			<div class="col-md-4">
+				<p class="estavo">ZODO TERMINAL</p>
+			</div>
+
+			<div class="col-md-8 text-center text-md-start ml-md-5">
+				<p class="copy">&copy; 2022 - ZODO TERMINAL - All rights reserved</p>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	<script>
+
+		// When the offcanvas is opened, dynamically load cart items
+		$(document).on('show.bs.offcanvas', '#offcanvasCart', function () {
+			// Load cart items from the /get_cart_items route
+			$('#cart-items').load('/get_cart_items');
+		});
+		
+		let loading = false
+
+		// Add to cart functionality
+		$(document).on('click', '.add-to-cart-btn', function() {
+			const productId = $(this).data('product-id');
+			const quantity = $(`#quantity-${productId}`).val() || 1;  // Default to 1 if no quantity specified
+			const csrfToken = "{{ csrf_token() }}";  // Ensure CSRF token is passed
+
+			$.ajax({
+				url: '/add_to_cart/selected/',
+				method: 'POST',
+				data: {
+					product_id: productId,
+					quantity: quantity,
+				},
+				headers: {
+					'X-CSRFToken': csrfToken  // Add CSRF token in headers
+				},
+				success: function(response) {
+					if (response.status === 'success') {
+						alert('Product added to cart!');
+
+						// Reload cart contents
+						$('#cart-items').load('/get_cart_items');
+
+						// Dynamically update the cart count in the UI
+						$('#cart-count').text(response.cart_count);
+						
+						// Optionally open the cart after adding an item
+						var myOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasCart'));
+						myOffcanvas.show();
+
+						//window.location.href = '/order/';
+					}
+				},
+				error: function() {
+					alert('Error adding product to cart.');
+				}
+			});
+		});
+
+		// Update item quantity in the cart
+		$(document).on('change', '.update-quantity', function() {
+			const productId = $(this).data('product-id');
+			const quantity = $(this).val();
+			const csrfToken = "{{ csrf_token() }}"; 
+
+			$.ajax({
+				url: '/update_cart/',
+				method: 'POST',
+				data: {
+					product_id: productId,
+					quantity: quantity,
+				},
+				headers: {
+					'X-CSRFToken': csrfToken
+				},
+				success: function(response) {
+					if (response.status === 'success') {
+						$('#cart-items').load('/get_cart_items');  // Reload cart contents
+
+						// Dynamically update the cart count in the UI
+						$('#cart-count').text(response.cart_count);
+					}
+				},
+				error: function() {
+					alert('Error updating cart.');
+				}
+			});
+		});
+
+		// Remove item from the cart
+		$(document).on('click', '.remove-item', function() {
+			const productId = $(this).data('product-id');
+			const csrfToken = "{{ csrf_token() }}"; 
+
+			$.ajax({
+				url: '/update_cart/',
+				method: 'POST',
+				data: {
+					product_id: productId,
+					quantity: 0,  // Setting quantity to 0 means remove the item
+				},
+				headers: {
+					'X-CSRFToken': csrfToken
+				},
+				success: function(response) {
+					if (response.status === 'success') {
+						$('#cart-items').load('/get_cart_items');  // Reload cart contents
+
+						// Dynamically update the cart count in the UI
+						$('#cart-count').text(response.cart_count);
+					}
+				},
+				error: function() {
+					alert('Error removing item from cart.');
+				}
+			});
+		});
+
+
+
+		//SEARCH ITEM
+		$(document).ready(function() {
+			// Event triggered when typing in the search input
+			$('#search').on('input', function() {
+				const search_val = $('#search').val();  // Get search input value
+				const csrf = "{{ csrf_token() }}";      // CSRF token for security
+				$('.suggest-head').addClass('sug-remove')
+				
+				// If the search input is empty, clear the results and do not send the request
+				if (search_val.trim() === '') {
+					$('#show').html('');  // Clear the search results when input is empty
+					return;  // Stop the execution of the function
+				}
+		
+				const data = {
+					search_val: search_val,
+					csrf_token: csrf
+				}
+		
+				// Perform AJAX POST request
+				$.post('/search/', data, function(res) {
+					$('#show').html(res);  // Display search results
+				}).fail(function(xhr, status, error) {
+					// Handles any errors that occur
+					$('#show').text('Error: ' + xhr.status + ' - ' + error);
+				});
+			});
+		
+			// Event triggered when clicking outside the search input
+			$(document).on('click', function(e) {
+				if (!$(e.target).closest('#search, #show').length) {
+					$('#show').html('');  // Clear the search results when clicked outside
+					$('.suggest-head').removeClass('sug-remove')
+				}
+			});
+		});
+		
+		
+	</script>
+	 {% block script %}
+
+	 {% endblock  %}
+</body>
+</html>

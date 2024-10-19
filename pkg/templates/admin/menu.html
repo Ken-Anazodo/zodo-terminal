@@ -1,0 +1,102 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 200px; min-height: 100vh;">
+	<ul class="nav nav-pills flex-column mb-auto">
+	  
+	  <li>
+		<a href="/admin/dashboard/" class="nav-link link-body-emphasis active">
+			<i class="fa fa-dashboard"></i>
+		  Dashboard
+		</a>
+	  </li>
+
+
+	  <li>
+		<div class="btn-group dropend nav-link link-body-emphasis d-flex align-items-center category-drop" id='cust-btn'>
+			<a href="/dashboard/categories/" class="nav-link link-body-emphasis p-0">
+			<button type="button" class="btn btn-secondary d-flex align-items-center p-0">
+				<i class="fa fa-image me-1"></i> Category
+			</button>
+			</a>
+			<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split p-0" data-bs-toggle="dropdown" aria-expanded="false">
+			  <span class="visually-hidden">Toggle Dropend</span>
+			</button>
+			<ul class="dropdown-menu">
+				{% if categories %}
+					{% for category in categories %}
+						<li><a href="/dashboard/category/{{category.cat_id}}/brand_products/"> {{ category.cat_name }} </a></li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		  </div>
+	  </li>
+
+
+
+	  <li>
+		<div class="btn-group dropend nav-link link-body-emphasis d-flex align-items-center category-drop" id='cust-btn'>
+			<a href="/dashboard/products/" class="nav-link link-body-emphasis p-0">
+			<button type="button" class="btn btn-secondary d-flex align-items-center p-0">
+				<i class="fa fa-image me-1"></i> Products
+			</button>
+			</a>
+			<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split p-0" data-bs-toggle="dropdown" aria-expanded="false">
+			  <span class="visually-hidden">Toggle Dropend</span>
+			</button>
+			<ul class="dropdown-menu">
+				{% if categories %}
+					{% for category in categories %}
+						<li><a href="/dashboard/product_category/{{category.cat_id}}/"> {{ category.cat_name }} </a></li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		  </div>
+	  </li>
+
+
+
+	  <li>
+		<div class="btn-group dropend nav-link link-body-emphasis d-flex align-items-center category-drop" id='cust-btn'>
+			<a href="/dashboard/brands/" class="nav-link link-body-emphasis p-0">
+			<button type="button" class="btn btn-secondary d-flex align-items-center p-0">
+				<i class="fa fa-image me-1"></i> Brands
+			</button>
+			</a>
+			<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split p-0" data-bs-toggle="dropdown" aria-expanded="false">
+			  <span class="visually-hidden">Toggle Dropend</span>
+			</button>
+			<ul class="dropdown-menu">
+				{% if brands %}
+					{% for brand in brands %}
+						<li><a href="/dashboard/brand_products/{{brand.brand_id}}/"> {{ brand.brand_name }} </a></li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		  </div>
+	  </li>
+	
+	
+	  <li>
+		<a href="/dashboard/customers/" class="nav-link link-body-emphasis" id='cust-btn'>
+			<i class="fa fa-users"></i>
+			Customers
+		</a>
+	  </li>
+
+
+	  <li>
+		<a href="/dashboard/orders/" class="nav-link link-body-emphasis" id='cust-btn'>
+			<i class="fa fa-users"></i>
+			orders
+		</a>
+	  </li>
+	  
+
+
+	  <li>
+		<a href="/admin/logout/" class="nav-link link-body-emphasis">
+			<i class="fa fa-power-off"></i>
+		  Logout
+		</a>
+	  </li>
+	</ul>
+ 
+  </div>

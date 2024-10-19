@@ -1,0 +1,140 @@
+
+			{% extends "layout.html" %}
+
+			{% block stylesheet %}
+			<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/signUp.css')}}">
+			{% endblock %}
+
+
+
+			{% block body1 %}
+			<div class="col-md-8 pt-5 d-flex align-items-center justify-content-center front-sec-container">
+				<div class="form-cont">
+					{% with messages = get_flashed_messages(with_categories=True) %}
+					{% if messages %}
+						{% for cat,msg in messages %}
+							{% if cat == 'error' %}
+								<div class="alert alert-danger">{{ msg }}</div>
+							{% else %}
+								<div class="alert alert-success">{{ msg }}</div>
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+					{% endwith %}
+
+
+					<div class="form-cont1 col-md-7 m-auto">
+						<div class="form-head text-center">
+							 <p class="log mb-4">Sign Up</p>
+							 <p>Please fill the following information Below</p>
+						</div>
+
+
+						<form action="/signUp/" method="post" enctype="multipart/form-data">
+							{{ custform.csrf_token }}
+
+							<div class="form-floating user-cont">
+								{{custform.firstname.label}}<br>
+								{{custform.firstname(placeholder="Firstname", class="form-control")}}<br>
+								{% if custform.firstname.errors %}
+									{% for error in custform.firstname.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+
+							<div class="form-floating user-cont">
+								{{custform.lastname.label}}<br>
+								{{custform.lastname(placeholder="Lastname", class="form-control")}}<br>
+								{% if custform.lastname.errors %}
+									{% for error in custform.lastname.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+							
+
+							<div class="form-floating user-cont">
+								{{custform.email.label}}<br>
+								{{custform.email(placeholder="E-mail", class="form-control")}}<br>
+								{% if custform.email.errors %}
+									{% for error in custform.email.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+
+							<div class="form-floating user-cont">
+								{{custform.contact_no.label}}<br>
+								{{custform.contact_no(placeholder="Contact Number", class="form-control")}}<br>
+								{% if custform.contact_no.errors %}
+									{% for error in custform.contact_no.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+
+							<div class="form-floating user-cont">
+								{{custform.contact_addr.label}}<br>
+								{{custform.contact_addr(placeholder="Contact Address", class="form-control")}}<br>
+								{% if custform.contact_addr.errors %}
+									{% for error in custform.contact_addr.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+
+
+							<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
+							<div class="form-floating mb-2 user-cont">
+								{{custform.cust_pict.label}}
+								{{custform.cust_pict(placeholder='Brand Logo', class="form-control filefield")}}
+								{% if custform.cust_pict.errors %}
+									{% for error in custform.cust_pict.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+
+		
+							<div class="form-floating mb-2 user-cont">
+								{{custform.password.label}}
+								{{custform.password(placeholder="Password", class="form-control")}}
+								{% if custform.password.errors %}
+									{% for error in custform.password.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+
+							<div class="form-floating mb-2 user-cont">
+								{{custform.confirm_password.label}}
+								{{custform.confirm_password(placeholder="Confirm Password", class="form-control")}}
+								{% if custform.confirm_password.errors %}
+									{% for error in custform.confirm_password.errors %}
+										<span class='err-msg'> {{error}} </span>
+									{% endfor %}
+								{% endif %}
+							</div>
+
+							<div class="log-btn">
+								{{custform.submit(class='btn btn-lg col-12 log-btn')}}
+							</div>
+						</form>
+
+						<div class="text-center mt-4">
+							<p>Already have an account? <a href="/logIn/"><u>Log In</u></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endblock %}
+
+
+			

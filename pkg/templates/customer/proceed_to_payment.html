@@ -1,0 +1,104 @@
+{% extends "layout_three.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout_three.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div class="container mb-5 checkout-cont">
+	{% with messages = get_flashed_messages(with_categories=True) %}
+		{% if messages %}
+			{% for cat,msg in messages %}
+				{% if cat == 'error' %}
+					<div class="alert alert-danger">{{ msg }}</div>
+				{% else %}
+					<div class="alert alert-success">{{ msg }}</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+
+<div class='row order-sum-cont'>
+
+	<div class="order-summary1">
+    <div class="order-header">
+        <h5>Order Summary</h5>
+    </div>
+
+    <!-- Tabs Section -->
+    <ul class="nav nav-tabs summary-tabs mt-3">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Summary</a>
+        </li>
+    </ul>
+
+    <!-- Product Items -->
+	{% if cart %}
+    {% for item in cart %}
+    <div class="product-item d-flex justify-content-between align-items-center">
+        <img src="/static/uploads/{{ item.product.prod_image_url }}" alt="{{ item.product.prod_name }}" class="product-img">
+        <div class="product-info">
+            <h6>{{ item.product.prod_name }}</h6>
+            <small>{{ item.product.prod_description }}</small>
+        </div>
+        <div class="product-price text-right">
+            <p>${{ item.product.prod_price }}</p>
+            <small>Qty: {{ item.quantity }}</small>
+        </div>
+    </div>
+    {% endfor %}
+	{% else %}
+		<p>No items in the cart.</p>
+	{% endif %}
+
+
+		<!-- Subtotal and Shipping -->
+		<div class="total-section">
+			<div class="d-flex justify-content-between">
+				<p>Subtotal</p>
+				<p>${{ sub_total }}</p>
+			</div>
+			<div class="d-flex justify-content-between">
+				<p>Shipping</p>
+				<p>${{ ship_fees }}</p>
+			</div>
+		</div>
+
+		<!-- Total -->
+		<div class="d-flex justify-content-between">
+			<p class="total">Total</p>
+			<p class="total">${{ total_price }}</p>
+		</div>
+
+		<form method="post" action="/payment/paystack/">
+			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" >
+			<button class="btn mt-3 col-12 proceed">PROCEED</button>
+		</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block customjs %}
+<script>
+$(document).ready(function(){
+
+	//to check if email is avalibale
+	$('#email').change(function(){
+		var email = $(this).val();
+		$('#feedback').load("{{ url_for('check_email') }}", 'email='+email,function(){
+			$('#feedback').addClass('alert alert-info')
+		});
+	});
+
+
+
+});
+</script>
+{% endblock %}
+
+
+
+
+

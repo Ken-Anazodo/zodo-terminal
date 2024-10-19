@@ -1,0 +1,58 @@
+{% extends 'dashboard_layout.html' %}
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-2">
+      
+{% include 'admin/menu.html' %}  
+    
+</div>
+<div class="col-md-9 p-3">
+    <!-- For the Dashboard-->
+     
+    <div class="row">
+        <div class="col-md-12">
+			<div>
+				<input type='text' id='name' class='form-control' placeholder='search customers'>
+				<button id='send' class="btn btn-danger mt-1" type='button' >Search</button>
+			</div>
+
+
+			<div id="display">
+				
+			</div>
+        </div>
+    </div>
+    <!-- End the Dashboard-->
+  
+  </div>
+</div>
+{% endblock content %}
+
+{% block customjs%}
+<script>
+	
+	$('#send').click(function(){
+		var name = $('#name').val()
+		console.log(name)
+		// $.ajax({
+		// 	url: '/load/search/',
+		// 	type: 'POST',
+		// 	data: {name : name, csrf = "{{csrf_token()}}"}
+			
+		// 	success: function(resp){
+		// 		$('#display').html(resp);
+		// 		console.log(resp);
+		// 	},
+		// 	error: function (err) {
+		// 		console.log(err);
+		// 	},
+		// });
+	});
+</script>
+{% endblock%}
+
+
+

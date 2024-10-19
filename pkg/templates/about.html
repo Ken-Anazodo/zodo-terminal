@@ -1,0 +1,187 @@
+{% extends "layout_three.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout_three.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div class="col about-cont">
+	<div class="row">
+		<div class="col">
+			<div class="transparent-container">
+			
+			<div class="company-header">Zodo Terminal</div>
+			<hr class='hr'>
+			<p class="company-description">
+				Zodo Terminal is a global e-commerce platform revolutionizing the fashion industry by bridging the gap between designers and their target market. Our platform offers cutting-edge AI-powered solutions to ensure seamless, personalized customer experiences for brands looking to expand their audience reach.
+			</p>
+		
+			<!-- Stats section -->
+				<div class="row stats-container">
+					<div class="col-6 col-md-3 stat-item">
+						<div>
+							<p class="value mb-0">Top-5</p>
+							<p class='mt-2 mt-md-3'>Global Fashion Platforms</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-3 stat-item">
+						<div>
+							<p class="value mb-0">100+</p>
+							<p class='mt-2 mt-md-3'>Brands Successfully Connected</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-3 stat-item">
+						<div>
+							<p class="value mb-0">1000+</p>
+							<p class='mt-2 mt-md-3'>Designers in Our Network</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-3 stat-item">
+						<div>
+							<p class="value mb-0">500+</p>
+							<p class='mt-2 mt-md-3'>Active Shoppers</p>
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<div class='row'>
+					<div class='col vid-cont p-0'>
+						<video src="https://res.cloudinary.com/dkcbvgmcr/video/upload/v1722686651/zodoTerminal/jgyic4bcgsg3wfxko5sb" muted autoplay loop></video>
+					</div>
+				</div>
+
+
+				<div class="row mt-4 mt-md-5 about-story">
+					<!-- Left Side -->
+					<div class="col-6 col-md-3">
+						<h2 class="company-title">Founded in</h2>
+						<h3 class="company-stat">2017</h3>
+					</div>
+
+					<div class="col-6 col-md-3">
+						<h2 class="company-title">Headquarters</h2>
+						<h3 class="company-stat">Toronto</h3>
+					</div>
+
+					<!-- Right Side -->
+					<div class="col-12 col-md-6 comp-desc">
+						<p class="company-description">
+							Established in 2017 and headquartered in Toronto, zodo Terminal is an innovative e-commerce platform that bridges the gap between fashion brands and their ideal audience. We empower designers to showcase their latest collections and connect with buyers through our cutting-edge digital marketplace.
+						</p>
+						<p class="company-description">
+							Our global team works hand-in-hand with top fashion labels and emerging designers, helping them reach new markets through curated marketing strategies and data-driven insights. We provide tailored tools to amplify visibility, ensuring that brands are always at the forefront of fashion.
+						</p>
+						<p class="company-description">
+							With a commitment to fashion-forward thinking, zodo Terminal is reshaping how fashion brands and customers engage, grow, and thrive in the digital world.
+						</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="row info-section">
+        <div class="col">
+             <!-- Purpose Row -->
+			 <div class="row info-row mb-5">
+                <div class="col-md-5">
+                    <h2 class="info-title">Purpose</h2>
+                </div>
+                <div class="col-md-7">
+                    <p class="info-description">We connect fashion brands and designers to their target markets, providing a seamless platform for visibility, growth, and engagement.</p>
+                </div>
+            </div>
+
+            <!-- Unique Section Row -->
+            <div class="row info-row mb-5">
+                <div class="col-md-5">
+                    <h2 class="info-title">What makes us unique?</h2>
+                </div>
+                <div class="col-md-7">
+                    <p class="info-description">We empower designers and brands with industry insights, trend analysis, and marketing tools, helping them scale globally with minimal effort.</p>
+                </div>
+            </div>
+
+            <!-- Numbered List Section -->
+            <div class="row info-row mb-5">
+                <div class="col-md-5">
+                    <h2 class="info-title">1. Curated Designer Network</h2>
+                </div>
+                <div class="col-md-7">
+                    <p class="info-description">Our platform hosts a curated network of over 1,000 designers, each selected for their unique style, creativity, and market relevance.</p>
+                </div>
+            </div>
+
+            <div class="row info-row mb-5">
+                <div class="col-md-5">
+                    <h2 class="info-title">2. Global Brand Exposure</h2>
+                </div>
+                <div class="col-md-7">
+                    <p class="info-description">We work with over 500 fashion brands across 30 countries, offering them a global stage to showcase their collections and reach new audiences.</p>
+                </div>
+            </div>
+
+            <div class="row info-row mb-5">
+                <div class="col-md-5">
+                    <h2 class="info-title">3. Seamless Digital Marketplace</h2>
+                </div>
+                <div class="col-md-7">
+                    <p class="info-description">Our e-commerce platform provides designers with the tools they need to manage, market, and sell their collections, all in one place.</p>
+                </div>
+            </div>
+
+            <div class="row info-row">
+                <div class="col-md-5">
+                    <h2 class="info-title">4. Data-Driven Marketing Insights</h2>
+                </div>
+                <div class="col-md-7">
+                    <p class="info-description">We offer data-driven insights and marketing strategies that allow brands to maximize their reach and engagement with their target audience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+	<div class='row'>
+		<div class='col-md-6 sum-cont'>
+			<div class='sum-content'>
+				<div>
+					<h2 class='sum-title'>Summer Exclusive Now</h2>
+					<p class='sum-desc'>Have an exclusive look into our this year's summer exclusive.</p>
+					<a href="/collection/summer/" class="go-to-shop" class='btn sum-btn'>Discover More</a>
+				</div>
+			</div>
+		</div>
+
+		<div class='col-md-6 p-0'>
+			<div class='view-summer'>
+				<img src="{{ url_for('static',filename='img/img200.jpg')}}"> 
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

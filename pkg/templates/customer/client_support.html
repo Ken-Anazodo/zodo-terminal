@@ -1,0 +1,21 @@
+
+
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css')}}">
+{% endblock %}
+
+
+{% block body1 %}
+<div class="col-md-8 pt-5 d-flex align-items-center justify-content-center front-sec-container">
+	<div class="contact text-center">
+		<div>
+			<p class='head'>Contact Information</p>
+			<p class='quest-info mb-3'>For any general inquiries, feel free to reach out to us at <span>customerservice@zodoterminal.com</span>.</p>
+			<p class='return'>For return-related concerns, please connect with our return partner, Returnarea, at <span>support@returnarea.com</span>.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

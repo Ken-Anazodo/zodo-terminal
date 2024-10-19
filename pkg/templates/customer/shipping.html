@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css')}}">
+{% endblock %}
+
+
+{% block body1 %}
+<div class="col-md-8 d-flex align-items-center justify-content-center front-sec-container mb-5 legal-cont">
+	<div class="legal-content">
+        <h1>Shipping Policy</h1>
+    
+        <p>Zodo Terminal ensures all shipped packages come with a tracking number and are insured for their full value. If you place multiple orders to the same address and account, they will be combined and shipping fees adjusted, unless otherwise specified. All shipping times mentioned refer to business days.</p>
+    
+        <h2>Will I need to pay import duties for my order?</h2>
+        <p>For orders shipped within the European Union (EU), no import duties will be required. However, for orders outside the EU, customs duties may apply. Zodo Terminal is not liable for any import duties imposed. We strongly recommend that you check your country's customs policies before placing an order.</p>
+    
+        <h2>Important Information:</h2>
+        <p>Orders will only be dispatched after payment has been fully processed and verified. Please note that we do not deliver to P.O. Box addresses. Additionally, all shipments will include an official invoice stating the total value of the goods in Euros. We cannot declare items as gifts or reduce the invoice value, as this is against international import regulations.</p>
+    
+        <h2>Address Errors, Non-Delivery, and Returns</h2>
+        <p>If your package is returned to us due to an incorrect address or non-delivery, you will be responsible for the actual shipping costs. Once the item is returned, we will credit the amount for the item and inform you upon receipt of the package.</p>
+    
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

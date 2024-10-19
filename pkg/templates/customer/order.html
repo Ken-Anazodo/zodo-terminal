@@ -1,0 +1,87 @@
+{% extends "layout_three.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout_three.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div class="container mb-5 checkout-cont">
+	<div class="row check-content px-md-5">
+		<div class="col-xl-7 px-md-5 sec1">
+			{% with messages = get_flashed_messages(with_categories=True) %}
+			{% if messages %}
+				{% for cat,msg in messages %}
+					{% if cat == 'error' %}
+						<div class="alert alert-danger">{{ msg }}</div>
+					{% else %}
+						<div class="alert alert-success">{{ msg }}</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			{% endwith %}
+			<form method='POST'>
+				{{ custform.csrf_token }}
+				<div class="mb-3 form-floating user-cont">
+					{{custform.country_name.label(class="count-label px-0")}}<br>
+					{{custform.country_name(placeholder="Country", class="form-control count px-0", id="select-ctry")}}<br>
+					{% if custform.country_name.errors %}
+						{% for error in custform.country_name.errors %}
+							<span class='err-msg'> {{error}} </span>
+						{% endfor %}
+					{% endif %}
+				</div>
+
+				<div>
+					<p class='mt-1 attention'>Zodo Terminal Shipping is calculated upon country selection. Please go to order Summary to see charges below after selection</p>
+				</div>
+
+				<div class="my-2  form-check check">
+					<input type="checkbox" name="username" id="username" class="form-check-input">
+					<label class="form-check-label">I agree to shipping charges</label>
+				</div>
+				
+				<button class="btn mt-3 btn-check-shipping" disabled>PROCEED TO PAYMENT</button>
+			</form>
+			<p class='mt-1 fill-info'>Please fill the following above</p>
+		</div>
+
+
+		<!-- Order Summary Section -->
+		<div class="col-xl-5 pe-md-5 order-summary">
+			<h5 class="d-flex justify-content-between section-title order-head">
+				ORDER SUMMARY <a href="#offcanvasCart" data-bs-toggle="offcanvas" class="text-dark">EDIT</a>
+			</h5>
+			
+			<div id='cart-order-items'>
+				{% include 'customer/cart_items_for_order.html' %}
+			</div>
+
+			<hr>
+			<div class="payment-icons d-flex justify-content-between">
+				<i class="fab fa-cc-visa"></i>
+				<i class="fab fa-cc-mastercard"></i>
+				<i class="fab fa-cc-amex"></i>
+				<i class="fab fa-paypal"></i>
+				<i class="fab fa-apple-pay"></i>
+				<i class="fab fa-google-pay"></i>
+			</div>
+			<div class="help-section mt-4">
+				<p><strong>NEED HELP?</strong></p>
+				<p><i class="fas fa-phone-alt"></i> +234 810 568 0061</p>
+				<p>(MON - FRI 10AM - 8PM EST)<br>(SATURDAY 10AM - 7PM EST)</p>
+			</div>
+			<p class="mt-4">COMPLIMENTARY RETURNS WITHIN 30 DAYS</p>
+			<hr>
+		</div>
+		
+	</div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

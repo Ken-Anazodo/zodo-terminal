@@ -1,0 +1,343 @@
+			{% extends "layout.html" %}
+
+			{% block stylesheet %}
+				<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css')}}"/>
+			{% endblock %}
+
+			{% block body1 %}
+
+			<div class="col-md-8 front-sec-container pt-5">
+				{% with messages = get_flashed_messages(with_categories=True) %}
+				{% if messages %}
+				  {% for cat,msg in messages %}
+					  {% if cat == 'error' %}
+						  <div class="alert alert-danger">{{ msg }}</div>
+					  {% else %}
+						  <div class="alert alert-success">{{ msg }}</div>
+					  {% endif %}
+				  {% endfor %}
+				{% endif %}
+			  {% endwith %}
+			  
+				<div class="row front-sec d-flex align-items-center">
+					<div class="col-md-12 px-md-0">
+						<div class="front-vid">
+							<video src="https://res.cloudinary.com/dkcbvgmcr/video/upload/v1722686651/zodoTerminal/udjfwzdubor2sauug5yw.mp4" muted autoplay loop></video>
+						</div>
+					</div>
+				</div>
+
+				<div class="front-sec-desc mt-3">
+					<div>
+						<p class="my-2 first">Erickson Onuoha is proud to present ESTILLO REGADE Men's Simple class summer collection 24</p>
+						<span class="second">Directed by Edward Bane</span>
+					</div>
+					
+					<div class="mt-2 discover-more">
+						<a href="/collection/summer/">Discover More</a>
+					</div>
+				</div>
+			</div>
+			{% endblock %}
+
+			
+
+	{% block body2 %}
+	<div class="container-fluid container-2">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col p-0">
+						<div class=" pb-3 zodo-t">
+							<div class="text-center zodo-t-content">
+								<p class="z1">
+									ZODO
+								</p>
+								<p class="z2">TERMINAL</p>
+							</div>
+							<div class="motto">
+								<p>Choose Your Brand - Choose your Designer - Be Stylish and  Elegant Always</p>
+							</div>
+		
+							<div class="d-flex justify-content-center doesItWork-cont">
+								<p class="d-flex justify-content-center align-items-center doesItWork">
+									<a href="/about/company/" class="">How Does It Work?</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- SECTION3 -->
+		<div class="row">
+			<div class="col">
+				<div class="d-flex justify-content-between sec2 mb-0">
+					<p class="mb-0">SHOP</p>
+					<p class="mb-0">NOW</p>
+				</div>
+
+				<div class="t-h-line line d-flex justify-content-center mt-2 mt-md-0"><hr class="mt-0"></div>
+				<p class="my-0 sec-title">Top Features / <span>Trending</span></p>
+				<div class="goToShop">
+					<p class="text-center my-0 my-md-2"><a href="/products/">GO TO SHOP<img src="{{ url_for('static',filename='/img/img7.png')}}" alt="top arrow" class="img-fluid"></a></p>
+				</div>
+				<div class="b-h-line line d-flex justify-content-center my-0"><hr class="mb-0"></div>
+			</div>
+		</div>
+
+
+
+		<!-- SECTION4 -->
+		<div class="row mt-5  px-4 trend-container">
+			{% if featured %}
+			{% for prod in featured %}
+			<div class="col-sm-6 col-md-2 mt-md-0  px-1">
+				<a href="/add_to_cart/">
+					<div class="t-prod-container">
+						<div class="trend-prod">
+							<a href="/choose_to_add_to_cart/{{prod.prod_id}}/"><img src="/static/uploads/{{prod.prod_image_url}}" alt="{{prod.prod_name}}"></a>
+						</div>
+						<div class="shop-tag">
+							<a href="/choose_to_add_to_cart/{{prod.prod_id}}/"><p>SHOP</p></a>
+						</div>
+
+						<div class="trend-prod-img-desc mt-2">
+							<p>{{prod.prod_name}}</p>
+							<p class='price'>${{prod.prod_price}}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+
+
+
+		<!-- SECTION5 -->
+		<div class="row">
+			<div class="col p-0">
+				<div class="t-h-line line d-flex justify-content-center"><hr></div>
+				<div class="sec-title">Top Features / <span>Latest</span></div>
+				<div class="b-h-line line d-flex justify-content-center mb-0"><hr></div>
+
+				<!-- part1 -->
+				<div class="sec4-container">
+					<div class="sec4-img-container s41">
+						<div class="arrival-img ai1"></div>	
+						<div class="col-name-title">
+							<div class="d-md-flex justify-content-between align-items-center">
+								<p class="collection-name m-0">Ada Ajuronu</p>
+								<p class="collection-name m-0">Collections</p>
+							</div>
+							
+
+							<div class="d-flex justify-content-center discovermore-cont">
+								<p class="d-flex justify-content-center align-items-center doesItWork">
+									<a href="/collection/ada_ajuronu/" class="">Discover More</a>
+								</p>
+							</div>
+						</div>
+
+						<div class="feat-items-cont">
+							<div class="feat-items-title">
+								<p class="feat-items-subhead mb-1">LATEST:</p>
+								<p class="feat-items-title-text">The Classic Light Vemeer Piece Suit From Belensina Line</p>
+							</div>
+							<div class="feat-items d-flex">
+								<div class="feat-prod feat-first">
+									<img src="{{ url_for('static',filename='/img/img3.jpg')}}" alt="male model" class="img-fluid">
+								</div>
+
+								<div class="feat-prod feat-last"> 
+									<img src="{{ url_for('static',filename='/img/img4.jpg')}}" alt="male model" class="img-fluid">
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>	
+				
+				<!-- part2 -->
+				<div class="sec4-container">
+					<div class="sec4-img-container s42">
+						<div class="arrival-img ai2"></div>	
+						<div class="col-name-title1">
+							<div class="d-md-flex justify-content-between align-items-center">
+								<p class="collection-name m-0">Valentina Dermaco</p>
+								<p class="collection-name m-0">Collections</p>
+							</div>
+							
+
+							<div class="d-flex justify-content-center discovermore-cont">
+								<p class="d-flex justify-content-center align-items-center doesItWork">
+									<a href="/collection/valentina_dermaco/" class="">Discover More</a>
+								</p>
+							</div>
+						</div>
+
+						<div class="feat-items-cont">
+							<div class="feat-items-title f22">
+								<p class="feat-items-subhead mb-1">LATEST:</p>
+								<p class="feat-items-title-text">The Sheeva Crown, bangles and long Island neck piece</p>
+							</div>
+							<div class="feat-items d-flex">
+								<div class="feat-prod feat-first">
+									<img src="{{ url_for('static',filename='/img/img45.jpg')}}" alt="male model" class="img-fluid">
+								</div>
+
+								<div class="feat-prod feat-last">
+									<img src="{{ url_for('static',filename='/img/img46.jpg')}}" alt="male model" class="img-fluid">
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				<!-- Part3 -->
+				<div class="sec4-container">
+					<div class="sec4-img-container s42">
+						<div class="arrival-img ai3"></div>	
+						<div class="col-name-title">
+							<div class="d-md-flex justify-content-between align-items-center">
+								<p class="collection-name m-0">Mikeal Mbatha</p>
+								<p class="collection-name m-0">Collections</p>
+							</div>
+							
+
+							<div class="d-flex justify-content-center discovermore-cont">
+								<p class="d-flex justify-content-center align-items-center doesItWork">
+									<a href="/collection/mikeal_mbatha/" class="">Discover More</a>
+								</p>
+							</div>
+						</div>
+
+						<div class="feat-items-cont">
+							<div class="feat-items-title">
+								<p class="feat-items-subhead mb-1">LATEST:</p>
+								<p class="feat-items-title-text">The Classic Dark Dawn Silk Piece From Belensina Line</p>
+							</div>
+							<div class="feat-items d-flex">
+								<div class="feat-prod feat-first">
+									<img src="{{ url_for('static',filename='/img/img55.jpg')}}" alt="male model" class="img-fluid">
+								</div>
+
+								<div class="feat-prod feat-last">
+									<img src="{{ url_for('static',filename='/img/img44.jpg')}}" alt="male model" class="img-fluid">
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>	
+			
+			</div>
+		</div>
+
+
+		<div class="rol">
+			<div class="col">
+				<div class="row">
+					<div class="col t-h-line line d-flex justify-content-center mt-0"><hr></div>
+						<div class="sec-title">Top Features / <span>On Sales</span></div>
+						<div class="b-h-line line d-flex justify-content-center"><hr>
+					</div>
+				</div>
+
+				<div class="col mt-3 mt-md-0 front-sec-container">
+					<div class="row px-2 px-md-0">
+
+						{% if onsales %}
+						{% for prod in onsales %}
+						<div class="col-sm-6 col-md-3 front-img1">
+							<div class="front-sec-img-container front-p">
+								<div class="front-sec-img">
+									<a href="/choose_to_add_to_cart/{{prod.prod_id}}/"><img src="/static/uploads/{{prod.prod_image_url}}" alt="{{prod.prod_name}}"></a>
+								</div>
+								
+								<div class="shop-tag1">
+									<a href="/choose_to_add_to_cart/{{prod.prod_id}}/"><p>SHOP</p></a>
+								</div>
+
+								<div class="front-sec-img-desc mt-2">
+									<p>{{prod.prod_name}}</p>
+									<p class='price'>${{prod.prod_price}}</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+						{% endif %}
+	
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- SECTION 7 -->
+		<div class="row sec-7 pb-5 pb-md-0">
+			<div class="col px-md-5">
+				<div>
+					<div class="t-heading">
+						<p class="m-0">THE ZODO</p>
+						<p class="m-0">TERMINAL</p>
+					</div>	
+
+					<div class="t-body">
+						<p class="mb-0">
+							Zodo is a dynamic platform that connects fashion designers with their target audience,
+							allowing brands to showcase and sell their unique creations. Founded in 2017 by a team 
+							of fashion enthusiasts and tech experts, Zodo aims to revolutionize the fashion industry 
+							by addressing the challenges faced by emerging designers in reaching their market.
+							Our mission is to empower designers through a comprehensive digital marketplace, fostering 
+							a community where creativity meets commerce. Since its inception, Zodo has attracted diverse 
+							designers and brands from around the world, becoming a go-to destination for exclusive and 
+							trendsetting fashion. Join us as we continue to redefine the fashion landscape, one connection 
+							at a time.
+						</p>
+
+
+						<div class="more-detail d-flex justify-content-center align-items-center ">
+							<p class="text-center"><a href='/about/company/'>MORE DETAILS</a></p>
+						</div>
+					</div>
+				</div>
+							
+			</div>
+		</div>
+
+
+
+
+		<div class='row'>
+			<div class='col-md-6 sum-cont'>
+				<div class='sum-content'>
+					<div>
+						<h2 class='sum-title'>Summer Exclusive Now</h2>
+						<p class='sum-desc'>Have an exclusive look into our this year's summer exclusive.</p>
+						<a href="/collection/summer/" class="go-to-shop" class='btn sum-btn'>Discover More</a>
+					</div>
+				</div>
+			</div>
+	
+			<div class='col-md-6 p-0'>
+				<div class='view-summer'>
+					<img src="{{ url_for('static',filename='img/img201.jpg')}}"> 
+				</div>
+			</div>
+		</div>
+	</div>
+
+	  {% endblock %}
+
+
+
+
+
+
+
+
+	

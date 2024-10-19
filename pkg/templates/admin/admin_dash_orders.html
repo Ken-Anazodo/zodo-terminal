@@ -1,0 +1,75 @@
+{% extends 'dashboard_layout.html' %}
+<!-- search banner-->
+ 
+ <!-- end search banner-->
+  <!-- about-->
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-2">
+      
+    {% include 'admin/menu.html' %}
+    
+</div>
+<div class="col-md-9 p-3">
+    <!-- For the Dashboard-->
+     
+    <div class="row">
+        <div class="col-md-12">
+			<table class="table table-striped mt-3">
+				<thead>
+				  <tr>
+					<td>S/N</td>
+					<td>ID</td>
+					<td>Order Date</td>
+					<td>Cusomer Id</td>
+					<td>Total Amount</td>
+					<td>Order Status</td>
+					<td>Created At</td>
+					<td>Country Id</td>
+					<td>Shipping Id</td>
+				  </tr>
+				</thead>
+			
+				<tbody id='show'>  
+					{% for order in orders %}
+					<tr>
+						<td>{{ loop.index }}</td>
+						<td>{{ order.order_id }}</td>
+						<td>{{ order.order_date }}</td>
+						<td>{{ order.order_cust_id }}</td>
+						<td>{{ order.order_total_amt }}</td>
+						<td>{{ order.order_status }}</td>
+						<td>{{ order.order_created_at }}</td>
+						<td>{{ order.order_count_id }}</td>
+						<td>{{ order.order_ship_id }}</td>
+					</tr>
+					{% endfor %}
+							
+				</tbody>
+			  </table>
+           
+
+        </div>
+    </div>
+    <!-- End the Dashboard-->
+  
+  </div>
+</div>
+{% endblock content %}
+
+{% block customjs %}
+			<script>
+				$(document).ready(function(){
+					$('#send').click(function(){
+					  var name = $('#name').val()
+					   var csrf = "{{csrf_token()}}"
+					   var data2send = {name: name, csrf_token: csrf}; 
+					   $('#show').load('/dashboard/search_name/',data2send);
+					});
+				})
+			</script>			
+{% endblock %}
+

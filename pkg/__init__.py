@@ -1,0 +1,40 @@
+import os
+from flask import Flask, session
+from flask_wtf import CSRFProtect
+from flask_migrate import Migrate
+from dotenv import load_dotenv
+from datetime import timedelta
+from pkg.models import db
+
+load_dotenv()
+csrf= CSRFProtect()
+def create_app():
+    app = Flask(__name__,instance_relative_config=True)
+    app.config.from_pyfile('config.py',silent=True)
+    app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30) #session timeout
+    app.config['API_KEY'] = os.getenv('API_KEY')
+    
+    # Global CSRF timeout setting
+    app.config['WTF_CSRF_TIME_LIMIT'] = 7000  # Timeout in seconds
+    
+    db.init_app(app)
+    migrate = Migrate(app,db)
+    csrf.init_app(app)
+    
+    #session timeout setting
+    @app.before_request
+    def make_session_permanent():
+        session.permanent = True
+
+    return app
+
+app = create_app()
+
+
+from pkg import admin_routes, customer_routes, forms, models
+
+
+
+
+
+

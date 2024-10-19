@@ -1,0 +1,1623 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+	color: #09090b;
+}
+
+.ball {
+	width: 20px;
+	height: 20px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	border-radius: 50%;
+	pointer-events: none;
+	z-index: 1000000000;
+	mix-blend-mode: difference;
+  }
+
+.sec-title {
+    font-family: "Monument Extended Bold";
+    font-size: 17px;
+    color: #09090b;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+.sec-title span{
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	text-transform: capitalize;
+}
+
+.hero a:hover{
+	font-family: "Helvetica";
+}
+
+.brands-dropdown button:hover{
+	font-family: "Helvetica";
+}
+
+.summer a{
+	text-decoration: underline;
+}
+
+.exclusive p{
+	font-family: "Helvetica";
+	margin: 0;
+}
+
+
+.home-container, .footer-container{
+	background-color: #e9e2d5;
+	color: #09090b;
+	font-family: "Helvetica Regular";
+	font-size: 12px;
+	font-weight: 200;
+	line-height: 14px;
+	text-transform: uppercase;
+}
+
+.home-container{
+	position: relative;
+}
+
+.footer-container{
+	font-size: 10px;
+	font-weight: 200;
+	line-height: 12px;
+	/* background-color: #bab4a8; */
+}
+
+.nav-content{
+	padding-left: 3.2vw;
+	padding-right: 3.2vw;
+}
+
+.collection-container div p span{
+	font-family: "Paganini W00 Light";
+	font-size: 20px;
+	font-style: italic;
+	margin-right: 1px;
+}
+
+.collection-container div p{
+	margin: 0;
+	font-family: "Poppins", sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	/* color: #413521; */
+	font-weight: 300;
+	text-transform: capitalize;
+}
+
+
+/* General Brand dropdown styles */
+.brands-dropdown a {
+    font-family: "Helvetica Regular";
+    font-size: 10px;
+    font-weight: 200;
+    line-height: 12px;
+    text-transform: uppercase;
+    border: none;
+    text-align: start;
+    padding: 0px;
+}
+
+.drop-menu, .dropdown-menu {
+    padding: 5px 3px;
+    background-color: #ccad74;
+}
+
+.brands-dropdown .sub-menu {
+	margin-left: 52px;
+}
+
+.drop-sub {
+    background-color: #ccad74;
+}
+
+.drop-menu li a {
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 8px; 
+    padding: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.drop-menu li a:hover {
+    background-color: black; 
+    cursor: pointer;  
+    color: white;        
+}
+
+.brands-dropdown .dropdown-toggle {
+    line-height: 14px;
+    font-size: 12px;
+}
+
+/* Submenu positioning */
+.dropdown-submenu {
+    position: relative;
+}
+
+/* Hide all submenus initially */
+.dropdown-submenu .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+/* Display only the submenu of the hovered category */
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+    top: 0; /* Align the submenu with the hovered category */
+    left: 100%;
+    position: absolute;
+}
+
+/* Only show the main dropdown when hovering over Brands */
+.brands-dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Ensure the submenu is removed when not hovering */
+.dropdown-menu li {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding: 0px 2px;
+}
+
+.dropdown-item:hover {
+    background-color: #09090b;
+    color: #fff;
+    font-family: "Helvetica";
+}
+
+/* Adding right arrow to indicate submenu */
+.dropdown-menu > .dropdown-submenu > .dropdown-item::after {
+    content: "\f0da"; /* Add a right arrow icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Required for solid icons */
+    margin-left: 10px;
+    float: right;
+    border: none;
+}
+
+/* Smooth transition for opening and closing menus */
+.dropdown-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+
+
+.welcome-msg{
+	margin-top: 140px;
+	font-size: 1.1rem;
+	line-height: 0.3rem;
+	font-family: "Monument Extended Bold";
+	text-transform: capitalize;
+}
+
+.welcome-msg .username{
+	font-family: "Helvetica Regular";
+}
+
+
+
+
+
+/* SMALL SCREEN NAVIGATION */
+.container-fluid .brand-name{
+	z-index: 1051;
+}
+
+
+.full-screen-nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #e9e2d5;
+    z-index: 999;
+    overflow-y: auto; /* This allows the navbar content to scroll if it's longer than the screen */
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar-collapse.show {
+    display: flex !important;
+}
+
+.navbar-collapse.collapse {
+    display: none; /* Hidden when collapsed */
+}
+
+
+
+/* Remove focus outline on navbar toggler and links with !important */
+.navbar-toggler:focus, .navbar-toggler-icon:focus, .nav-link:focus {
+    outline: none !important;  
+    box-shadow: none !important;
+}
+
+/* Optionally, remove background change on focus */
+.navbar-toggler:focus, .nav-link:focus {
+    background-color: transparent !important; 
+}
+
+
+/* Target only Bootstrap's default icon and hide it */
+.navbar-toggler-icon {
+    background-image: none; 
+}
+
+/* Styling for the burger menu */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    position: relative;
+    width: 45px;
+    height: 30px;
+    z-index: 1051;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styling for the custom burger lines */
+.navbar-toggler span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #09090b;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 5px; 
+}
+
+/* Remove the last span margin-bottom */
+.navbar-toggler span:last-child {
+    margin-bottom: 0;
+}
+
+/* Open state transforms to form an 'X' */
+.navbar-toggler.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.navbar-toggler.open span:nth-child(2) {
+    opacity: 0;  /* Hide the middle line */
+}
+
+.navbar-toggler.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+
+/* Show the full menu on xl screens and above */
+@media (min-width: 1200px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .full-screen-nav, .navbar-nav{
+        display: none;
+    }
+}
+
+
+
+
+
+
+.home-content{
+	width: 100%;
+}
+
+.hero{
+	min-height: 100vh;
+	width: 100%;
+	padding-bottom: 50px;
+}
+
+.brand-name a, .estavo{
+	font-size: 6vw;
+	line-height: 5.5vw;
+	font-family: "Monument Extended Bold";
+	font-weight: 700;
+	z-index: 4000;
+}
+
+.brand-name a:hover{
+	font-family: "Monument Extended Bold";
+}
+
+.black{
+	width: 10px;
+	height: 10px;
+	background-color: #09090b;
+	margin-right: 6px;
+}
+
+.front-sec{
+	height: inherit;
+}
+
+.front-vid{
+	height: 75vh;
+	width: 100%;
+	background-color: #09090b;
+}
+
+.front-vid video{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.front-img{
+	height: 75vh;
+	width: 100%;
+}
+
+.front-img video{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.nav-sec{
+	width: 100%;
+}
+
+.front-sec-desc .first{
+	width: 100%;
+}
+
+.discover-more a{
+	text-decoration: underline;
+}
+
+.search-icon a i{
+	cursor: pointer;
+}
+
+.search-section{
+	display: none;
+}
+
+
+
+
+
+
+
+
+/* OFF CANVAS CART */
+
+.myOffcanvas{
+	background-color: #e9e2d5;
+	font-family: "Helvetica Regular";
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#cart-items ul li{
+	list-style: none;
+}
+
+.cart-total{
+	font-size: 12px;
+}
+
+.item-desc-price{
+	font-size: 14px;
+}   
+
+.prod-name-price .prod-name{
+	font-family: "Helvetica";
+	font-size: 12px;
+}
+
+.quantity{
+	background-color: #e9e2d5;
+	border: 1px solid #09090b;
+}
+
+.update-quantity{
+	width: 40%;
+}
+
+.remove-btn, .checkout-btn{
+	background-color: #09090b;
+}
+
+.cart-img{
+	min-height: 200px;
+	width: 50%;
+}
+
+.cart-img img{
+	min-height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.total-price{
+	font-size: 12px;
+}
+
+.oc{
+	z-index: 9999999;
+}
+
+
+
+
+
+
+/* OFF CANVAS SEARCH */
+
+.search-input input{
+	background-color: #e9e2d5;
+	font-size: 13px;
+	border-bottom: 1px solid #646869;
+	border-radius: 0px;
+	font-family: "Helvetica Regular";
+	height: 30px;
+}
+
+.search-input input:focus{
+	background-color: transparent;
+}
+
+.search-input input::placeholder{
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.suggest-head, .cart-status{
+	font-size: 15px;
+	font-family: "Helvetica Regular";
+}
+
+
+.suggest-head{
+	font-size: 12px;
+}
+
+.sug-remove{
+	display: none;
+}
+
+
+.table-custom{
+	font-size: 0.75rem;
+	line-height: 0.95rem;
+	width: 100%;
+	text-transform: capitalize;
+}
+
+th{
+	font-family: "Helvetica";
+	font-weight: 500;
+	padding: 10px;
+	font-size: 0.8rem;
+	line-height: 1rem;
+	font-family: "Monument Extended Bold";
+}
+
+tr{
+	height: 30px;
+	border-top: 1px solid #09090b;
+	border-bottom: 1px solid #09090b;
+	background-color: #f6eddc;
+}
+
+td{
+	padding: 10px;
+}
+
+/* td a:hover {
+	color: #fff;
+}
+
+tr:hover{
+	background-color: #09090b;
+	color: #fff !important;
+} */
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+/* SEC2 */
+.container-2{
+	background-color: #e9e2d5;
+}
+
+.zodo-t{
+	min-height: 50vh;
+	width: 100%;
+	background-color: #09090b;
+	font-family: "Paganini W00 Regular";
+  }
+
+  .zodo-t-content{
+	padding-top: 200px;
+  }
+
+  .zodo-t-content p{
+	font-size: 17.5vw;
+	line-height: 12vw;
+	color: #e9e2d5;
+	font-family: "Monument Extended Bold";
+	font-optical-sizing: auto;
+	/* transform: scaleY(1.5); */
+	font-style: normal;
+  }
+
+
+  .z1 span{
+	font-size: 1.2vw;
+	bottom: -60px;
+	font-family: "Neue Montreal Medium";
+	text-transform: uppercase;
+  }
+
+  .z1 .z1-first{
+	left: 40px;
+  }
+
+  .z1 .z1-second{
+	right: 40px;
+  }
+
+  .zodo-t-content .z2{
+	font-size: 15vw;
+  }
+
+  .motto p{
+	font-size: 2vw;
+	line-height: 2vw;
+	font-family: "Neue Montreal Light";
+	text-transform: uppercase;
+	text-align: center;
+	color: #e9e2d5;
+  }
+
+  .doesItWork{
+	border-radius: 50%;
+	width: 140px;
+	height: 140px;
+	border: 1px solid #fbbf24;
+    font-family: "Neue Montreal Light";
+	cursor: pointer;
+  }
+
+  .doesItWork a{
+	text-decoration: none;
+	color: #e9e2d5;
+	font-size: 3vw;
+	text-transform: uppercase;
+  }
+
+  .doesItWork-cont, .discovermore-cont{
+	margin-top: 70px;
+  }
+
+
+
+
+  /* Section 2 */
+  .sec2{
+	font-size: 7vw;
+	font-family: "Monument Extended Bold";
+  }
+
+  .goToShop p a{
+	font-size: 10px;
+	text-decoration: underline;
+	font-family: "Inter Medium";
+	color: #09090b;
+  }
+
+  .goToShop p a img{
+	width: 17px;
+	height: 17px;
+  }
+
+
+
+  /* Section3 */
+
+  .t-prod-container{
+	position: relative;
+	cursor: pointer;
+  }
+
+  .shop-tag{
+	position: absolute;
+	top: 45%;
+	left: 28%;
+	display: none;
+  }
+
+  .shop-tag p{
+	border-radius: 15px;
+	border: 1px solid #09090b;
+	padding: 0px 35px;
+	font-size: 12px;
+	color: #09090b;
+	background-color: #e9e2d5;
+  }
+
+  .shop-tag p:hover{
+	color: #fff;
+	border: 1px solid #fff;
+	background-color: transparent;
+  }
+
+
+  .trend-prod{
+	height: 27vw;
+	background-color: #fafaf9;
+	border-radius: 25px;
+	margin-bottom: 30px;
+  }
+
+  .trend-prod img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 25px;
+	-webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
+  }
+
+  .trend-prod:hover{
+	transform: scale(1.15);
+	filter: none;
+	transition: all 0.3s ease-in-out;
+  }
+
+  .trend-prod img:hover{
+	filter: none;
+  }
+
+  .t-prod-container .trend-prod-img-desc{
+	font-family: "Helvetica Regular";
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: 200;
+	line-height: 13px;
+  }
+
+
+  .trend-prod-img-desc .price{
+	font-family: "Neue Montreal Medium";
+	font-size: 15px;
+	color: #646869;
+  }
+
+
+  /* Section4 */
+  .t-h-line{
+	width: 100%;
+	margin-top: 30px;
+  }
+
+  .b-h-line{
+	width: 100%;
+	margin-top: 2px;
+  }
+
+  .line hr{
+	border: 1px solid #09090b;
+	width: 5%;
+  }
+
+  .sec4-container .s41{
+	margin-top: 30px;
+  }
+
+  .sec4-img-container{
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	position: relative;
+  }
+  
+  .arrival-img{
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: scroll;
+	background-size: cover;
+  }
+
+  .sec4-img-container .ai1{
+	background-image: linear-gradient(to right, #00000080, rgba(0,0,0,0.5)), url(../img/img4.jpg);
+	/* -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); */
+  }
+
+  .sec4-img-container .ai2{
+	background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/img88.jpg);
+	/* -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); */
+  }
+
+  .sec4-img-container .ai3{
+	background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/img55.jpg);
+	/* -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); */
+  }
+
+
+  .arrival-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+
+  .col-name-title, .col-name-title1{
+	width: 100%;
+	position: absolute;
+	padding: 0px 20px;
+	top: 10%;
+	left: 0;
+	color: #e9e2d5;
+	/* font-family: "Monument Extended Bold"; */
+	/* font-family: "Paganini W00 Bold"; */
+	font-family: "Paganini W00 Regular";
+	/* font-family: "Paganini W00 Light"; */
+	text-transform: capitalize;
+  }
+
+
+  .col-name-title div p, .col-name-title1 div p{
+	font-size: 7.2vw;
+	line-height: 7.4vw;
+  }
+
+
+
+  .feat-items-cont{
+	margin-top: auto;
+	color: white;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	width: 80%;
+  }
+
+  .feat-items-cont .feat-items {
+	width: 100%;
+	font-family: "Inter Thin";
+	color: #e9e2d5;
+	gap: 10px;
+  }
+
+  .feat-items-title{
+	width: 100%;
+	text-transform: uppercase;
+	color: #e9e2d5;
+  }
+
+  .f22{
+	color: #e9e2d5;
+  }
+
+  .feat-items-title .feat-items-subhead{
+	font-size: 16px;
+	line-height: 16px;
+	font-family: "Monument Extended Bold";
+  }
+
+  .feat-items-title .feat-items-title-text{
+	font-size: 12px;
+	line-height: 12px;
+	font-family: "Neue Montreal Regular";
+  }
+
+  .brandname p, .productname p, .categoryname p{
+	font-size: 1rem;
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	text-transform: capitalize;
+  }
+
+  .brandname p span, .productname p span, .categoryname p span{
+	font-family: "Monument Extended Bold";
+  }
+
+
+  .feat-prod{
+	width: 50%;
+	height: 250px;
+	border-radius: 25px;
+  }
+
+  .feat-prod img{
+	width: 100%;
+	height: 100%;
+	border-radius: 25px;
+  }
+
+
+.front-img1 .front-sec-img-container{
+	width: 100%;
+	height: 80vh;
+	font-family: "Helvetica Regular";
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: 200;
+	line-height: 13px;
+	cursor: pointer;
+}
+
+.front-sec-img-desc .price{
+	font-family: "Neue Montreal Medium";
+	font-size: 15px;
+	color: #646869;
+  }
+
+.front-p{
+	position: relative;
+}
+
+.shop-tag1{
+	position: absolute;
+	top: 45%;
+	left: 30%;
+	display: none;
+  }
+
+
+.shop-tag1 p{
+	border-radius: 15px;
+	border: 1px solid #09090b;
+	padding: 1px 35px;
+	font-size: 12px;
+	color: #09090b;
+	background-color: #e9e2d5;
+}
+
+
+.front-img1{
+	padding: 0px 3px;
+}
+
+
+.front-sec-img{
+	width: 100%;
+	height: 85%;
+	background-color: #09090b;
+}
+
+.front-sec-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+
+/* SEC6 */
+.sec-6{
+	background-color: #e9e2d5;
+	padding-bottom: 70px;
+}
+
+
+.t-heading{
+	font-family: "Monument Extended Bold";
+	font-size: 6vw;
+	line-height: 5vw;
+	margin-top: 40px;
+}
+
+.t-body{
+	font-family: "Inter Medium";
+	width: 35%;
+	padding-bottom: 20px;
+}
+
+.t-body p{
+	font-size: 13px;
+	line-height: 13px;
+	margin-top: 30px;
+}
+
+.more-detail p{
+	border-radius: 15px;
+	border: 1px solid #09090b;
+	padding: 2px 50px;
+	font-size: 14px;
+	color: #09090b;
+	cursor: pointer;
+	width: 100%;
+  }
+
+
+
+
+/* last section on index page */
+
+.view-summer{
+	height: 550px;
+	width: 100%;
+}
+
+.view-summer img{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.sum-cont{
+	height: 100%;
+	font-family: "Poppins", sans-serif;
+	background-color: #e7d7c0;
+}
+
+.sum-content{
+	height: 550px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sum-content .sum-title{
+	font-family: "Monument Extended Bold";
+	font-size: 2vw;
+	line-height: 2.2vw;
+}
+
+
+.sum-content .sum-desc{
+	font-size: 1vw;
+	line-height: 1.2vw;
+	margin-bottom: 40px;
+	font-weight: 300;
+	text-transform: capitalize;
+}
+
+.sum-content div a{
+	background-color: #000;
+	padding: 10px 20px;
+	/* color: #e9e2d5; */
+	color: #fff;
+	font-size: 0.9vw;
+	border-radius: 7px;
+	border: 1px solid #09090b;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+
+.sum-content div a:hover{
+	background-color: transparent;
+	color: #09090b;
+	
+}
+
+
+
+/* FOOTER */
+
+.footer-container{
+	line-height: 13px;
+}
+
+.footer a:hover{
+	text-decoration: underline;
+}
+
+
+.nav1 ul li{
+	list-style: none;
+}
+
+.shipping div, .language div{
+	gap: 10px;
+	cursor: pointer;
+}
+
+form .count{
+	width: 60%;
+	height: 15px;
+	background-color: #e9e2d5;
+	font-size: 10px;
+	border: none;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+form .count:focus{
+	background-color: transparent;
+}
+
+.form-input div{
+	height: 40px;
+	width: 100%;
+}
+
+.form-input div input{
+	height: 100%;
+	width: 100%;
+	border: 1px solid gray;
+	background-color: #faf7f1;
+	font-size: 11px;
+}
+
+.subscribe-btn{
+	font-family: "Helvetica Regular";
+	background-color: #09090b;
+	font-size: 13px;
+	color: #e9e2d5;
+}
+
+.subscribe-btn:hover{
+	background-color: transparent;
+	color: #09090b;
+}
+
+.shop-btn{
+	font-family: "Helvetica Regular";
+	background-color: #09090b;
+	font-size: 12px;
+	color: #e9e2d5;
+}
+
+.shop-btn:hover{
+	font-family: "Helvetica Regular";
+	background-color: transparent;
+	color: #09090b;
+}
+
+.rights{
+	width: 55%;
+}
+
+.copy{
+	font-size: 9px;
+}
+
+
+@media screen and (min-width: 360px){
+	.front-sec-desc .first{
+		width: 75%;
+	}
+}
+
+
+@media screen and (min-width: 394px){
+	.brand-name a, .estavo{
+		font-size: 22px;
+		line-height: 23px;
+	}
+}
+
+@media screen and (min-width: 576px){
+	.brands-dropdown .dropdown-toggle{
+		line-height: 13px;
+		font-size: 11px;
+	}
+
+	.col-name-title, .col-name-title1{
+		font-size: 3.8vw;
+		padding: 0px 40px;
+	  }
+
+	.feat-items-cont{
+		left: 40px;
+	}
+
+	.feat-prod{
+		width: 37%;
+	}
+
+	.feat-items-cont{
+		width: 50%;
+	}
+
+	.feat-items-title{
+		width: 30%;
+	}
+
+	.doesItWork a{
+		font-size: 1vw;
+	}
+
+	.t-heading{
+		margin-top: 100px;
+	}
+
+
+	.home-container{
+		font-size: 11px;
+		font-weight: 200;
+		line-height: 13px;
+	}
+
+	.footer-container{
+		font-size: 10px;
+		font-weight: 200;
+		line-height: 12px;
+	}
+
+	.subscribe-btn {
+		font-size: 9px;
+	}
+
+	.collection-container div p{
+		font-size: 13px;
+		line-height: 18px;
+	}
+
+	.t-prod-container .trend-prod-img-desc{
+		font-size: 11px;
+		line-height: 11px;
+	}
+
+	.trend-prod-img-desc .price{
+		font-size: 13px;
+		color: #646869;
+	}
+
+	.front-img1 .front-sec-img-container{
+		font-size: 11px;
+		line-height: 11px;
+	}
+
+	.front-sec-img-desc .price{
+		font-size: 13px;
+		color: #646869;
+	}
+
+	.t-body p{
+		font-size: 12px;
+		line-height: 12px;
+	}
+	
+	.more-detail p{
+		font-size: 13px;
+	  }
+}
+
+
+
+@media screen and (min-width: 768px) {
+	.arrival-img{
+		height: 60vh;
+	}
+
+	.doesItWork{
+		width: 100px;
+		height: 100px;
+	}
+
+	.front-img1 .front-sec-img-container{
+		height: 350px;
+	}
+}
+
+
+
+@media screen and (min-width: 992px){
+	.sec2{
+		font-size: 5.5vw;
+	}
+
+}
+
+
+@media screen and (min-width: 1280px){
+	.zodo-t{
+		min-height: 100vh;
+		width: 100%;
+	}
+
+	.arrival-img{
+		height: 100vh;
+	}
+
+	.feat-prod{
+		width: 25%;
+	}
+
+	.doesItWork{
+		width: 140px;
+		height: 140px;
+	}
+
+	.front-img1 .front-sec-img-container{
+		height: 550px;
+	}
+
+	.subscribe-btn {
+		font-size: 13px;
+	}
+	
+}
+
+@media screen and (max-width: 1024px){
+	.t-body{
+		width: 90%;
+	}
+}
+
+
+@media screen and (max-width: 992px){
+	.brand-name{
+		display: block;
+	}
+
+	.nav-ul{
+		border: none;
+	}
+
+	.nav-ul li{
+		border: none;
+	}
+
+	.nav-ul .zodoTerm a{
+		display: none;
+	}
+
+	.nav-ul li a{
+		font-size: 12px;
+	}
+
+	.nav-ul .nav-last a{
+		width: 50px;
+		height: 50px;
+	}
+
+
+	.navbar-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+		width: 100%;
+		height: 100%;
+        text-align: center;
+    }
+
+
+    .nav-link {
+        color: #09090b;
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    .navbar-toggler {
+        z-index: 10000; 
+    }
+}
+
+
+
+@media screen and (max-width: 768px){
+	.trend-last{
+		height: 900px;
+	}
+
+	.sec5-about-content .d1 video{
+		border-top-left-radius: 25px;
+	}
+}
+
+
+@media screen and (max-width: 576px){
+	.trend-prod{
+		height: 500px;
+		background-color: #fafaf9;
+		margin-top: 20px;
+	}
+
+	.view-summer{
+		height: 450px;
+		width: 100%;
+	}
+	
+	.sum-content{
+		height: 450px;
+		width: 100%;
+	}
+
+	.sum-content div{
+		text-align: center;
+	}
+	
+	.sum-content .sum-title{
+		font-size: 4.2vw;
+		line-height: 4.4vw;
+	}
+	
+	
+	.sum-content .sum-desc{
+		font-size: 3vw;
+		line-height: 3.2vw;
+	}
+	
+	.sum-content div a{
+		padding: 10px 60px;
+		font-size: 2.4vw;
+	}
+}
+
+
+
+
+/* CLIENT SUPPORT */
+.contact{
+	text-transform: none;
+	font-size: 0.8rem;
+	line-height: 1rem;
+}
+
+.contact div .head{
+	font-size: 1.9rem;
+	line-height: 2.1rem;
+	margin-bottom: 40px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+}
+
+.contact div .quest-info span{
+	text-decoration: underline;
+	cursor: pointer;
+	font-family: "Helvetica Regular";
+}
+
+.contact div .return span{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+
+
+
+
+/* LEGAL NOTICE */
+.legal-cont{
+	margin-top: 90px;
+	text-transform: none;
+	padding: 3vw 2vw;
+	border: 1px solid #09090b;
+}
+
+.legal-content h1 {
+	text-align: center;
+	font-weight: 500;
+	margin-bottom: 30px;
+	font-size: 2rem;
+	text-transform: capitalize;
+	font-family: "Poppins", sans-serif;
+}
+
+.legal-content h2 {
+	font-size: 0.9rem;
+	margin-top: 40px;
+	color: #111;
+	text-transform: capitalize;
+	font-family: "Poppins", sans-serif;
+}
+
+.legal-content p {
+	margin-bottom: 20px;
+	font-size: 0.8rem;
+    line-height: 1.1rem;
+	font-family: "Helvetica Light";
+}
+
+
+
+
+
+/* RETURN POLICY */
+.return-cont{
+	margin-top: 90px;
+	text-transform: none;
+	padding: 3vw 2vw;
+	border: 1px solid #09090b;
+}
+
+.return-content h1 {
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 2rem;
+	text-transform: capitalize;
+	font-family: "Poppins", sans-serif;
+}
+
+.return-content p {
+	font-size: 0.8rem;
+    line-height: 1.1rem;
+	margin-bottom: 25px;
+	font-family: "Helvetica Light";
+}
+
+.return-content ul {
+	list-style-type: disc;
+	margin: 8px;
+	margin-bottom: 20px;
+    padding-left: 8px;
+}
+
+.return-content ul li {
+	margin-bottom: 8px;
+	font-size: 0.8rem;
+    line-height: 1.1rem;
+}
+
+.return-content .contact-info {
+	margin-top: 30px;
+}
+
+.contact-info-return p a {
+	text-decoration: underline;
+}
+
+.contact-info-return p a:hover {
+	font-family: "Helvetica Regular";
+}
+
+hr {
+	margin: 40px 0;
+}
+
+
+
+
+
+
+/* COOKIE NOTICE */
+.cookie-cont{
+	margin-top: 90px;
+	text-transform: none;
+	padding: 3vw 2vw;
+	border: 1px solid #09090b;
+}
+
+
+.cookie-content h1 {
+	text-align: center;
+	font-weight: 500;
+	margin-bottom: 30px;
+	font-size: 2.3rem;
+	text-transform: capitalize;
+	font-family: "Poppins", sans-serif;
+}
+
+
+.cookie-content .overview {
+	margin-top: 40px;
+}
+
+
+.cookie-content h2 {
+	font-size: 1.1rem;
+	margin-top: 30px;
+	color: #111;
+	text-transform: capitalize;
+	font-family: "Poppins", sans-serif;
+}
+
+.cookie-content ul li span{
+	font-family: "Helvetica Regular";
+}
+
+
+.cookie-content ul li{
+	font-size: 0.8rem;
+	line-height: 1.1rem;
+	text-transform: capitalize;
+	font-family: "Helvetica Light";	
+}
+
+.cookie-content h3 {
+	font-size: 0.9rem;
+	color: #111;
+	text-transform: capitalize;
+	font-family: "Poppins", sans-serif;
+}
+
+.cookie-content p {
+	margin-bottom: 20px;
+	font-size: 0.8rem;
+    line-height: 1.1rem;
+	font-family: "Helvetica Light";
+}
+
+
+
+
+
+
+/* FAQ */
+.faq-cont {
+	font-family: "Helvetica Light";
+}
+
+.faq-header{
+	font-size: 1.3rem;
+	font-family: "Poppins", sans-serif;
+	font-weight: 500;
+	letter-spacing: 2px;
+}
+
+
+.faq-cont .acco-item, .acco-item h2 button{
+	background-color: #e9e2d5;
+}
+
+.acco-item h2 button{
+	font-family: "Helvetica Regular";
+	text-transform: uppercase;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	letter-spacing: 1px;
+	padding: 0.6rem 0rem;
+}
+
+.accordion-button:focus, .accordion-button:not(.collapsed) {
+    background-color: #09090b !important;
+	color: #fafaf9;
+    outline: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	padding-left: 5px;
+}
+
+.accordion-button:not(.collapsed)::after {
+    color: #fafaf9 !important; /* Change the color of the arrow */
+	border-color: #fafaf9;
+}
+
+.collapse .acco-body{
+	padding-left: 0px;
+	padding-top: 30px;
+}
+
+
+
+
+
+

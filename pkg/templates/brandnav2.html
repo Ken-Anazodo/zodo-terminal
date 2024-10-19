@@ -1,0 +1,21 @@
+<a class="nav-link dropdown-toggle" href="#">BRANDS</a>
+<ul class="dropdown-menu drop-menu">
+	{% if categories %}
+		{% for category in categories %}
+			<li class="dropdown-submenu">
+				<a class="dropdown-item dropdown-toggle drop-cat" href="#">{{ category.cat_name }}</a>
+				<ul class="dropdown-menu drop-sub">
+					{% if brands %}
+						{% for brand in brands %}
+							<li>
+								<a class="dropdown-item" id='{{ brand.brand_id }}' href="/brand_products/{{ brand.brand_id }}/{{ category.cat_id }}/">
+									{{ brand.brand_name }}
+								</a>
+							</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</li>
+		{% endfor %}
+	{% endif %}
+</ul>

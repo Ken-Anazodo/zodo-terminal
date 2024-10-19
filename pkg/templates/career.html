@@ -1,0 +1,38 @@
+{% extends "layout_three.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout_three.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div class="container mb-5 career-cont">
+	<div class="row align-items-center">
+        <!-- Left: Text Content -->
+        <div class="col-xl-6 mb-4 mb-lg-0 car-content">
+            <h1 class="mb-4">Your Career at Zodo Terminal</h1>
+            <p>Zodo Terminal is more than just a company — it’s a brand built from passion, with products that reflect our dedication and values. At the heart of our business lies our brand identity, and delivering high-quality products is always our top priority. We're committed to continual growth, both as individuals and as a team. Fresh ideas and creative input are highly encouraged, and we deeply value innovation and ingenuity.</p>
+            <p>Though we've expanded rapidly on the global stage, we maintain a close-knit, agile team where communication is efficient and streamlined. Our team works together in a modern, open-concept space designed to foster creativity and collaboration. As we continue to navigate new challenges in the international market, we do so with excitement, pride, and a strong sense of responsibility.</p>
+            <h4>Vacancies:</h4>
+            <ul>
+                <li>Store Manager</li>
+                <li>Assistant Store Manager</li>
+                <li>Sales Associate</li>
+            </ul>
+        </div>
+        <!-- Right: Image -->
+        <div class="col-xl-6 car-img-cont">
+			<div class='car-img'>
+            	<img src="{{ url_for('static',filename='/img/img108.jpg')}}" alt="Mason Garments" class="img-fluid rounded">
+			</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

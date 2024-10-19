@@ -1,0 +1,48 @@
+{% extends "layout_two.html" %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/add_to_cart.css')}}">
+{% endblock %}
+
+{% block body %}
+	<div class="cart-cont d-xl-flex py-5">
+		
+		<div class="item-img-cart d-flex justify-content-center align-items-center">
+			<div class="cart-prod">
+				<img src="/static/uploads/{{ product.prod_image_url }}" alt="female model" class="img-fluid">
+			</div>
+		</div>
+
+		<div class="item-desc-cart pe-md-3">
+			<div class='item-desc-content'>
+				<p class="item-desc-name mt-5">{{ product.prod_name }}</p>
+				<p class="item-desc-about">{{ product.prod_description }}</p>
+				<p class="read-more">Read More</p>
+				<p class="item-desc-price mt-3 my-4">${{ product.prod_price }}</p>
+				<input type="number" class='form-control quantity' id="quantity-{{ product.prod_id }}" value="1" min="1">
+				<hr>
+
+				<p class="size">SIZE:</p>
+				<div class="size-select text-end">FIND MY SIZE</div>
+				
+				
+				
+				<div class='mt-3'>
+					<span class='me-2 size'><input type="radio" name="size" id="one" checked/>36</span>
+					<span class='me-2 size'><input type="radio" name="size" id="four"/>39</span>
+					<span class='me-2 size'><input type="radio" name="size" id="five"/>40</span>
+					<span class='me-2 size'><input type="radio" name="size" id="six"/>41</span>
+					<span class='me-2 size'><input type="radio" name="size" id="seven"/>42</span>
+					<span class='me-2 size'><input type="radio" name="size" id="eight"/>43</span>
+					<span class='me-2 size'><input type="radio" name="size" id="nine"/>44</span>
+					<span class='me-2 size'><input type="radio" name="size" id="ten"/>45</span>
+					<span class='me-2 size'><input type="radio" name="size" id="eleven"/>46</span>
+					<span class='me-2 size'><input type="radio" name="size" id="twelve"/>47</span>
+				</div>
+				
+				<button type="submit" id="btnn" data-product-id="{{ product.prod_id }}" class="btn btn-dark btn-lg col-12 mt-2 btn-custom add-to-cart-btn">ADD TO CART</button>
+				<input type="hidden" name="product_id" value="{{ product.prod_id }}">
+			</div>
+		</div>
+	</div>
+{% endblock %}

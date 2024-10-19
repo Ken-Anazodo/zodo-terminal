@@ -1,0 +1,121 @@
+{% extends 'dashboard_layout.html' %}
+<!-- search banner-->
+ 
+ <!-- end search banner-->
+  <!-- about-->
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-2">
+      
+    {% include 'admin/menu.html' %}
+    
+</div>
+<div class="col-md-9 p-3">
+    <!-- For the Dashboard-->
+     
+    <div class="row">
+        <div class="col-md-12">
+		{% with messages = get_flashed_messages(with_categories=True) %}
+		{% if messages %}
+			{% for cat,msg in messages %}
+				{% if cat == 'error' %}
+					<div class="alert alert-danger">{{ msg }}</div>
+				{% else %}
+					<div class="alert alert-success">{{ msg }}</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+          <div class="d-flex align-items-center mb-2">
+            <a href="/admin/add_new_product/"><button id='add_prod' class="btn btn-success me-3" type='button' >Add New Products</button></a>
+          </div>
+
+
+
+		  <div class="mb-3">
+			<label for="brand-filter">Filter by Brand:</label>
+			<select id="brand-filter" class='form-control'>
+				<option value="">All Brands</option>
+				{% for brand in brands %}
+					<option value="{{ brand.brand_id }}">{{ brand.brand_name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+
+
+		  <div class="container-fluid">
+			<div class="col-md-8 mt-4 mt-md-0 front-sec-container">
+				<div class="row" id="product-list">
+					{% for product in products %}
+					<div class="col-sm-6 col-md-4 front-img1">
+						<div class="front-sec-img-container product-item">
+							<div class="front-sec-img">
+								<img src="/static/uploads/{{product.prod_image_url}}" alt="products">
+							</div>
+
+							<div class="front-sec-img-desc mt-2">
+								<p>{{ product.prod_name }}</p>
+								<p>${{ product.prod_price }}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>	
+			</div>
+		</div>
+
+
+		</div>
+		</div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block customjs%}
+<script>
+	$('#brand-filter').change(function() {
+		const brand_id = $(this).val();  // Get selected brand
+		const category_id = {{ category.cat_id }};  // Get category ID from the template
+		const csrf_token = "{{ csrf_token() }}";  // Get CSRF token from Flask
+	
+		// Send AJAX request to filter products by brand
+		$.ajax({
+			url: `/category/${category_id}/filter_by_brand/`,  // URL to send request
+			method: 'POST',
+			contentType: 'application/json',  // Send JSON data
+			headers: {
+				'X-CSRFToken': csrf_token 
+			},
+			data: JSON.stringify({ 'brand_id': brand_id }),  // Send brand_id as JSON data
+			success: function(response) {
+				const products = response.products;
+				let productList = '';
+	
+				// Clear and populate the product list
+				products.forEach(product => {
+					productList += `    
+						<div class="col-sm-6 col-md-4 front-img1">
+							<div class="front-sec-img-container product-item">
+								<div class="front-sec-img">
+									<img src="/static/uploads/${product.prod_image_url}" alt="products">
+								</div>
+								<div class="front-sec-img-desc mt-2">
+									<p>${product.prod_name}</p>
+									<p>$${product.prod_price}</p>
+								</div>
+							</div>
+						</div>
+					`;
+				});
+	
+				$('#product-list').html(productList);  // Update the product list in the HTML
+			}
+		});
+	});
+	
+</script>
+{% endblock %}

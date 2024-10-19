@@ -1,0 +1,161 @@
+						{% extends "layout_three.html" %}
+
+						{% block stylesheet %}
+						<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/admin_register.css')}}">
+						{% endblock %}
+
+						
+						{% block body %}
+						<div class="row hero pt-4">
+							{% with messages = get_flashed_messages(with_categories=True) %}
+							{% if messages %}
+								{% for cat,msg in messages %}
+									{% if cat == 'error' %}
+										<div class="alert alert-danger">{{ msg }}</div>
+									{% else %}
+										<div class="alert alert-success">{{ msg }}</div>
+									{% endif %}
+								{% endfor %}
+							{% endif %}
+							{% endwith %}
+							<div class="col pt-5 d-flex align-items-center justify-content-center front-sec-container">
+								<div class="form-cont">
+									<div class="form-cont1 col-md-7 m-auto">
+										<div class="form-head text-center">
+											 <p class="log mb-4">Sign Up</p>
+											 <p>Please fill in the information below:</p>
+										</div>
+				
+				
+										<form action="/admin_register/" method="post" enctype="multipart/form-data">
+											{{ adform.csrf_token }}
+											<div class="form-floating mb-2 user-cont">
+												{{adform.fname.label}}
+												{{adform.fname(placeholder='First Name', class="form-control")}}
+												{% if adform.fname.errors %}
+													{% for error in adform.fname.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+
+
+											<div class="form-floating mb-2 user-cont">
+												{{adform.lname.label}}
+												{{adform.lname(placeholder='Last Name', class="form-control")}}
+												{% if adform.lname.errors %}
+													{% for error in adform.lname.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+
+
+											<div class="form-floating user-cont">
+												{{adform.username.label}}
+												{{adform.username(placeholder='Username', class="form-control")}}
+												{% if adform.username.errors %}
+													{% for error in adform.username.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+				
+				
+											<div class="form-floating user-cont">
+												{{adform.email.label}}<br>
+												{{adform.email(placeholder="Brand E-mail", class="form-control", id='email')}}<br>
+												{% if adform.email.errors %}
+													{% for error in adform.email.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+						
+								
+
+											<div class="form-floating mb-2 user-cont">
+												{{adform.contact_no.label}}
+												{{adform.contact_no(placeholder='Contact Number', class="form-control")}}
+												{% if adform.contact_no.errors %}
+													{% for error in adform.contact_no.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+
+											<div class="form-floating mb-2 user-cont">
+												{{adform.addr.label}}
+												{{adform.addr(placeholder='Contact Address', class="form-control")}}
+												{% if adform.addr.errors %}
+													{% for error in adform.addr.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+
+											<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
+											<div class="form-floating mb-2 user-cont">
+												{{adform.picture.label}}
+												{{adform.picture(placeholder='Brand Logo', class="form-control filefield")}}
+												{% if adform.picture.errors %}
+													{% for error in adform.picture.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+
+
+											<div class="form-floating mb-2 user-cont">
+												{{adform.password.label}}
+												{{adform.password(placeholder="Password", class="form-control")}}
+												{% if adform.password.errors %}
+													{% for error in adform.password.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+				
+				
+											<div class="form-floating mb-2 user-cont">
+												{{adform.cpassword.label}}
+												{{adform.cpassword(placeholder="Confirm Password", class="form-control")}}
+												{% if adform.cpassword.errors %}
+													{% for error in adform.cpassword.errors %}
+														<span class='err-msg'> {{error}} </span>
+													{% endfor %}
+												{% endif %}
+											</div>
+
+				
+											<div class="log-btn">
+												{{adform.submit(class='btn btn-lg col-12 log-btn')}}
+											</div>
+										</form>
+				
+										<div class="text-center mt-4">
+											<p>Already have an account? <a href="/admin_login/"><u>Log In</u></a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endblock %}
+
+						{% block customjs %}
+						<script>
+						$(document).ready(function(){
+
+							//to check if email is avalibale
+							$('#email').change(function(){
+							var email = $(this).val();
+							$('#feedback').load("{{ url_for('check_email') }}", 'email='+email,function(){
+								$('#feedback').addClass('alert alert-info')
+							});
+							});
+						});
+						</script>
+						{% endblock %}
+
+
+

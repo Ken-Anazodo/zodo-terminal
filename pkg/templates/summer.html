@@ -1,0 +1,289 @@
+{% extends "layout_three.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout_three.css')}}">
+{% endblock %}
+
+
+{% block body %}
+<div class="col summer-content">
+
+	<!--SECTION 1-->
+	<div class='row swipe-cont'>
+		  <!-- Swiper -->
+		  <div class="swiper mySwiper p-0">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide">
+				<img src="{{ url_for('static',filename='/img/img101.jpg')}}" />
+				<div class="overlay"></div>
+				<div class="desc">
+					<h1 class="slider-title">AURORA SOLSTICE → SUMMER '24</h1>
+					<p class="slider-description pb-3">
+						Aetherian Couture redefines elegance with its shimmering solstice collection. Aurora Solstice brings ethereal designs inspired by golden sunsets and celestial patterns, creating a fusion of radiant hues and graceful silhouettes.
+					</p>
+					<a href="/products/" class="go-to-shop">Go To Shop</a>
+				</div>
+			  </div>
+			  <div class="swiper-slide">
+				<img src="{{ url_for('static',filename='/img/img102.jpg')}}" />
+				<div class="overlay"></div>
+				<div class="desc">
+					<h1 class="slider-title">CARA LUNA → SUMMER '24</h1>
+					<p class="slider-description pb-3">
+						In the Cara Luna collection, designer Isabel Monet fuses romantic, moonlit patterns with chic urbanity. The collection blends light fabrics and metallic hues perfect for those balmy summer nights.
+					</p>
+					<a href="/products/" class="go-to-shop">Go To Shop</a>
+				</div>
+			  </div>
+			  <div class="swiper-slide">
+				<img src="{{ url_for('static',filename='/img/img105.jpg')}}" />
+				<div class="overlay"></div>
+				<div class="desc">
+					<h1 class="slider-title">OCEANIC HORIZON → SUMMER '24</h1>
+					<p class="slider-description pb-3">
+						Dive into the deep blues and breezy silhouettes of the Oceanic Horizon collection by Naia Couture. This line offers flowing fabrics and designs inspired by ocean waves, perfect for your summer adventures.
+					</p>
+					<a href="/products/" class="go-to-shop">Go To Shop</a>
+				</div>
+			  </div>
+			  <div class="swiper-slide">
+				<img src="{{ url_for('static',filename='/img/img107.jpg')}}" />
+				<div class="overlay"></div>
+				<div class="desc">
+					<h1 class="slider-title">CARA LUNA → SUMMER '24</h1>
+					<p class="slider-description pb-3">
+						In the Cara Luna collection, designer Isabel Monet fuses romantic, moonlit patterns with chic urbanity. The collection blends light fabrics and metallic hues perfect for those balmy summer nights.
+					</p>
+					<a href="/products/" class="go-to-shop">Go To Shop</a>
+				</div>
+			  </div>
+			</div>
+			<div class="swiper-pagination"></div>
+		  </div>
+	</div>
+
+
+	<div class="row summer-intro-cont">
+		<div class='summer-intro'>
+			<h1><span>Summer '24 Collections:</span> A Season of Bold Elegance</h1>
+			<p class="mt-sm-3">
+				Step into Summer '24 with a blend of bold innovation and timeless elegance. This season’s collections push the boundaries of fashion, drawing inspiration from nature’s radiant colors and the energy of warm, sun-kissed days. From flowing silhouettes in light, breathable fabrics to statement pieces that feature vibrant patterns and intricate detailing, the Summer '24 collections are designed for those who embrace effortless style with a daring edge.
+				Each designer brings a unique perspective: Aurora Solstice celebrates celestial beauty with ethereal gowns and metallic accents, while Cara Luna enchants with romantic, moonlit textures perfect for sultry summer nights. For the free-spirited, Oceanic Horizon presents breezy, ocean-inspired pieces that flow with every movement.
+				Summer '24 promises to be a season of endless possibilities—where comfort meets luxury and every outfit tells a story of adventure, beauty, and boldness.
+			</p>
+		</div>
+	</div>
+
+
+
+
+	
+	  
+	<!--SECTION 2-->
+    <div class="row g-3 pb-0 mt-2 mt-sm-5">
+      <!-- Left Block -->
+		<div class="col-md-6">
+			<div class="image-box">
+				<div class='img-contain'><img src="{{ url_for('static',filename='/img/img10.jpg')}}" alt="Fashion Collection 1" class="img-fluid"></div>
+				<div class="shop-tag">
+					<a href"/"><p>SHOP</p></a>
+				</div>
+			</div>
+			<div class="content-desc d-lg-flex ps-0">
+				<h2 class='me-md-1'>STITCHED TO PERFECTION</h2 class='me-md-2'>
+				<p>Meet the latest sensation in avant-garde fashion, <strong>Valentina Dermaco</strong>. Their new collection, "Midnight Threads," draws inspiration from gothic architecture and sleek modern silhouettes, blending dark hues with dramatic lines to create a wardrobe perfect for those who dare to defy the ordinary.</p>
+			</div>
+		</div>
+
+      <!-- Right Block -->
+		<div class="col-md-6">
+			<div class="image-box">
+				<div class='img-contain'><img src="{{ url_for('static',filename='/img/img11.jpg')}}" alt="Fashion Collection 2" class="img-fluid"></div>
+				<div class="shop-tag">
+					<a href="/"><p>SHOP</p></a>
+				</div>
+			</div>
+			<div class="content-desc d-lg-flex ps-0">
+				<h2 class='me-md-1'>Voted Summer Favourite</h2>
+				<p> A contemporary brand fusing streetwear aesthetics with high fashion. Their "Urban Echo" collection, recently showcased at the Summer Fashion Gala, is a testament to sleek designs and minimalism, perfectly suited for the cosmopolitan trendsetters.</p>
+			</div>
+		</div>
+    </div>
+
+
+
+
+
+
+	<!--SECTION 3-->
+	<div class="row g-3 mt-2 mt-sm-5">
+		<!-- Block 1 -->
+		<div class="col-sm-6 col-lg-3">
+			<div class="category">FASHION</div>
+			<div class="image-box">
+				<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img100.jpg')}}" alt="Summer Collection 2" class="img-fluid"></div>
+			</div>
+			<div class="content-desc s2 ps-0">
+				<h3>NYLA X SOLSTICE SUMMER COLLECTION</h3>
+				<p>Nyla combines vibrant sun-kissed palettes with minimalistic cuts for the ultimate summer wardrobe. From flowy dresses to chic beachwear, this 30-piece collection reflects the carefree spirit of coastal living.</p>
+			</div>
+		</div>
+  
+		<!-- Block 2 -->
+		<div class="col-sm-6 col-lg-3 pt-0">
+			<div class="category">INTERVIEW</div>
+			<div class="image-box">
+				<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img8.jpg')}}" alt="Summer Collection 1" class="img-fluid"></div>
+			</div>
+			<div class="content-desc s2 ps-0">
+				<h3>ELLA ROSE AWAKENS SUMMER AW24</h3>
+				<p>Designer Ella Rose speaks to us about her highly anticipated summer line, "Eden’s Blossom." This interview uncovers her inspiration drawn from wildflower meadows and sunset hues, perfectly reflected in her soft, elegant gowns.</p>
+			</div>
+		</div>
+  
+		<!-- Block 3 -->
+		<div class="col-sm-6 col-lg-3">
+		  <div class="category">FASHION</div>
+		  <div class="image-box">
+			<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img15.jpg')}}" alt="Summer Collection 2" class="img-fluid"></div>
+		  </div>
+		  <div class="content-desc s2 ps-0">
+			<h3>LUCIANO BEACHWEAR SS24</h3>
+			<p>Luciano's SS24 beachwear line merges comfort with bold fashion. This new line introduces vivid prints and airy textures to keep you cool under the summer sun, perfect for both the runway and the boardwalk.</p>
+		  </div>
+		</div>
+  
+		<!-- Block 4 -->
+		<div class="col-sm-6 col-lg-3">
+		  <div class="category">INTERVIEW</div>
+		  <div class="image-box">
+			<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img6.jpg')}}" alt="Summer Collection 2" class="img-fluid"></div>
+		  </div>
+		  <div class="content-desc s2 ps-0">
+			<h3>Behind the Seams with Isla Rivera: Unveiling the "Sunset Mirage" Summer Collection</h3>
+			<p>In an exclusive interview, we sit down with Isla Rivera, the visionary designer behind the fashion world’s most talked-about summer collection, “Sunset Mirage.” Known for her ability to merge nature’s beauty with modern elegance, Isla takes us through the inspiration and creative journey that led to this season’s striking designs.</p>
+		  </div>
+		</div>
+	  </div>
+
+
+
+
+
+
+
+	<!--SECTION 4-->
+	  <div class="row g-3 pb-0">
+		<!-- Left Block -->
+		  <div class="col-md-6">
+			  <div class="image-box">
+				  <div class='img-contain'><img src="/static/uploads/{{product1.prod_image_url}}" alt="Fashion Collection 1" class="img-fluid"></div>
+				  <div class="shop-tag">
+					  <a href"/"><p>SHOP</p></a>
+				  </div>
+			  </div>
+			  <div class="content-desc d-lg-flex ps-0">
+				  <h2 class='me-md-1'>"Soleil Rouge" by Vittoria Serenzi</h2 class='me-md-2'>
+				  <p>Italian designer Vittoria Serenzi is turning up the heat this summer with her bold and daring collection, “Soleil Rouge.” Known for pushing boundaries and combining unexpected elements, Vittoria’s latest line is inspired by the fiery spirit of summer sunsets and the vibrant energy of Mediterranean festivals.</p>
+			  </div>
+		  </div>
+  
+		<!-- Right Block -->
+		  <div class="col-md-6">
+			  <div class="image-box">
+				  <div class='img-contain'><img src="{{ url_for('static',filename='/img/img99.jpg')}}" alt="Fashion Collection 2" class="img-fluid"></div>
+				  <div class="shop-tag">
+					  <a href="/"><p>SHOP</p></a>
+				  </div>
+			  </div>
+			  <div class="content-desc d-lg-flex ps-0">
+				  <h2 class='me-md-1'>"Azure Reverie" by Leona Blanc</h2>
+				  <p> Renowned for her mastery of minimalist sophistication, Leona Blanc returns this season with her highly anticipated summer collection, “Azure Reverie.” Drawing inspiration from the calming blues of Mediterranean seas and the refreshing breezes of coastal retreats, this collection offers a harmonious blend of modern design and timeless elegance.</p>
+			  </div>
+		  </div>
+	  </div>
+
+
+
+
+
+
+
+
+
+	  <div class="row g-3 mt-5">
+		<!-- Block 1 -->
+		<div class="col-sm-6 col-lg-3">
+			<div class="category">FASHION</div>
+			<div class="image-box">
+				<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img34.jpg')}}" alt="Summer Collection 2" class="img-fluid"></div>
+			</div>
+			<div class="content-desc s2 ps-0">
+				<h3>"Lush Tropique" by Camila Escobar</h3>
+				<p>Exotic Prints and Vibrant Energy. Colombian-born designer Camila Escobar brings the vibrancy of tropical landscapes to life in her latest collection, “Lush Tropique.” Known for her love of bold patterns and daring designs, Camila draws inspiration from the rich biodiversity of the Amazon and the Caribbean coasts to create a collection that is both playful and exotic.</p>
+			</div>
+		</div>
+  
+		<!-- Block 2 -->
+		<div class="col-sm-6 col-lg-3 pt-0">
+			<div class="category">INTERVIEW</div>
+			<div class="image-box">
+				<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img33.jpg')}}" alt="Summer Collection 1" class="img-fluid"></div>
+			</div>
+			<div class="content-desc s2 ps-0">
+				<h3>"Ethereal Breeze" by Astrid NoorELLA ROSE AWAKENS SUMMER AW24</h3>
+				<p>Sheer Elegance for Serene Summers. Scandinavian designer Astrid Noor takes a minimalist, ethereal approach to her summer collection, “Ethereal Breeze.” Inspired by the soft winds and tranquil beaches of the Nordic coasts, this collection is designed for the woman who values grace, simplicity, and effortless style.</p>
+			</div>
+		</div>
+  
+		<!-- Block 3 -->
+		<div class="col-sm-6 col-lg-3">
+		  <div class="category">FASHION</div>
+		  <div class="image-box">
+			<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img35.jpg')}}" alt="Summer Collection 2" class="img-fluid"></div>
+		  </div>
+		  <div class="content-desc s2 ps-0">
+			<h3>"Urban Oasis" by Theo Marques</h3>
+			<p>City Chic Meets Summer Comfort. Brazilian designer Theo Marques brings his urban sensibility to the summer with his bold and contemporary collection, “Urban Oasis.” Aimed at the cosmopolitan woman, this collection fuses the energy of city life with the lightness and ease of summer fashion.</p>
+		  </div>
+		</div>
+  
+		<!-- Block 4 -->
+		<div class="col-sm-6 col-lg-3">
+		  <div class="category">INTERVIEW</div>
+		  <div class="image-box">
+			<div class='img-contain1'><img src="{{ url_for('static',filename='/img/img40.jpg')}}" alt="Summer Collection 2" class="img-fluid"></div>
+		  </div>
+		  <div class="content-desc s2 ps-0">
+			<h3>"Sunset Reverie" by Elara Donatin</h3>
+			<p>Romantic Glamour Under Golden Skies. Italian designer Elara Donati channels the romance of summer evenings into her latest collection, “Sunset Reverie.” Known for her ultra-feminine and luxurious designs, Elara captures the essence of a golden-hour romance with pieces that shimmer, float, and glow under the setting sun.
+
+			</p>
+		  </div>
+		</div>
+	  </div> 
+</div>
+{% endblock %}
+
+{% block customjs %}
+<script>
+	  var swiper = new Swiper(".mySwiper", {
+		spaceBetween: 30,
+		effect: "fade",
+		loop: true,
+		pagination: {
+		  el: ".swiper-pagination",
+		  clickable: true,
+		},
+		autoplay: {
+			delay: 7000,
+			disableOnInteraction: false
+		  },
+	  });
+</script>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/main.css')}}"/>
+{% endblock %}
+
+
+{% block body1 %}
+
+
+<div class="col-md-8 mt-4 mt-md-0 front-sec-container">
+	<div class="row">
+
+		{% for brand_product in brand_products %}
+		<div class="col-sm-6 col-md-4 front-img1">
+			<div class="front-sec-img-container">
+				<div class="front-sec-img">
+					<a href="/choose_to_add_to_cart/{{brand_product.prod_id}}/"><img src="/static/uploads/{{brand_product.prod_image_url}}" alt="products"></a>
+				</div>
+
+				<div class="front-sec-img-desc mt-2">
+					<p>{{ brand_product.prod_name }}</p>
+					<p class='price'>${{ brand_product.prod_price }}</p>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>	
+</div>
+{% endblock %}
+
+
+
+
+

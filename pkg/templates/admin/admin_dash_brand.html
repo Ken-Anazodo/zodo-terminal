@@ -1,0 +1,64 @@
+{% extends 'dashboard_layout.html' %}
+
+{% block content %}
+
+<div class="row">
+
+<div class="col-md-2">
+      
+{% include 'admin/menu.html' %}  
+    
+</div>
+<div class="col-md-9 p-3">
+    <!-- For the Dashboard-->
+     
+    <div class="row">
+        <div class="col">
+		{% with messages = get_flashed_messages(with_categories=True) %}
+		{% if messages %}
+			{% for cat,msg in messages %}
+				{% if cat == 'error' %}
+					<div class="alert alert-danger">{{ msg }}</div>
+				{% else %}
+					<div class="alert alert-success">{{ msg }}</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+			<div>
+				<a href="/admin/add_new_brand/"><button id='add_brand' class="btn btn-success me-3" type='button' >Add New Brand</button></a>
+			 </div>
+			<table class="table table-striped mt-5">
+				<thead>
+				  <tr>
+					<td>S/N</td>
+					<td>Brand ID</td>
+					<td>Brand Name</td>
+					<td>Update</td>
+					<td>Remove</td>
+				  </tr>
+				</thead>
+			
+				<tbody id='show'>  
+					{% for brand in brands %}
+					<tr>
+						<td>{{ loop.index }}</td>
+						<td>{{ brand.brand_id }}</td>
+						<td>{{ brand.brand_name }}</td>
+						<td><a href="/admin/update_brand/{{brand.brand_id}}/"><button id='update_brand' class="btn btn-primary" type='button' >Update Brand</button></a></td>
+						<td><a href="/admin/{{brand.brand_id}}/delete_brand/"><button id='delete_brand' class="btn btn-danger" type='button'>Delete</button></a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+					
+        </div>
+    </div>
+    <!-- End the Dashboard-->
+
+{% endblock content %}
+
+
+
+
+
