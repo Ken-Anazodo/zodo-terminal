@@ -7,13 +7,21 @@
 
 {% block body %}
 <div class="container mb-5 checkout-cont">
+	{% if session.get('cust_id') != None %}
+		<div class="user-profile-cont d-none d-lg-block pe-4 pe-xl-0">
+			<div class='welcome-msg text-end text-lg-center p-0'>
+				<p>Welcome </p>
+				<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
+			</div>
+		</div>
+	{% endif %}
 	{% with messages = get_flashed_messages(with_categories=True) %}
 		{% if messages %}
 			{% for cat,msg in messages %}
 				{% if cat == 'error' %}
-					<div class="alert alert-danger">{{ msg }}</div>
+					<div class="alert alert-danger mt-sm-5 mt-lg-0">{{ msg }}</div>
 				{% else %}
-					<div class="alert alert-success">{{ msg }}</div>
+					<div class="alert alert-success mt-sm-5 mt-lg-0">{{ msg }}</div>
 				{% endif %}
 			{% endfor %}
 		{% endif %}

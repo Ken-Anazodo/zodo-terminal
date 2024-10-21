@@ -7,7 +7,15 @@
 
 {% block body %}
 <div class="container mb-5 checkout-cont">
-	<div class="row check-content px-md-5">
+	{% if session.get('cust_id') != None %}
+		<div class="user-profile-cont d-none d-lg-block pe-4 pe-xl-0">
+			<div class='welcome-msg text-end text-xl-center p-0'>
+				<p>Welcome </p>
+				<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
+			</div>
+		</div>
+	{% endif %}
+	<div class="row check-content px-xl-5 mt-sm-5 mt-lg-0">
 		<div class="col-xl-7 px-md-5 sec1">
 			{% with messages = get_flashed_messages(with_categories=True) %}
 			{% if messages %}

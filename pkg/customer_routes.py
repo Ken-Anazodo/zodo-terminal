@@ -117,7 +117,7 @@ def sign_up():
             # Check if the email is already in use
             existing_customer = Customer.query.filter_by(cust_email=cust_email).first()
             if existing_customer:
-                flash('The email is already in use, choose another one')
+                flash('The email is already in use, choose another one', 'error')
                 return redirect(url_for('admin_register'))  # Redirect back to form page
 
             """to get the file name"""
@@ -632,13 +632,14 @@ def add_to_cart(id):
     selected_product = db.session.query(Product).get_or_404(id)
     categories = Category.query.order_by(Category.cat_name).all()
     brands = Brand.query.order_by(Brand.brand_name).all()
+    countries = db.session.query(Country).all()
     cust_id = session.get('cust_id')
     if  cust_id:
         cust_details = get_cust_byid(cust_id)
     else:
         cust_details = None
     
-    return render_template('/customer/add_to_cart.html', product=selected_product, cust_details=cust_details, categories=categories, brands=brands)
+    return render_template('/customer/add_to_cart.html', product=selected_product, cust_details=cust_details, categories=categories, brands=brands, countries=countries)
 
 
 #======================================================================================================
@@ -849,7 +850,7 @@ def order():
             return redirect('/order/')
 
     
-    return render_template('/customer/order.html', custform=custform, total_price=total_price, cust_details=cust_details)  
+    return render_template('/customer/order.html', custform=custform, total_price=total_price, cust_details=cust_details, countries=countries)  
 
 
 
@@ -859,6 +860,7 @@ def order():
 @app.route('/customer/proceed_to_payment/', methods=['POST', 'GET'])
 def proceed_to_payment():
     cust_id = session.get('cust_id')
+    countries = db.session.query(Country).all()
     
     # If customer ID is not present in session, redirect to login
     if not cust_id:
@@ -894,7 +896,7 @@ def proceed_to_payment():
         })
 
     # Render the payment page
-    return render_template("/customer/proceed_to_payment.html",cust_details=cust_details,total_price=total_price,ship_fees=ship_fees,sub_total=sub_total,cart=cart_items)
+    return render_template("/customer/proceed_to_payment.html",cust_details=cust_details,total_price=total_price,ship_fees=ship_fees,sub_total=sub_total,cart=cart_items, countries=countries)
 
     
         
@@ -998,6 +1000,7 @@ def payment_success():
    
 @app.route("/payment/confirmation/")
 def pay_confirmation():
+    countries = db.session.query(Country).all()
     cust_id = session.get('cust_id')
     if cust_id:
         cust_details = get_cust_byid(cust_id)
@@ -1026,7 +1029,8 @@ def pay_confirmation():
                                 total_price=total_price, 
                                 ship_fees=ship_fees, 
                                 sub_total=sub_total, 
-                                cart=cart_items)
+                                cart=cart_items,
+                                countries=countries)
         else:
             flash('Please start the order again','warning')
             return redirect('/order/') 

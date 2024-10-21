@@ -60,7 +60,7 @@
 								<div class="collapse navbar-collapse custom" id="navbarSupportedContent">
 								  <ul class="navbar-nav me-auto nav-ul custom d-flex justify-content-center w-100">
 									  <li class="nav-item text-center flex-grow-1 px-2 dropdown">
-										  <a class="nav-link dropdown-toggle" href="#">SHOP</a>
+										  <a class="nav-link dropdown-toggle" href="#">PRODUCTS</a>
 										  <ul class="dropdown-menu dm">
 											  {% if categories %}
 												  {% for category in categories %}
@@ -102,6 +102,16 @@
 								</div>
 							  </div>			  
 							</div>
+
+
+							{% if session.get('cust_id') != None %}
+								<div class="user-profile-cont d-lg-none">
+									<div class='welcome-msg text-end p-0'>
+										<p>Welcome </p>
+										<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
+									</div>
+								</div>
+							{% endif %}
 						  </nav>
 
 
@@ -112,7 +122,8 @@
 								<li class="search-icon">
 									<a data-bs-toggle="offcanvas" class='nav-link' href="#offcanvasSearch" role="button" aria-controls="offcanvasSearch"><i class="fa fa-search fa-2x" aria-hidden="true"></i></a>
 								</li>
-								<div><a data-bs-toggle="offcanvas" class='nav-link' href="#offcanvasCart" role="button" aria-controls="offcanvasCart">Cart</a></div>
+								<li><a data-bs-toggle="offcanvas" class='nav-link' href="#offcanvasCart" role="button" aria-controls="offcanvasCart">Cart</a></li>
+								<li><a class='nav-link' href="/products/">Products</a></li>
 								<li class="nav-item">
 									<a class='nav-link' href="/information/client_support/">Client Support</a>
 								</li>

@@ -656,6 +656,15 @@ form .count:focus{
 }
 
 
+
+@media screen and (max-width: 1024px){
+	.welcome-msg{
+		margin-top: 30px;
+	}
+}
+
+
+
 @media screen and (max-width: 992px){
 	.brand-name{
 		display: block;

@@ -61,7 +61,6 @@
 				</nav>
 				
 
-
 				<div class="shop-men-women mt-3">
 					<div><a href="/men_section/">Shop Men</a></div>
 					<div><a href="/women_section/">Shop Women</a></div>
@@ -93,6 +92,13 @@
 						<p href="#">Exclusive Now</p>
 					</div>
 				</div>
+
+				{% if session.get('cust_id') != None %}
+				<div class='welcome-msg text-end p-0 d-sm-none'>
+					<p>Welcome </p>
+					<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
+				</div>
+				{% endif %}
 				
 			</div>
 
@@ -130,7 +136,7 @@
 							<p>Welcome </p>
 							<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
 						</div>
-                      {% endif %}
+                    {% endif %}
 				</div>
 			</div>
 		</div>

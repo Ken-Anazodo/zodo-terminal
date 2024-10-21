@@ -248,7 +248,22 @@
 }
 
 
+.user-profile-cont{
+	width: 100%;
+	padding-right: 5vw;
+}
 
+.welcome-msg{
+	margin-top: 140px;
+	font-size: 1.1rem;
+	line-height: 0.3rem;
+	font-family: "Monument Extended Bold";
+	text-transform: capitalize;
+}
+
+.welcome-msg .username{
+	font-family: "Helvetica Regular";
+}
   
 
 
@@ -777,6 +792,12 @@ form .count:focus{
 @media screen and (min-width: 1280px){
 	.subscribe-btn {
 		font-size: 13px;
+	}
+}
+
+@media screen and (max-width: 1024px){
+	.welcome-msg{
+		margin-top: 30px;
 	}
 }
 

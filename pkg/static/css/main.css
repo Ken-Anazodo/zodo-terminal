@@ -1275,6 +1275,10 @@ form .count:focus{
 	.t-body{
 		width: 90%;
 	}
+
+	.welcome-msg{
+		margin-top: 30px;
+	}
 }
 
 
@@ -1333,10 +1337,6 @@ form .count:focus{
 @media screen and (max-width: 768px){
 	.trend-last{
 		height: 900px;
-	}
-
-	.sec5-about-content .d1 video{
-		border-top-left-radius: 25px;
 	}
 }
 

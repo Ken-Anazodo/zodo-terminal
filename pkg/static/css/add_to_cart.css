@@ -246,10 +246,21 @@ a{
     border: none;
 }
 
+.user-profile-cont{
+	width: 100%;
+}
 
-  
+.welcome-msg{
+	margin-top: 30px;
+	font-size: 1.1rem;
+	line-height: 0.3rem;
+	font-family: "Monument Extended Bold";
+	text-transform: capitalize;
+}
 
-
+.welcome-msg .username{
+	font-family: "Helvetica Regular";
+}
 
 
 
@@ -801,6 +812,10 @@ form .count:focus{
 		padding-left: 10vw;
 		padding-right: 10vw;
 	}
+
+	.welcome-msg{
+		margin-top: 30px;
+	}
 }
 
 
@@ -856,6 +871,11 @@ form .count:focus{
     .navbar-toggler {
         z-index: 10000; 
     }
+
+	.user-profile-cont{
+		width: 100%;
+		padding-right: 5vw;
+	}
 }
 
 

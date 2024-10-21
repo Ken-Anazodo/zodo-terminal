@@ -248,6 +248,21 @@
     border: none;
 }
 
+.user-profile-cont{
+	width: 100%;
+}
+
+.welcome-msg{
+	font-size: 1.1rem;
+	line-height: 0.3rem;
+	font-family: "Monument Extended Bold";
+	text-transform: capitalize;
+}
+
+.welcome-msg .username{
+	font-family: "Helvetica Regular";
+}
+
 
 
 
@@ -393,6 +408,7 @@
 	margin-top: 100px;
 	font-size: 12px;
 	line-height: 14px;
+	min-height: 70vh;
 }
 
 .input-cont label{
@@ -783,12 +799,27 @@ form .count:focus{
 	.subscribe-btn {
 		font-size: 9px;
 	}
+
+	.check-content{
+		padding-left: 20vw;
+		padding-right: 20vw;
+	}
+
+	.check-img{
+		height: 160px;
+		width: 25%;
+	}
 }
 
 
 @media screen and (min-width: 768px){
 	.form-cont{
 		padding: 0px 15vw;
+	}
+
+	.check-img{
+		height: 210px;
+		width: 28%;
 	}
 }
 
@@ -803,6 +834,42 @@ form .count:focus{
 	font-size: 5.5vw;
 	}
 
+	.check-img{
+		height: 230px;
+		width: 25%;
+	}
+
+}
+
+
+@media screen and (min-width: 1280px){
+	.subscribe-btn {
+		font-size: 13px;
+	}
+
+	.check-img{
+		height: 140px;
+		width: 25%;
+	}
+}
+
+
+
+
+
+@media screen  and (max-width: 1024px){
+	.check-content{
+		padding-left: 15vw;
+		padding-right: 15vw;
+	}
+
+	.check-content .sec1{
+		margin-bottom: 50px;
+	}
+
+	.welcome-msg{
+		margin-top: 30px;
+	}
 }
 
 
@@ -853,14 +920,13 @@ form .count:focus{
         color: #f0a500;
     }
 
-}
-
-
-@media screen and (min-width: 1280px){
-	.subscribe-btn {
-		font-size: 13px;
+	.user-profile-cont{
+		width: 100%;
+		padding-right: 5vw;
 	}
+
 }
+
 
 
 @media screen and (max-width: 768px){
@@ -883,16 +949,23 @@ form .count:focus{
 	}
 }
 
-@media screen  and (max-width: 576px){
-	.check-content{
-		padding-left: 5vw;
-		padding-right: 5vw;
+
+@media screen and (max-width: 576px){
+	.checkout-cont{
+		margin-top: 150px;
 	}
 
 	.check-content .sec1{
 		margin-bottom: 100px;
 	}
+
+	.check-content{
+		padding-left: 5vw;
+		padding-right: 5vw;
+	}
+	
 }
+
 
 
 
@@ -995,7 +1068,6 @@ form .count:focus{
 	position: relative;
 	height: 85vh;
 	font-family: "Monument Extended Bold";
-	/* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
 	font-size: 14px;
 	color: #000;
 	margin: 0;
@@ -1128,9 +1200,7 @@ form .count:focus{
 	width: 50%;
 	color: #333;
 	text-transform: capitalize;
-	/* font-family: "Poppins", sans-serif; */
 	font-family: "Helvetica Regular";
-	/* font-weight: 300; */
 }
 
 .s2 p{
@@ -1322,7 +1392,6 @@ form .count:focus{
 	margin-bottom: 50px;
 	color: #333;
 	text-transform: capitalize;
-	/* font-family: "Poppins", sans-serif; */
 	width: 35%;
   }
 

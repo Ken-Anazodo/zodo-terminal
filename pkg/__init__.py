@@ -13,6 +13,10 @@ def create_app():
     app.config.from_pyfile('config.py',silent=True)
     app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30) #session timeout
     app.config['API_KEY'] = os.getenv('API_KEY')
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.getenv('SQLALCHEMY_TRACK_MODIFICATIONS')
+    
     
     # Global CSRF timeout setting
     app.config['WTF_CSRF_TIME_LIMIT'] = 7000  # Timeout in seconds
