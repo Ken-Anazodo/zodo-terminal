@@ -816,6 +816,7 @@ def order():
         
          # Calculate total price with shipping fee
         total_price = float(total_price) + ship_fees
+        session['total_price_now'] = total_price
         
         ref = random.randint(10000000000000,9000000000000000000)
         ref_no = f"CP{ref}"
@@ -881,11 +882,9 @@ def proceed_to_payment():
     cart = session.get('cart', [])
     cart_items = []
 
-    total_price = float(session.get('total_price', 0))
+    total_price = float(session.get('total_price_now', 0))
     ship_fees = float(session.get('ship_fees', 0))
-
-    # Calculate subtotal
-    sub_total = total_price - ship_fees
+    sub_total = float(session.get('total_price', 0))
 
     # Fetch product details for each item in the cart
     for item in cart:
@@ -1011,11 +1010,9 @@ def pay_confirmation():
             cart = session.get('cart', [])
             cart_items = []
 
-            total_price = float(session.get('total_price', 0))
+            total_price = float(session.get('total_price_now', 0))
             ship_fees = float(session.get('ship_fees', 0))
-
-            # Calculate subtotal
-            sub_total = total_price - ship_fees
+            sub_total = float(session.get('total_price', 0))
 
             # Fetch product details for each item in the cart
             for item in cart:
