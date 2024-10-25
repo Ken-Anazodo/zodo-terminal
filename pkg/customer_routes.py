@@ -77,7 +77,7 @@ def submit_cust_login():
     else:
         return render_template('/customer/logIn.html', custform=custform, brands=brands)
         
-            
+      
        
 
 
@@ -873,6 +873,7 @@ def proceed_to_payment():
 
     cust_details = get_cust_byid(cust_id)
     ord_ref = session.get('ord_ref')
+    order = Order.query.filter(Order.order_reference==ord_ref).first()
     
     print(f"Reference from session: {ord_ref}")
 
@@ -898,7 +899,7 @@ def proceed_to_payment():
         })
 
     # Render the payment page
-    return render_template("/customer/proceed_to_payment.html",cust_details=cust_details,total_price=total_price,ship_fees=ship_fees,sub_total=sub_total,cart=cart_items, countries=countries)
+    return render_template("/customer/proceed_to_payment.html",cust_details=cust_details,total_price=total_price,ship_fees=ship_fees,sub_total=sub_total,cart=cart_items, countries=countries, order=order)
 
     
         
@@ -1008,6 +1009,8 @@ def pay_confirmation():
     if cust_id:
         cust_details = get_cust_byid(cust_id)
         ref = session.get('ref')
+        ord_ref = session.get('ord_ref')
+        order = Order.query.filter(Order.order_reference==ord_ref).first()
         
         if ref:
             # Getting cart data from session
@@ -1031,7 +1034,8 @@ def pay_confirmation():
                                 ship_fees=ship_fees, 
                                 sub_total=sub_total, 
                                 cart=cart_items,
-                                countries=countries)
+                                countries=countries,
+                                order=order)
         else:
             flash('Please start the order again','warning')
             return redirect('/order/') 
