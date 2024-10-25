@@ -94,7 +94,7 @@ class Order(db.Model):
     order_date = db.Column(db.DateTime,default=datetime.utcnow)
     order_total_amt = db.Column(db.Numeric(10,2))
     order_status = db.Column(db.Enum('completed','pending','cancelled'),server_default=("pending"))
-    # order_reference = db.Column(db.String(255), unique=True)
+    order_reference = db.Column(db.String(255), unique=True)
     order_created_at = db.Column(db.DateTime,default=datetime.utcnow)
     order_cust_id = db.Column(db.Integer,db.ForeignKey('customer.cust_id'))
     order_count_id = db.Column(db.Integer,db.ForeignKey('country.count_id'))

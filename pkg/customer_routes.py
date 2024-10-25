@@ -818,12 +818,15 @@ def order():
         total_price = float(total_price) + ship_fees
         session['total_price_now'] = total_price
         
+        ord_ref = random.randint(100000000000000,90000000000000000000)
         ref = random.randint(10000000000000,9000000000000000000)
+        ord_ref_no = f"ORD{ord_ref}"
         ref_no = f"CP{ref}"
         session['ref'] = ref_no
+        session['ord_ref'] = ord_ref_no
         
         # Create a new order
-        order = Order(order_count_id=country_id,order_total_amt=total_price,order_cust_id=customer_id,order_ship_id=shipping_id,order_status='pending')
+        order = Order(order_count_id=country_id,order_total_amt=total_price,order_cust_id=customer_id,order_ship_id=shipping_id,order_reference=ord_ref_no,order_status='pending')
         db.session.add(order)
         db.session.commit()
         
@@ -869,12 +872,12 @@ def proceed_to_payment():
         return redirect('/logIn/')
 
     cust_details = get_cust_byid(cust_id)
-    ref = session.get('ref')
+    ord_ref = session.get('ord_ref')
     
-    print(f"Reference from session: {ref}")
+    print(f"Reference from session: {ord_ref}")
 
     # If reference is not found, redirect to start a new order
-    if not ref:
+    if not ord_ref:
         flash('Please start the order again', 'warning')
         return redirect('/order/')
     
@@ -958,6 +961,7 @@ def pay_with_paystack():
 def payment_success():
     cust_id = session.get('cust_id')
     if cust_id:
+        ord_ref = session.get('ord_ref')
         ref = session.get('ref')
         trxref = request.args.get('trxref')
         api_key = app.config['API_KEY']
@@ -972,7 +976,7 @@ def payment_success():
 
             """checking if the transcation was successfull"""
             payment = Payment.query.filter(Payment.pay_reference == ref).first()
-            order = Order.query.filter(Order.order_cust_id == cust_id).first()
+            order = Order.query.filter(Order.order_reference == ord_ref).first()
             if resp_dict['data']['status'] == "success":
                 flash("Your payment was successful","success")
                 payment.pay_status = "successful"
