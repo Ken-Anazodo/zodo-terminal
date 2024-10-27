@@ -35,7 +35,7 @@ def create_app():
 app = create_app()
 
 
-from pkg import admin_routes, customer_routes, forms, models
+from pkg import admin_routes, customer_routes, forms, models, error_routes
 
 
 

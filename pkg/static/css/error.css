@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.home-container {
+    background-color: #e9e2d5;
+    color: #09090b;
+    font-family: "Helvetica";
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 20px;
+}
+
+.err-code {
+    border-top: 1px solid #09090b;
+    border-bottom: 1px solid #09090b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Error code */
+.error-code {
+    font-size: 30vw;
+    color: #09090b;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+}
+
+/* Make the top and bottom rows fill available vertical space */
+.row1, .row3 {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.err {
+    border-left: 1px solid #09090b;
+    height: 100%; /* Ensure left border fills the entire row */
+}
+
+/* Circle text in the top-right */
+.circle-text {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7vw;
+    transform: rotate(-20deg);
+    font-weight: 200;
+    font-family: "Helvetica Regular";
+}
+
+.not-exist div p span {
+    font-family: "Helvetica Regular";
+}
+
+.right2 div p {
+    font-family: "Helvetica Regular";
+    margin-bottom: 7px;
+}
+
+.bottom-left{
+	width: 80%;
+}
+
+div .link {
+    font-family: "Monument Extended Bold";
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #09090b;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-left p, .bottom-left p{
+        font-size: 12px;
+		line-height: 12px;
+        padding-left: 15px;
+    }
+
+	.bottom-right p{
+		font-size: 14px;
+		line-height: 14px;
+	}
+
+    .error-code {
+        font-size: 25vw;
+    }
+}
+
+@media (max-width: 760px) {
+	.circle-text {
+		display: none;
+	}
+
+	.bottom-left{
+		width: 80%;
+	}
+}

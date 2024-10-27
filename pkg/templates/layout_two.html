@@ -157,6 +157,7 @@
 									</div>
 								</div>
 							{% endif %}
+							
 							{% block body %} {% endblock %}
 						</div>
 						
@@ -350,53 +351,53 @@
     <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+
 	<script>
-	
-// When the offcanvas is opened, dynamically load cart items
-$(document).on('show.bs.offcanvas', '#offcanvasCart', function () {
-    // Load cart items from the /get_cart_items route
-    $('#cart-items').load('/get_cart_items');
-});
+		// When the offcanvas is opened, dynamically load cart items
+		$(document).on('show.bs.offcanvas', '#offcanvasCart', function () {
+			// Load cart items from the /get_cart_items route
+			$('#cart-items').load('/get_cart_items');
+		});
 
-// Add to cart functionality
-$(document).on('click', '.add-to-cart-btn', function() {
-    const productId = $(this).data('product-id');
-    const quantity = $(`#quantity-${productId}`).val() || 1;  // Default to 1 if no quantity specified
-    const csrfToken = "{{ csrf_token() }}"; 
-	
-    $.ajax({
-        url: '/add_to_cart/selected/',
-        method: 'POST',
-        data: {
-            product_id: productId,  // Sending product_id
-            quantity: quantity,  // Sending quantity
-        },
-        headers: {
-            'X-CSRFToken': csrfToken  // Include CSRF token
-        },
-        success: function(response) {
-            if (response.status === 'success') {
-                alert('Product added to cart!');
+		// Add to cart functionality
+		$(document).on('click', '.add-to-cart-btn', function() {
+			const productId = $(this).data('product-id');
+			const quantity = $(`#quantity-${productId}`).val() || 1;  // Default to 1 if no quantity specified
+			const csrfToken = "{{ csrf_token() }}"; 
+			
+			$.ajax({
+				url: '/add_to_cart/selected/',
+				method: 'POST',
+				data: {
+					product_id: productId,  // Sending product_id
+					quantity: quantity,  // Sending quantity
+				},
+				headers: {
+					'X-CSRFToken': csrfToken  // Include CSRF token
+				},
+				success: function(response) {
+					if (response.status === 'success') {
+						alert('Product added to cart!');
 
-                // Reload cart contents
-                $('#cart-items').load('/get_cart_items');
+						// Reload cart contents
+						$('#cart-items').load('/get_cart_items');
 
-                // Update cart count
-                $('#cart-count').text(response.cart_count);
-                
-                // Optionally open the cart after adding an item
-                var myOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasCart'));
-                myOffcanvas.show();
-            }
-        },
-        error: function() {
-            alert('Error adding product to cart.');
-        }
-    });
-});
+						// Update cart count
+						$('#cart-count').text(response.cart_count);
+						
+						// Optionally open the cart after adding an item
+						var myOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasCart'));
+						myOffcanvas.show();
+					}
+				},
+				error: function() {
+					alert('Error adding product to cart.');
+				}
+			});
+		});
 
 
-// Update item quantity in the cart
+		// Update item quantity in the cart
 		$(document).on('change', '.update-quantity', function() {
 			const productId = $(this).data('product-id');
 			const quantity = $(this).val();

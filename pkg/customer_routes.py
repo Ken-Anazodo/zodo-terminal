@@ -2,7 +2,7 @@ import os
 import random
 import json
 import requests
-from flask import render_template, make_response, redirect, request, session, flash, url_for, jsonify
+from flask import render_template, make_response, redirect, request, session, flash, url_for, jsonify, abort
 from werkzeug.security import generate_password_hash,check_password_hash
 from pkg import app,db
 from flask_wtf.csrf import CSRFError
@@ -254,20 +254,9 @@ def update_profile(id):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route('/')
 def index():
+    # abort(404)
     countries = db.session.query(Country).all()
     products = db.session.query(Product).all() 
     onsales = db.session.query(Product).filter(Product.prod_featured_id == 1).all()
