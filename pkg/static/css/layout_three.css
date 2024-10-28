@@ -1151,17 +1151,16 @@ form .count:focus{
 	position: absolute;
 	top: 45%;
 	left: 43%;
-	/* display: none; */
-  }
+}
 
-  .shop-tag p{
+.shop-tag p{
 	border-radius: 15px;
 	border: 1px solid #09090b;
 	padding: 5px 40px;
 	font-size: 12px;
 	color: #09090b;
 	background-color: #e9e2d5;
-  }
+}
 
 .content-desc {
 	padding: 20px;

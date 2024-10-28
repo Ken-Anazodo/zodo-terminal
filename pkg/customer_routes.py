@@ -118,7 +118,7 @@ def sign_up():
             existing_customer = Customer.query.filter_by(cust_email=cust_email).first()
             if existing_customer:
                 flash('The email is already in use, choose another one', 'error')
-                return redirect(url_for('admin_register'))  # Redirect back to form page
+                return redirect(url_for('sign_up'))  # Redirect back to form page
 
             """to get the file name"""
             cust_filename = picture.filename

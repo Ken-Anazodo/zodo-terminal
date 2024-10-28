@@ -21,6 +21,7 @@
 	<link href="https://db.onlinewebfonts.com/c/057cd976d666cc6a9466409de446b1b4?family=Paganini+W00+Bold" rel="stylesheet">
 	<link href="https://db.onlinewebfonts.com/c/0d7b60e48285c3fa75a9537d55db1645?family=Paganini+W00+Regular" rel="stylesheet">
 	<link href="https://db.onlinewebfonts.com/c/eefaf210db33b5abee62154454f14ed7?family=Paganini+W00+Light" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 	
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap/css/bootstrap.css')}}"/>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='fa/css/all.css')}}"/>
@@ -137,6 +138,44 @@
 							<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
 						</div>
                     {% endif %}
+
+
+					<div class="d-flex justify-content-end">
+						<div class='quote text-end'>
+							<p class='first'>"Discover an experience you’ve been yearning for, yet never knew you desired."</p>
+							<div class='d-flex align-items-center justify-content-end'>
+								<div class="black"></div>
+								<div class="black"></div>
+								<div class="black"></div>
+							</div>
+							<p class='second'>Let's Explore!</p>
+
+
+
+							<div class='d-flex justify-content-end mt-5'>
+								<div class='swipe-cont'>
+									 <!-- Swiper -->
+									<div class="swiper mySwiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<video src="https://res.cloudinary.com/dkcbvgmcr/video/upload/v1730071701/zodoTerminal/pibuskvgavehglr65ljw.mp4" muted autoplay loop></video>
+											</div>
+											<div class="swiper-slide">
+												<video src="https://res.cloudinary.com/dkcbvgmcr/video/upload/v1730070553/zodoTerminal/z8fjxpr8nkkvi3gjtk8l.mp4" muted autoplay loop></video>
+											</div>
+											<div class="swiper-slide">
+												<video src="https://res.cloudinary.com/dkcbvgmcr/video/upload/v1730069791/zodoTerminal/qrhaxep3x1i7bt1ichat.mp4" muted autoplay loop></video>
+											</div>
+											<div class="swiper-slide">
+												<video src="https://res.cloudinary.com/dkcbvgmcr/video/upload/v1722794989/zodoTerminal/cw7edhrzfauuxqtmefe2.mp4" muted autoplay loop></video>
+											</div>
+										</div>
+									</div>
+							  	</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -364,10 +403,22 @@
 
 
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 	<script>
+		//swiper control
+		var swiper = new Swiper(".mySwiper", {
+			spaceBetween: 30,
+			effect: "fade",
+			loop: true,
+			autoplay: {
+				delay: 13000,
+				disableOnInteraction: false
+			  },
+		  });
+
 
 		// When the offcanvas is opened, dynamically load cart items
 		$(document).on('show.bs.offcanvas', '#offcanvasCart', function () {

@@ -147,6 +147,87 @@ a{
 	font-family: "Helvetica Regular";
 }
 
+.quote{
+	width: 80%;
+	font-family: "Poppins", sans-serif;
+	/* font-family: "Paganini W00 Regular"; */
+}
+
+.quote .first{
+	margin-top: 50px;
+	font-size: 0.7rem;
+	line-height: 1rem;
+	font-weight: 400;
+	text-transform: none;
+	/* color: #483a29; */
+	font-style: italic;
+}
+
+.quote .second{
+	margin-top: 10px;
+	font-size: 1.1rem;
+	line-height: 1.4rem;
+	font-weight: 400;
+	text-transform: capitalize;
+}
+
+.swipe-cont {
+	position: relative;
+	height: 8vw;
+	width: 90%;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+
+.swiper{
+	width: 100%;
+	height: 100%;
+	background-color: #09090b;
+}
+
+.swiper-wrapper{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide .overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-slide video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+
+.swiper-pagination-bullet-active{
+	background: #f6f1e8;
+} 
+
+
+
+
+
 
 
 
