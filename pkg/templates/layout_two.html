@@ -377,7 +377,8 @@
 				},
 				success: function(response) {
 					if (response.status === 'success') {
-						alert('Product added to cart!');
+						//alert('Product added to cart!');
+						showCartModal()
 
 						// Reload cart contents
 						$('#cart-items').load('/get_cart_items');

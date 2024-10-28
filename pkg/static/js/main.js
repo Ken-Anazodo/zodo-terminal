@@ -95,3 +95,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
+//Add to cart notification(add_to_cart.html)
+function showCartModal() {
+    const displayNotification = document.getElementById('notification');
+
+    if (displayNotification) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(displayNotification);
+        toastBootstrap.show(); 
+    }
+}
+
+
+

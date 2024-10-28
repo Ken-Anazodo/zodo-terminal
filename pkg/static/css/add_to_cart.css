@@ -375,9 +375,6 @@ a{
 }
 
 
-
-
-
   
 .landing-page{
 	width: 100%;
@@ -463,7 +460,25 @@ a{
 }
 
 
+.cart-notify{
+	background-color: #e9e2d5;
+	color: #09090b;
+	text-transform: capitalize;
+	font-size: 1rem;
+	font-weight: 400;
+	border: 1px solid #09090b;
+	font-family: "Helvetica Regular";
+}
 
+.cart-notify .note-head{
+	background-color: #e9e2d5;
+	color: #09090b;
+	border-bottom: 1px solid #09090b;
+	letter-spacing: 1px;
+	font-size: 0.9rem;
+	font-weight: 400;
+	font-family: "Monument Extended Bold";
+}
 
 
 
