@@ -7,6 +7,14 @@
 
 {% block body %}
 <div class="container mb-5 career-cont">
+    {% if session.get('cust_id') != None %}
+		<div class="user-profile-cont d-none d-lg-block pe-4 pe-xl-0 mt-3">
+			<div class='welcome-msg text-end text-xl-center p-0'>
+				<p>Welcome </p>
+				<p class='username p-0'>{{ cust_details.cust_firstname }}</p>
+			</div>
+		</div>
+	{% endif %}
 	<div class="row align-items-center">
         <!-- Left: Text Content -->
         <div class="col-xl-6 mb-4 mb-lg-0 car-content">
@@ -23,7 +31,7 @@
         <!-- Right: Image -->
         <div class="col-xl-6 car-img-cont">
 			<div class='car-img'>
-            	<img src="{{ url_for('static',filename='/img/img108.jpg')}}" alt="Mason Garments" class="img-fluid rounded">
+            	<img src="{{ url_for('static',filename='/img/img108.jpg')}}" alt="shop" class="img-fluid rounded">
 			</div>
         </div>
     </div>
