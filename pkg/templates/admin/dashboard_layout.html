@@ -82,29 +82,29 @@
                 <!-- End Logged in link-->
             </div>
         </div>
-        
-<!--end navigation-->
-{% with messages = get_flashed_messages(with_categories=True) %}
-		{% if messages %}
-			{% for cat,msg in messages %}
-				{% if cat == 'error' %}
-					<div class="alert alert-danger">{{ msg }}</div>
-				{% else %}
-					<div class="alert alert-success">{{ msg }}</div>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
-		{% endwith %}
 
-{% block content %}
+    <!--end navigation-->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+          {% for cat,msg in messages %}
+            {% if cat == 'error' %}
+              <div class="alert alert-danger">{{ msg }}</div>
+            {% else %}
+              <div class="alert alert-success">{{ msg }}</div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
 
-{% endblock %}
- 
-<div class="row foot text-white">
-  <div class="col">
-    <p class="text-center my-3"> &copy; 2024 Developed By Me</p>
-  </div>
-</div>
+    {% block content %}
+
+    {% endblock %}
+    
+    <div class="row foot text-white">
+      <div class="col">
+        <p class="text-center my-3"> &copy; 2024 Developed By Me</p>
+      </div>
+    </div>
 
       </div>
       <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
