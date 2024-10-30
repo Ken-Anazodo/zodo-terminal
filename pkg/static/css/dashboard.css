@@ -143,7 +143,15 @@ h3{
 
 
 
+.nav-logo{
+    height: 50px;
+    width: 80px;
+}
 
+.nav-logo img{
+    height: 100%;
+    width: 100%;
+}
 
 .user-profile li a:hover{
     background-color: white !important;

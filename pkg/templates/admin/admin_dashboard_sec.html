@@ -1,4 +1,4 @@
-{% extends 'dashboard_layout.html' %}
+{% extends 'admin/dashboard_layout.html' %}
 <!-- search banner-->
  
  <!-- end search banner-->
@@ -25,25 +25,25 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header text-center">Total Pictures</div>
+                        <div class="card-header text-center">Total Order</div>
                         <div class="card-body">
-                          <h5 class="card-title text-center">10</h5>                           
+                          <h5 class="card-title text-center">{{ orders | count }}</h5>                           
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card text-bg-info mb-3" style="max-width: 18rem;">
-                        <div class="card-header text-center">Total Bookings</div>
+                        <div class="card-header text-center">Total Brand</div>
                         <div class="card-body">
-                          <h5 class="card-title text-center">120</h5>                           
+                          <h5 class="card-title text-center">{{ brands | count }}</h5>                           
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header text-center">Total Tickets</div>
+                        <div class="card-header text-center">Total Product</div>
                         <div class="card-body">
-                          <h5 class="card-title text-center">10</h5>                           
+                          <h5 class="card-title text-center">{{ products | count }}</h5>                           
                         </div>
                     </div>
                 </div>

@@ -183,7 +183,10 @@ def center_dashboard():
     admin_id = session.get('admin_id')
     if admin_id:
         admin_details = get_admin_byid(admin_id)
-        return render_template('/admin/admin_dashboard_sec.html', admin_details=admin_details)
+        orders = db.session.query(Order).all()
+        products = db.session.query(Product).all()
+        brands = db.session.query(Brand).all()
+        return render_template('/admin/admin_dashboard_sec.html', admin_details=admin_details, orders=orders, products=products, brands=brands)
     else: #this means session is None
         flash('You need to login to access to this page','error')
         return redirect('/admin_login/')
@@ -242,60 +245,6 @@ def dashboard_search():
     else:
         flash('You need to login to access to this page','error')
         return redirect('/admin_login/')
-
-
-
-#Load Search Customers
-@app.route('/load/search/', methods=['GET', 'POST'])
-def ajax_get():
-    admin_id = session.get('admin_id')
-    if admin_id:
-        if request.method == "GET":
-            admin_details = get_admin_byid(admin_id)
-            name = request.form.get('name')
-            print(name)
-            found_customers = db.session.query(Customer).filter(Customer.cust_firstname.like(f'%{name}%') | Customer.cust_lastname.like(f'%{name}%')).all()
-            data = ""
-            for customer in found_customers:
-                data = data + f"""
-                
-                <table class="table table-striped mt-3">
-                        <thead>
-                        <tr>
-                            <td>S/N</td>
-                            <td>ID</td>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Email</td>
-                            <td>Phone No</td>
-                            <td>Billing addr</td>
-                            <td>Country</td>
-                            <td>Status</td>
-                            <td>Created at</td>
-                        </tr>
-                        </thead>
-                    
-                        <tbody>      
-                            
-                            <tr>
-                                <td>{ customer.cust_id }</td>
-                                <td>{ customer.cust_firstname }</td>
-                                <td>{ customer.cust_lastname }</td>
-                                <td>{ customer.cust_email }</td>
-                                <td>{ customer.cust_phone_number }</td>
-                                <td>{ customer.cust_bill_address }</td>
-                                <td>{ customer.cust_count_id }</td>
-                                <td>{ customer.cust_status }</td>
-                                <td>{ customer.cust_created_at }</td>
-                            </tr>
-                                    
-                        </tbody>
-                    </table>           
-                """
-            return data
-        else:
-            flash('You need to login to access to this page','error')
-            return redirect('/admin_login/')
     
     
 
@@ -428,18 +377,6 @@ def update_product(id):
         prod_feature = adform.prod_featured_id.data
 
         
-        # If a new image is uploaded
-        if prod_img and prod_img.filename != '':
-            ext = os.path.splitext(prod_img.filename)  # Split the file on the extension
-            extension = ext[-1]
-
-            # Generate new name
-            newfilename = secrets.token_hex(10)
-            prod_img.save(f"pkg/static/uploads/{newfilename}.{extension}")
-
-            # Update product fields
-            product.prod_image_url = f"{newfilename}.{extension}"
-
         # Update other product fields even if the image is not uploaded
         product.prod_name = prod_name
         product.prod_brand_id = prod_brand
@@ -447,17 +384,40 @@ def update_product(id):
         product.prod_price = prod_price
         product.prod_description = prod_desc
         product.prod_featured_id = prod_feature
+        
+        
+        # If a new image is uploaded
+        if prod_img and prod_img.filename != '':
+            ext = os.path.splitext(prod_img.filename)  # Split the file on the extension
+            extension = ext[-1].lower()
+
+            # Generate new name
+            new_image_name = secrets.token_hex(10)
+            picname = f"{new_image_name}{extension}"
 
         # Commit changes to the database
         try:
             db.session.commit()
-            flash('Product successfully updated', 'success')
+            
+            if new_image_name:
+                oldprod_img_name = product.prod_image_url
+                oldprod_img_filepath = os.path.join(app.config['UPLOAD_FOLDER'], oldprod_img_name)
+                if os.path.exists(oldprod_img_filepath):
+                    os.remove(oldprod_img_filepath) #del old product image
+                    
+                prod_img.save(app.config['UPLOAD_FOLDER']+picname) #save or upload new product image to upload folder
+
+                # Update product fields
+                product.prod_image_url = picname
+                db.session.commit()  # Commit again to update the image path
+             
+            flash('Product updated successfully', 'success')
             return redirect(url_for('update_product', id=id))
 
         except Exception as e:
             db.session.rollback()  # Rollback in case of error
             print(f"Error updating the database: {e}")
-            flash('An error occurred while adding product. Please check the data added and try again.', 'error')
+            flash('An error occurred while adding product. Please check that all input box is filled and try again.', 'error')
 
     else:
         flash('Form validation failed. All fields are required!', 'error')

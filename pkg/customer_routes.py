@@ -223,7 +223,13 @@ def update_profile(id):
                     flash('Extension is not allowed')
                     return redirect(url_for('sign_up'))  
                 else:
-                    picture.save(f"pkg/static/uploads/{newfilename}.{extension}") 
+                    oldpicname = customer.cust_image
+                    oldpic_filepath = os.path.join(app.config['UPLOAD_FOLDER'], oldpicname)
+                    if os.path.exists(oldpic_filepath):
+                        os.remove(oldpic_filepath) #del old image
+                        
+                    picname = newfilename+'.'+extension
+                    picture.save(app.config['UPLOAD_FOLDER']+picname) #save or upload new image to upload folder
                     hashed = generate_password_hash(password1)
 
                 

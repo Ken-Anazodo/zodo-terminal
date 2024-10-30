@@ -12,6 +12,7 @@ def create_app():
     app = Flask(__name__,instance_relative_config=True)
     app.config.from_pyfile('config.py',silent=True)
     # app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30) #session timeout
+    app.config['UPLOAD_FOLDER'] = 'pkg/static/uploads/'
     app.config['API_KEY'] = os.getenv('API_KEY')
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
