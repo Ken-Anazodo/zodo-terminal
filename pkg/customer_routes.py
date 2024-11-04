@@ -692,7 +692,7 @@ def get_cart_items():
 
 @app.route('/add_to_cart/selected/', methods=['POST'])
 def add_to_cart_selected():
-    product_id = int(request.form.get('product_id'))  # Convert to int to ensure consistency
+    product_id = int(request.form.get('product_id'))  
     quantity = int(request.form.get('quantity', 1))
    
     # Initialize the cart if it doesn't exist
@@ -907,7 +907,7 @@ def pay_with_paystack():
     cust_id = session.get('cust_id')
     if cust_id:
         ref = session.get('ref')
-        api_key = app.config['API_KEY']
+        api_key = app.config['PAYSTACK_API_KEY']
         if ref:
             url = "https://api.paystack.co/transaction/initialize"
             headers = {"Content-Type":"application/json", "Authorization":f"Bearer {api_key}"}

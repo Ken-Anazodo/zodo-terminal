@@ -1,5 +1,7 @@
 import os
 import json
+import requests
+from requests.auth import HTTPBasicAuth
 from flask import render_template, make_response, redirect, request, session, flash, url_for, jsonify
 from werkzeug.security import generate_password_hash,check_password_hash
 from pkg import app, db
@@ -373,9 +375,9 @@ def update_product(id):
         prod_category = adform.prod_category_id.data
         prod_price = adform.prod_price.data
         prod_desc = adform.prod_desc.data
-        prod_img = adform.prod_img.data
+        prod_img = request.form.get('image_url')
         prod_feature = adform.prod_featured_id.data
-
+        print(adform)
         
         # Update other product fields even if the image is not uploaded
         product.prod_name = prod_name
@@ -386,31 +388,41 @@ def update_product(id):
         product.prod_featured_id = prod_feature
         
         
-        # If a new image is uploaded
-        if prod_img and prod_img.filename != '':
-            ext = os.path.splitext(prod_img.filename)  # Split the file on the extension
-            extension = ext[-1].lower()
+        # Store the old image public ID to delete it later if a new image is uploaded
+        old_image_url = product.prod_image_url
+        old_image_public_id = None
 
-            # Generate new name
-            new_image_name = secrets.token_hex(10)
-            picname = f"{new_image_name}{extension}"
+        if old_image_url:
+            old_image_public_id = "/".join(old_image_url.split('/')[-2:]).split('.')[0]  # Extract public ID from URL
 
         # Commit changes to the database
         try:
             db.session.commit()
             
-            if new_image_name:
-                oldprod_img_name = product.prod_image_url
-                oldprod_img_filepath = os.path.join(app.config['UPLOAD_FOLDER'], oldprod_img_name)
-                if os.path.exists(oldprod_img_filepath):
-                    os.remove(oldprod_img_filepath) #del old product image
-                    
-                prod_img.save(app.config['UPLOAD_FOLDER']+picname) #save or upload new product image to upload folder
-
-                # Update product fields
-                product.prod_image_url = picname
+            if prod_img:
+                # Update product fields with the cloudinary new image
+                product.prod_image_url = prod_img
                 db.session.commit()  # Commit again to update the image path
-             
+                
+                
+                # Delete old image from Cloudinary
+                cloud_name = app.config['CLOUD_NAME']
+                api_key = app.config['CLOUDINARY_API_KEY']
+                api_secret = app.config['CLOUDINARY_API_SECRET']
+                
+                if old_image_public_id:
+                    delete_url = f"https://api.cloudinary.com/v1_1/{cloud_name}/resources/image/upload"
+                    data = {
+                        "public_ids": [old_image_public_id],
+                        "invalidate": True
+                    }
+                    response = requests.delete(delete_url, auth=HTTPBasicAuth(api_key, api_secret), data=data)
+
+                    if response.status_code == 200:
+                        print("Old image deleted successfully from Cloudinary.")
+                    else:
+                        print("Error deleting old image:", response.json())
+                        
             flash('Product updated successfully', 'success')
             return redirect(url_for('update_product', id=id))
 

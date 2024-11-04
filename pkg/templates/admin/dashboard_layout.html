@@ -84,25 +84,14 @@
         </div>
 
     <!--end navigation-->
-    {% with messages = get_flashed_messages(with_categories=True) %}
-        {% if messages %}
-          {% for cat,msg in messages %}
-            {% if cat == 'error' %}
-              <div class="alert alert-danger">{{ msg }}</div>
-            {% else %}
-              <div class="alert alert-success">{{ msg }}</div>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-        {% endwith %}
-
+  
     {% block content %}
 
     {% endblock %}
     
     <div class="row foot text-white">
       <div class="col">
-        <p class="text-center my-3"> &copy; 2024 Developed By Me</p>
+        <p class="text-center my-3"> &copy; 2022 - ZODO TERMINAL - All rights reserved</p>
       </div>
     </div>
 
@@ -121,6 +110,8 @@
           })
 
         });
+
+
       </script>
       
       {% block customjs %}
