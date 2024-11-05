@@ -845,19 +845,19 @@ tr:hover{
   }
 
   .sec4-img-container .ai1{
-	background-image: linear-gradient(to right, #00000080, rgba(0,0,0,0.5)), url(../img/img4.jpg);
+	background-image: linear-gradient(to right, #00000080, rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dkcbvgmcr/image/upload/v1730807713/zodo-terminal/hxuo3ya6if3krkt7ogr7.jpg');
 	/* -webkit-filter: grayscale(100%); 
     filter: grayscale(100%); */
   }
 
   .sec4-img-container .ai2{
-	background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/img88.jpg);
+	background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dkcbvgmcr/image/upload/v1730807750/zodo-terminal/uwrtlkqizpc8vbnsbrgy.jpg');
 	/* -webkit-filter: grayscale(100%); 
     filter: grayscale(100%); */
   }
 
   .sec4-img-container .ai3{
-	background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/img55.jpg);
+	background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://res.cloudinary.com/dkcbvgmcr/image/upload/v1730808017/zodo-terminal/kzjai3sykxlduqvcvtc9.jpg');
 	/* -webkit-filter: grayscale(100%); 
     filter: grayscale(100%); */
   }

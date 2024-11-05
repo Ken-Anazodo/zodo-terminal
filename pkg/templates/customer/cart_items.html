@@ -4,7 +4,7 @@
 		<ul>
 			{% for item in cart_items %}
 				<li class='d-flex mt-4'>
-					<div class='cart-img me-2'><img src="/static/uploads/{{item.product.prod_image_url}}" alt="products"></div>
+					<div class='cart-img me-2'><img src="{{item.product.prod_image_url}}" alt="products"></div>
 
 					<div>
 						<div class='prod-name-price'>
