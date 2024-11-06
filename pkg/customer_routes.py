@@ -2,6 +2,7 @@ import os
 import random
 import json
 import requests
+from requests.auth import HTTPBasicAuth
 from flask import render_template, make_response, redirect, request, session, flash, url_for, jsonify, abort
 from werkzeug.security import generate_password_hash,check_password_hash
 from pkg import app,db
@@ -112,7 +113,7 @@ def sign_up():
             contact_no = custform.contact_no.data
             contact_addr = custform.contact_addr.data
             password1 = custform.password.data
-            picture = custform.cust_pict.data
+            picture = request.form.get('image_url')
 
             # Check if the email is already in use
             existing_customer = Customer.query.filter_by(cust_email=cust_email).first()
@@ -120,23 +121,20 @@ def sign_up():
                 flash('The email is already in use, choose another one', 'error')
                 return redirect(url_for('sign_up'))  # Redirect back to form page
 
-            """to get the file name"""
-            cust_filename = picture.filename
+            """check if picture exist"""
+            if picture:
+                # ext = picture.split('/')[-1]
+                # extension = ext[-1].lower().replace('.', '')  
 
-            if cust_filename != '':
-                ext = os.path.splitext(cust_filename)
-                extension = ext[-1].lower().replace('.', '')  
+                # allowed_ext = ['jpg', 'png', 'jpeg']
 
-                allowed_ext = ['jpg', 'png', 'jpeg']
-
-                # Generate new name
-                newfilename = secrets.token_hex(16)
-                if extension not in allowed_ext: 
-                    flash('Extension is not allowed')
-                    return redirect(url_for('sign_up'))  # Redirect back to form page
-                else:
-                    picture.save(f"pkg/static/uploads/{newfilename}.{extension}") 
-                    hashed = generate_password_hash(password1)
+                # check if extension is allowed
+                # if extension not in allowed_ext: 
+                #     flash('Extension is not allowed')
+                #     return redirect(url_for('sign_up'))  # Redirect back to form page
+                # else:
+                #     hashed = generate_password_hash(password1)
+                hashed = generate_password_hash(password1)
 
                 new_cust = Customer(
                     cust_firstname=cust_fname, 
@@ -145,7 +143,7 @@ def sign_up():
                     cust_phone_number=contact_no, 
                     cust_bill_address=contact_addr, 
                     cust_password=hashed, 
-                    cust_image=f"{newfilename}.{extension}" 
+                    cust_image=picture 
                 )
 
                 try:
@@ -200,56 +198,63 @@ def update_profile(id):
             contact_no = custform.contact_no.data
             contact_addr = custform.contact_addr.data
             password1 = custform.password.data
-            picture = custform.cust_pict.data
+            picture = request.form.get('image_url')
 
             # Check if the email is already in use, and exclude the current customer
             existing_customer = Customer.query.filter(Customer.cust_email==cust_email, Customer.cust_id!=id).first()
             if existing_customer:
                 flash('The email is already in use, Please choose another one', 'error')
                 return redirect(url_for('update_profile', id=id))  
-
-            """to get the file name"""
-            cust_filename = picture.filename
-
-            if cust_filename != '':
-                ext = os.path.splitext(cust_filename)
-                extension = ext[-1].lower().replace('.', '')  
-
-                allowed_ext = ['jpg', 'png', 'jpeg']
-
-                # Generate new name
-                newfilename = secrets.token_hex(16)
-                if extension not in allowed_ext: 
-                    flash('Extension is not allowed')
-                    return redirect(url_for('sign_up'))  
-                else:
-                    oldpicname = customer.cust_image
-                    oldpic_filepath = os.path.join(app.config['UPLOAD_FOLDER'], oldpicname)
-                    if os.path.exists(oldpic_filepath):
-                        os.remove(oldpic_filepath) #del old image
-                        
-                    picname = newfilename+'.'+extension
-                    picture.save(app.config['UPLOAD_FOLDER']+picname) #save or upload new image to upload folder
-                    hashed = generate_password_hash(password1)
-
+            
+            hashed = generate_password_hash(password1)
                 
-                customer.cust_firstname=cust_fname 
-                customer.cust_lastname=cust_lname
-                customer.cust_email=cust_email 
-                customer.cust_phone_number=contact_no 
-                customer.cust_bill_address=contact_addr 
-                customer.cust_password=hashed 
-                customer.cust_image=f"{newfilename}.{extension}" 
-                
+            customer.cust_firstname=cust_fname 
+            customer.cust_lastname=cust_lname
+            customer.cust_email=cust_email 
+            customer.cust_phone_number=contact_no 
+            customer.cust_bill_address=contact_addr 
+            customer.cust_password=hashed
+            
+            # Store the old image public ID to delete it later if a new image is uploaded
+            old_image_url = customer.cust_image
+            old_image_public_id = None
 
-                try:
-                    db.session.commit()
-                    flash('Profile successfully updated', 'success')
-                    return redirect('/')
-                except Exception as e:
-                    db.session.rollback()  
-                    print(f"Error Updating Profile: {e}") 
-                    flash('An error occurred while updating your profile. Please try again.', 'error')
+            if old_image_url:
+                old_image_public_id = "/".join(old_image_url.split('/')[-2:]).split('.')[0]  # Extract public ID from URL
+
+            try:
+                db.session.commit()
+                  
+                if picture:  
+                    # Update image field with the cloudinary new image                     
+                    customer.cust_image=picture 
+                    db.session.commit() # Commit again to insert and update the image name
+                    
+                    # Delete old image from Cloudinary
+                    cloud_name = app.config['CLOUD_NAME']
+                    api_key = app.config['CLOUDINARY_API_KEY']
+                    api_secret = app.config['CLOUDINARY_API_SECRET']
+                    
+                    if old_image_public_id:
+                        delete_url = f"https://api.cloudinary.com/v1_1/{cloud_name}/resources/image/upload"
+                        data = {
+                            "public_ids": [old_image_public_id],
+                            "invalidate": True
+                        }
+                        response = requests.delete(delete_url, auth=HTTPBasicAuth(api_key, api_secret), data=data)
+
+                        if response.status_code == 200:
+                            print("Old image deleted successfully from Cloudinary.")
+                        else:
+                            print("Error deleting old image:", response.json())
+                    
+             
+                flash('Profile successfully updated', 'success')
+                return redirect('/')
+            except Exception as e:
+                db.session.rollback()  
+                print(f"Error Updating Profile: {e}") 
+                flash('An error occurred while updating your profile. Please try again.', 'error')
         else:
             print(f"Form validation errors: {custform.errors}")
 

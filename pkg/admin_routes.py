@@ -299,26 +299,24 @@ def add_new_products():
             prod_category = adform.prod_category_id.data
             prod_price = adform.prod_price.data
             prod_desc = adform.prod_desc.data
-            prod_img = adform.prod_img.data
+            prod_img = request.form.get('image_url')
             prod_feature = adform.prod_featured_id.data
             
             
-            """to get the file name"""
-            prod_filename = prod_img.filename
+            """check if product image exist"""
+            if prod_img:
+                # ext = os.path.splitext(prod_filename)
+                # extension = ext[-1].lower().replace('.', '')  
 
-            if prod_filename != '':
-                ext = os.path.splitext(prod_filename)
-                extension = ext[-1].lower().replace('.', '')  
+                # allowed_ext = ['jpg', 'png', 'jpeg']
 
-                allowed_ext = ['jpg', 'png', 'jpeg']
-
-                # Generate new name
-                newfilename = secrets.token_hex(16)
-                if extension not in allowed_ext: 
-                    flash('Extension is not allowed')
-                    return redirect(url_for('add_new_products'))  # Redirect back to form page
-                else:
-                    prod_img.save(f"pkg/static/uploads/{newfilename}.{extension}") 
+                # # Generate new name
+                # newfilename = secrets.token_hex(16)
+                # if extension not in allowed_ext: 
+                #     flash('Extension is not allowed')
+                #     return redirect(url_for('add_new_products'))  # Redirect back to form page
+                # else:
+                #     prod_img.save(f"pkg/static/uploads/{newfilename}.{extension}") 
 
                 b = Product(
                     prod_name=prod_name, 
@@ -326,7 +324,7 @@ def add_new_products():
                     prod_category_id=prod_category, 
                     prod_price=prod_price, 
                     prod_description=prod_desc,
-                    prod_image_url=f"{newfilename}.{extension}",
+                    prod_image_url=prod_img,
                     prod_featured_id=prod_feature
                 )
 
@@ -402,7 +400,7 @@ def update_product(id):
             if prod_img:
                 # Update product fields with the cloudinary new image
                 product.prod_image_url = prod_img
-                db.session.commit()  # Commit again to update the image path
+                db.session.commit()  # Commit again to insert and update the product image name
                 
                 
                 # Delete old image from Cloudinary

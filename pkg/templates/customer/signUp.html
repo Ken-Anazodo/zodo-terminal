@@ -1,140 +1,218 @@
 
-			{% extends "layout.html" %}
+	{% extends "layout.html" %}
 
-			{% block stylesheet %}
-			<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/signUp.css')}}">
-			{% endblock %}
+	{% block stylesheet %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/signUp.css')}}">
+	{% endblock %}
 
 
 
-			{% block body1 %}
-			<div class="col-md-8 pt-5 d-flex align-items-center justify-content-center front-sec-container">
-				<div class="form-cont">
-					{% with messages = get_flashed_messages(with_categories=True) %}
-					{% if messages %}
-						{% for cat,msg in messages %}
-							{% if cat == 'error' %}
-								<div class="alert alert-danger">{{ msg }}</div>
-							{% else %}
-								<div class="alert alert-success">{{ msg }}</div>
-							{% endif %}
-						{% endfor %}
+	{% block body1 %}
+	<div class="col-md-8 pt-5 d-flex align-items-center justify-content-center front-sec-container">
+		<div class="form-cont">
+			{% with messages = get_flashed_messages(with_categories=True) %}
+			{% if messages %}
+				{% for cat,msg in messages %}
+					{% if cat == 'error' %}
+						<div class="alert alert-danger">{{ msg }}</div>
+					{% else %}
+						<div class="alert alert-success">{{ msg }}</div>
 					{% endif %}
-					{% endwith %}
+				{% endfor %}
+			{% endif %}
+			{% endwith %}
 
 
-					<div class="form-cont1 col-md-7 m-auto">
-						<div class="form-head text-center">
-							 <p class="log mb-4">Sign Up</p>
-							 <p>Please fill the following information Below</p>
-						</div>
+			<div class="form-cont1 col-md-7 m-auto">
+				<div class="form-head text-center">
+						<p class="log mb-4">Sign Up</p>
+						<p>Please fill the following information Below</p>
+				</div>
 
 
-						<form action="/signUp/" method="post" enctype="multipart/form-data">
-							{{ custform.csrf_token }}
+				<form action="/signUp/" method="post" enctype="multipart/form-data" id="signUpForm">
+					{{ custform.csrf_token }}
 
-							<div class="form-floating user-cont">
-								{{custform.firstname.label}}<br>
-								{{custform.firstname(placeholder="Firstname", class="form-control")}}<br>
-								{% if custform.firstname.errors %}
-									{% for error in custform.firstname.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-
-							<div class="form-floating user-cont">
-								{{custform.lastname.label}}<br>
-								{{custform.lastname(placeholder="Lastname", class="form-control")}}<br>
-								{% if custform.lastname.errors %}
-									{% for error in custform.lastname.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-							
-
-							<div class="form-floating user-cont">
-								{{custform.email.label}}<br>
-								{{custform.email(placeholder="E-mail", class="form-control")}}<br>
-								{% if custform.email.errors %}
-									{% for error in custform.email.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-
-							<div class="form-floating user-cont">
-								{{custform.contact_no.label}}<br>
-								{{custform.contact_no(placeholder="Contact Number", class="form-control")}}<br>
-								{% if custform.contact_no.errors %}
-									{% for error in custform.contact_no.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-
-							<div class="form-floating user-cont">
-								{{custform.contact_addr.label}}<br>
-								{{custform.contact_addr(placeholder="Contact Address", class="form-control")}}<br>
-								{% if custform.contact_addr.errors %}
-									{% for error in custform.contact_addr.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-
-
-							<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
-							<div class="form-floating mb-2 user-cont">
-								{{custform.cust_pict.label}}
-								{{custform.cust_pict(placeholder='Brand Logo', class="form-control filefield")}}
-								{% if custform.cust_pict.errors %}
-									{% for error in custform.cust_pict.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-
-		
-							<div class="form-floating mb-2 user-cont">
-								{{custform.password.label}}
-								{{custform.password(placeholder="Password", class="form-control")}}
-								{% if custform.password.errors %}
-									{% for error in custform.password.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-
-							<div class="form-floating mb-2 user-cont">
-								{{custform.confirm_password.label}}
-								{{custform.confirm_password(placeholder="Confirm Password", class="form-control")}}
-								{% if custform.confirm_password.errors %}
-									{% for error in custform.confirm_password.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
-							</div>
-
-							<div class="log-btn">
-								{{custform.submit(class='btn btn-lg col-12 log-btn')}}
-							</div>
-						</form>
-
-						<div class="text-center mt-4">
-							<p>Already have an account? <a href="/logIn/"><u>Log In</u></a></p>
-						</div>
+					<div class="form-floating user-cont">
+						{{custform.firstname.label}}<br>
+						{{custform.firstname(placeholder="Firstname", class="form-control")}}<br>
+						{% if custform.firstname.errors %}
+							{% for error in custform.firstname.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
 					</div>
+
+
+					<div class="form-floating user-cont">
+						{{custform.lastname.label}}<br>
+						{{custform.lastname(placeholder="Lastname", class="form-control")}}<br>
+						{% if custform.lastname.errors %}
+							{% for error in custform.lastname.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
+					</div>
+					
+
+					<div class="form-floating user-cont">
+						{{custform.email.label}}<br>
+						{{custform.email(placeholder="E-mail", class="form-control")}}<br>
+						{% if custform.email.errors %}
+							{% for error in custform.email.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
+					</div>
+
+
+					<div class="form-floating user-cont">
+						{{custform.contact_no.label}}<br>
+						{{custform.contact_no(placeholder="Contact Number", class="form-control")}}<br>
+						{% if custform.contact_no.errors %}
+							{% for error in custform.contact_no.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
+					</div>
+
+
+					<div class="form-floating user-cont">
+						{{custform.contact_addr.label}}<br>
+						{{custform.contact_addr(placeholder="Contact Address", class="form-control")}}<br>
+						{% if custform.contact_addr.errors %}
+							{% for error in custform.contact_addr.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
+					</div>
+
+
+
+					<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
+					<div class="form-floating mb-2 user-cont d-flex gap-4 align-items-center">
+
+						<div class="uploaderDiv">
+							{{custform.cust_pict(placeholder='Brand Logo', class="form-control filefield", id='filefield')}}
+							{% if custform.cust_pict.errors %}
+								{% for error in custform.cust_pict.errors %}
+									<span class='err-msg'> {{error}} </span>
+								{% endfor %}
+							{% endif %}
+
+							<button id="load" class="upload  btn btn-dark px-4 py-2">File Upload</button>
+						</div>
+
+						<input type="hidden" id='image_url' name="image_url" value="">
+
+						<a id="fileName"> </a>
+					</div>
+
+
+
+					<div class="form-floating mb-2 user-cont">
+						{{custform.password.label}}
+						{{custform.password(placeholder="Password", class="form-control")}}
+						{% if custform.password.errors %}
+							{% for error in custform.password.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
+					</div>
+
+
+					<div class="form-floating mb-2 user-cont">
+						{{custform.confirm_password.label}}
+						{{custform.confirm_password(placeholder="Confirm Password", class="form-control")}}
+						{% if custform.confirm_password.errors %}
+							{% for error in custform.confirm_password.errors %}
+								<span class='err-msg'> {{error}} </span>
+							{% endfor %}
+						{% endif %}
+					</div>
+
+					<div class="log-btn">
+						{{custform.submit(class='btn btn-lg col-12 log-btn')}}
+					</div>
+				</form>
+
+				<div class="text-center mt-4">
+					<p>Already have an account? <a href="/logIn/"><u>Log In</u></a></p>
 				</div>
 			</div>
-			{% endblock %}
+		</div>
+	</div>
+	{% endblock %}
+
+	{% block script %}
+	<script>
+	
+		let filePicker=document.getElementById('filefield');
+	
+		filePicker.addEventListener('change', (e)=>{
+		
+			const file = e.target.files[0];
+			const imageFormData = new FormData();
+			imageFormData.append("file", file);
+			imageFormData.append("image", file);
+			imageFormData.append("upload_preset", "zodo-terminal");
+			imageFormData.append("cloud_name", "dkcbvgmcr");
+	
+	
+			let loader = document.getElementById('load').innerHTML = `
+			<div class="loader">
+				<li class="dots" id="dot-1"></li>
+				<li class="dots" id="dot-2"></li>
+				<li class="dots" id="dot-3"></li>
+			</div>`
+	
+			fetch("https://api.cloudinary.com/v1_1/dkcbvgmcr/image/upload", {
+			method: "POST",
+			body: imageFormData,
+			})
+	
+	
+			.then((res) => res.json())
+			.then((data) => {
+	
+				document.getElementById('fileName').innerHTML = data?.url;
+				const cloudFile = document.getElementById('image_url').value = data?.url;
+				document.getElementById('load').innerHTML = 'File Upload'
+				console.log(`image from cloudinary: ${cloudFile}`)
+					
+			})
+			.catch((err) => {
+				console.log(err);
+				document.getElementById('load').innerHTML = 'File Upload';
+			});
+		})
+	
+	
+		
+	
+		$(document).on('click', '.updateBtn', function() {
+			const signUpForm = document.getElementById('signUpForm');
+			const signUpFormData = new FormData(signUpForm);
+			signUpFormData.append("csrf_token", "{{ csrf_token() }}"); 
+		
+			$.ajax({
+				url: `/signUp/`,
+				type: 'POST',
+				data: signUpFormData,
+				processData: false,   // Prevent jQuery from processing data
+				contentType: false,   // Prevent jQuery from setting content type, as FormData has its own
+				success: function(response) {
+					console.log(response);
+				},
+				error: function(error) {
+					console.error('Error in sign up:', error);
+				}
+			});
+		});
+		
+		
+		</script>
+	{% endblock  %}
 
 
-			
+	

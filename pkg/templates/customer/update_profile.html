@@ -30,7 +30,7 @@
 						</div>
 
 
-						<form action="/update_profile/{{customer.cust_id}}/" method="post" enctype="multipart/form-data">
+						<form action="/update_profile/{{customer.cust_id}}/" method="post" enctype="multipart/form-data" id="updateForm">
 							{{ custform.csrf_token }}
 
 							<div class="form-floating user-cont">
@@ -90,14 +90,22 @@
 
 
 							<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
-							<div class="form-floating mb-2 user-cont">
-								{{custform.cust_pict.label}}
-								{{custform.cust_pict(placeholder='Brand Logo', class="form-control filefield", value=customer.cust_image)}}
-								{% if custform.cust_pict.errors %}
-									{% for error in custform.cust_pict.errors %}
-										<span class='err-msg'> {{error}} </span>
-									{% endfor %}
-								{% endif %}
+							<div class="form-floating mb-2 user-cont d-flex gap-4 align-items-center">
+
+								<div class="uploaderDiv">
+									{{custform.cust_pict(placeholder='Brand Logo', class="form-control filefield", id='filefield')}}
+									{% if custform.cust_pict.errors %}
+										{% for error in custform.cust_pict.errors %}
+											<span class='err-msg'> {{error}} </span>
+										{% endfor %}
+									{% endif %}
+		
+									<button id="load" class="upload  btn btn-dark px-4 py-2">File Upload</button>
+								</div>
+		
+								<input type="hidden" id='image_url' name="image_url" value="">
+		
+								<a id="fileName"> </a>
 							</div>
 
 
@@ -131,6 +139,79 @@
 				</div>
 			</div>
 			{% endblock %}
+
+
+
+
+			{% block script %}
+	<script>
+	
+		let filePicker=document.getElementById('filefield');
+	
+		filePicker.addEventListener('change', (e)=>{
+		
+			const file = e.target.files[0];
+			const imageFormData = new FormData();
+			imageFormData.append("file", file);
+			imageFormData.append("image", file);
+			imageFormData.append("upload_preset", "zodo-terminal");
+			imageFormData.append("cloud_name", "dkcbvgmcr");
+	
+	
+			let loader = document.getElementById('load').innerHTML = `
+			<div class="loader">
+				<li class="dots" id="dot-1"></li>
+				<li class="dots" id="dot-2"></li>
+				<li class="dots" id="dot-3"></li>
+			</div>`
+	
+			fetch("https://api.cloudinary.com/v1_1/dkcbvgmcr/image/upload", {
+			method: "POST",
+			body: imageFormData,
+			})
+	
+	
+			.then((res) => res.json())
+			.then((data) => {
+	
+				document.getElementById('fileName').innerHTML = data?.url;
+				const cloudFile = document.getElementById('image_url').value = data?.url;
+				document.getElementById('load').innerHTML = 'File Upload'
+				console.log(`image from cloudinary: ${cloudFile}`)
+					
+			})
+			.catch((err) => {
+				console.log(err);
+				document.getElementById('load').innerHTML = 'File Upload';
+			});
+		})
+	
+	
+		
+	
+		$(document).on('click', '.updateBtn', function() {
+			const updateForm = document.getElementById('updateForm');
+			const updateProfileFormData = new FormData(updateForm);
+			updateProfileFormData.append("csrf_token", "{{ csrf_token() }}"); 
+		
+			$.ajax({
+				url: `/update_profile/${cust_details.cust_id}/`,
+				type: 'POST',
+				data: updateProfileFormData,
+				processData: false,   // Prevent jQuery from processing data
+				contentType: false,   // Prevent jQuery from setting content type, as FormData has its own
+				success: function(response) {
+					console.log(response);
+				},
+				error: function(error) {
+					console.error('Error updating profile:', error);
+				}
+			});
+		});
+		
+		
+		</script>
+	{% endblock  %}
 
 
 			

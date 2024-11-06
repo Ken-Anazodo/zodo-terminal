@@ -229,12 +229,6 @@ a{
 
 
 
-
-
-
-
-
-
 /* SMALL SCREEN NAVIGATION */
 .container-fluid .brand-name{
 	z-index: 1051;
@@ -404,6 +398,11 @@ a{
 	border: 1px solid #646869;
 }
 
+.user-cont .filefield{
+    opacity: 0;
+}
+
+
 .log-btn{
 	background-color: #09090b;
 	color: #e9e2d5;
@@ -419,6 +418,76 @@ a{
 	color: #e9e2d5;
 	font-family: "Helvetica Regular";
 }
+
+
+
+
+input.filefield{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+      
+.uploaderDiv{
+    position: relative;
+}
+
+.uploaderDiv button{
+	background-color: #09090b;
+	color: #e9e2d5;
+	font-size: 14px;
+}
+  
+/* loader */
+.loader {
+    display: flex;
+    gap: 0.6em;
+    list-style: none;
+}
+  
+.dots {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+  
+#dot-1 {
+    animation: loader-1 0.6s infinite ease-in-out;
+}
+  
+@keyframes loader-1 {
+    50% {
+      opacity: 0;
+      transform: translateY(-0.3em);
+    }
+}
+  
+#dot-2 {
+    animation: loader-2 0.6s 0.3s infinite ease-in-out;
+}
+  
+@keyframes loader-2 {
+    50% {
+      opacity: 0;
+      transform: translateY(-0.3em);
+    }
+}
+  
+#dot-3 {
+    animation: loader-3 0.6s 0.6s infinite ease-in-out;
+}
+  
+@keyframes loader-3 {
+    50% {
+      opacity: 0;
+      transform: translateY(-0.3em);
+    }
+}
+
+
+
+
 
 .checkboxx input{
 	background-color: #e9e2d5;
