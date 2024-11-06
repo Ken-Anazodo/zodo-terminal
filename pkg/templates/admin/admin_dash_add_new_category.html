@@ -36,7 +36,7 @@
 					</div>
 
 
-					<form action="/admin/add_new_category/" method="post" enctype="multipart/form-data">
+					<form action="/admin/add_new_category/" method="post" enctype="multipart/form-data" id='addCategoryForm'>
 						{{ adform.csrf_token }}
 
 
@@ -75,3 +75,28 @@
   	</div>
 </div>
 {% endblock content %}
+
+
+{% block customjs%}
+	<script>
+		$(document).on('click', '.log-btn', function() {
+			const addCategoryForm = document.getElementById('addCategoryForm');
+			const addCategoryFormData = new FormData(addCategoryForm);
+			addCategoryFormData.append("csrf_token", "{{ csrf_token() }}"); 
+		
+			$.ajax({
+				url: '/admin/add_new_category/',
+				type: 'POST',
+				data: addCategoryFormData,
+				processData: false,   // Prevent jQuery from processing data
+				contentType: false,   // Prevent jQuery from setting content type, as FormData has its own
+				success: function(response) {
+					console.log(response);
+				},
+				error: function(error) {
+					console.error('Error in adding category:', error);
+				}
+			});
+		});
+	</script>
+{% endblock %}

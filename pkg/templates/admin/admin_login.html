@@ -28,7 +28,7 @@
 										</div>
 				
 				
-										<form action="/submit/admin_login/" method="post">
+										<form action="/submit/admin_login/" method="post" id='loginForm'>
 											{{ adform.csrf_token }}
 											<div class="form-floating mb-2 user-cont">
 												{{adform.username.label}}
@@ -65,4 +65,27 @@
 						{% endblock %}
 
 
+						{% block customjs%}
+							<script>
+								$(document).on('click', '.log-btn', function() {
+									const loginForm = document.getElementById('loginForm');
+									const loginFormData = new FormData(loginForm);
+									loginFormData.append("csrf_token", "{{ csrf_token() }}"); 
+								
+									$.ajax({
+										url: '/admin_login/',
+										type: 'POST',
+										data: loginFormData,
+										processData: false,   // Prevent jQuery from processing data
+										contentType: false,   // Prevent jQuery from setting content type, as FormData has its own
+										success: function(response) {
+											console.log(response);
+										},
+										error: function(error) {
+											console.error('Error in Login:', error);
+										}
+									});
+								});
+							</script>
+						{% endblock %}
 
