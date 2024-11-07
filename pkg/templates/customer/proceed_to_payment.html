@@ -45,7 +45,7 @@
 	{% if cart %}
     {% for item in cart %}
     <div class="product-item d-flex justify-content-between align-items-center">
-        <img src="/static/uploads/{{ item.product.prod_image_url }}" alt="{{ item.product.prod_name }}" class="product-img">
+        <img src="{{ item.product.prod_image_url }}" alt="{{ item.product.prod_name }}" class="product-img">
         <div class="product-info">
             <h6>{{ item.product.prod_name }}</h6>
             <small>{{ item.product.prod_description }}</small>

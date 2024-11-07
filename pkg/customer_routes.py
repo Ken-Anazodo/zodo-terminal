@@ -965,7 +965,7 @@ def payment_success():
         ord_ref = session.get('ord_ref')
         ref = session.get('ref')
         trxref = request.args.get('trxref')
-        api_key = app.config['API_KEY']
+        api_key = app.config['PAYSTACK_API_KEY']
 
         ## checking if our reference matches the reference from paystack
         if (ref != None) and (ref == trxref):

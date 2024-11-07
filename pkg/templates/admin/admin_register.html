@@ -96,17 +96,24 @@
 
 											<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
 											<div class="form-floating mb-2 user-cont">
-												{{adform.picture.label}}
-												{{adform.picture(placeholder='Brand Logo', class="form-control filefield")}}
+
+												<div class="uploaderDiv">
+												{{adform.picture(placeholder='Brand Logo', class="form-control filefield", id='filefield')}}
 												{% if adform.picture.errors %}
 													{% for error in adform.picture.errors %}
 														<span class='err-msg'> {{error}} </span>
 													{% endfor %}
 												{% endif %}
+
+													<button id="load" class="upload  btn btn-dark px-4 py-2">File Upload</button>
+												<div>
+
+												<input type="hidden" id='image_url' name="image_url" value="">
+												<a id="fileName"> </a>
 											</div>
 
 
-											<div class="form-floating mb-2 user-cont">
+											<div class="form-floating my-2 user-cont">
 												{{adform.password.label}}
 												{{adform.password(placeholder="Password", class="form-control")}}
 												{% if adform.password.errors %}
@@ -144,6 +151,49 @@
 
 						{% block customjs %}
 						<script>
+							let filePicker=document.getElementById('filefield');
+	
+							filePicker.addEventListener('change', (e)=>{
+							
+								const file = e.target.files[0];
+								const imageFormData = new FormData();
+								imageFormData.append("file", file);
+								imageFormData.append("image", file);
+								imageFormData.append("upload_preset", "zodo-terminal");
+								imageFormData.append("cloud_name", "dkcbvgmcr");
+						
+						
+								let loader = document.getElementById('load').innerHTML = `
+								<div class="loader">
+									<li class="dots" id="dot-1"></li>
+									<li class="dots" id="dot-2"></li>
+									<li class="dots" id="dot-3"></li>
+								</div>`
+						
+								fetch("https://api.cloudinary.com/v1_1/dkcbvgmcr/image/upload", {
+								method: "POST",
+								body: imageFormData,
+								})
+						
+						
+								.then((res) => res.json())
+								.then((data) => {
+						
+									document.getElementById('fileName').innerHTML = data?.url;
+									const cloudFile = document.getElementById('image_url').value = data?.url;
+									document.getElementById('load').innerHTML = 'File Upload'
+									console.log(`image from cloudinary: ${cloudFile}`)
+										
+								})
+								.catch((err) => {
+									console.log(err);
+									document.getElementById('load').innerHTML = 'File Upload';
+								});
+							})
+
+
+
+
 							$(document).on('click', '.log-btn', function() {
 								const adminRegisterForm = document.getElementById('adminRegisterForm');
 								const adminRegisterFormData = new FormData(adminRegisterForm);

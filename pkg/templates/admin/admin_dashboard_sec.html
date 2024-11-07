@@ -19,6 +19,18 @@
      
     <div class="row">
         <div class="col-md-12">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for cat,msg in messages %}
+                    {% if cat == 'error' %}
+                        <div class="alert alert-danger">{{ msg }}</div>
+                    {% else %}
+                        <div class="alert alert-success">{{ msg }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            
             <h5 class="my-3">Welcome {{ admin_details.admin_username }}</h5>
             <p>You are logged in, please make use of the side menu to carry out tasks on this platform, you can sign out when you are done.</p>
            

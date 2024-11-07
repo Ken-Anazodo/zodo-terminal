@@ -110,7 +110,7 @@ def admin_register():
             contact_no = adform.contact_no.data
             contact_addr = adform.addr.data
             password1 = adform.password.data
-            picture = adform.picture.data
+            picture = request.form.get('image_url')
 
             # Check if the email is already in use
             existing_admin = Administrator.query.filter_by(admin_email=admin_email).first()
@@ -118,23 +118,22 @@ def admin_register():
                 flash('The email is already in use, choose another one')
                 return redirect(url_for('admin_register'))  # Redirect back to form page
 
-            """to get the file name"""
-            admin_filename = picture.filename
+            """check if picture exist"""
+            if picture:
+                # ext = os.path.splitext(admin_filename)
+                # extension = ext[-1].lower().replace('.', '')  
 
-            if admin_filename != '':
-                ext = os.path.splitext(admin_filename)
-                extension = ext[-1].lower().replace('.', '')  
+                # allowed_ext = ['jpg', 'png', 'jpeg']
 
-                allowed_ext = ['jpg', 'png', 'jpeg']
-
-                # Generate new name
-                newfilename = secrets.token_hex(16)
-                if extension not in allowed_ext: 
-                    flash('Extension is not allowed')
-                    return redirect(url_for('admin_register'))  # Redirect back to form page
-                else:
-                    picture.save(f"pkg/static/uploads/{newfilename}.{extension}") 
-                    hashed = generate_password_hash(password1)
+                # # Generate new name
+                # newfilename = secrets.token_hex(16)
+                # if extension not in allowed_ext: 
+                #     flash('Extension is not allowed')
+                #     return redirect(url_for('admin_register'))  # Redirect back to form page
+                # else:
+                #     picture.save(f"pkg/static/uploads/{newfilename}.{extension}") 
+                #     hashed = generate_password_hash(password1)
+                hashed = generate_password_hash(password1)
 
                 a = Administrator(
                     admin_firstname=admin_fname, 
@@ -144,7 +143,7 @@ def admin_register():
                     admin_phone_number=contact_no, 
                     admin_contact_addr=contact_addr, 
                     admin_password=hashed, 
-                    admin_image=f"{newfilename}.{extension}" 
+                    admin_image=picture 
                 )
 
                 try:
