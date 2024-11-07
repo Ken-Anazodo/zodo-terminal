@@ -95,7 +95,7 @@
 											</div>
 
 											<p class="alert upload-desc">We allow .jpg .png .jpeg</p>
-											<div class="form-floating mb-2 user-cont">
+											<div class="form-floating mb-2 user-cont d-flex gap-4 align-items-center">
 
 												<div class="uploaderDiv">
 												{{adform.picture(placeholder='Brand Logo', class="form-control filefield", id='filefield')}}
@@ -106,14 +106,14 @@
 												{% endif %}
 
 													<button id="load" class="upload  btn btn-dark px-4 py-2">File Upload</button>
-												<div>
-
+												</div>
+													
 												<input type="hidden" id='image_url' name="image_url" value="">
 												<a id="fileName"> </a>
 											</div>
 
 
-											<div class="form-floating my-2 user-cont">
+											<div class="form-floating mb-2 user-cont">
 												{{adform.password.label}}
 												{{adform.password(placeholder="Password", class="form-control")}}
 												{% if adform.password.errors %}
