@@ -20,6 +20,7 @@ a{
 	pointer-events: none;
 	z-index: 1000000000;
 	mix-blend-mode: difference;
+	display: none;
   }
 
 .sec-title {
@@ -743,12 +744,16 @@ tr:hover{
 	cursor: pointer;
   }
 
+
+
   .shop-tag{
 	position: absolute;
 	top: 45%;
-	left: 28%;
+	left: 32%;
 	display: none;
   }
+
+  
 
   .shop-tag p{
 	border-radius: 15px;
@@ -782,11 +787,6 @@ tr:hover{
     filter: grayscale(100%);
   }
 
-  .trend-prod:hover{
-	transform: scale(1.15);
-	filter: none;
-	transition: all 0.3s ease-in-out;
-  }
 
   .trend-prod img:hover{
 	filter: none;
@@ -978,9 +978,9 @@ tr:hover{
 .shop-tag1{
 	position: absolute;
 	top: 45%;
-	left: 30%;
+	left: 34%;
 	display: none;
-  }
+}
 
 
 .shop-tag1 p{
@@ -1311,6 +1311,20 @@ form .count:focus{
 	.front-img1 .front-sec-img-container{
 		height: 350px;
 	}
+
+	.shop-tag{
+		position: absolute;
+		top: 45%;
+		left: 28%;
+		display: none;
+	}
+
+	.shop-tag1{
+		position: absolute;
+		top: 45%;
+		left: 30%;
+		display: none;
+	}
 }
 
 
@@ -1327,6 +1341,16 @@ form .count:focus{
 	.zodo-t{
 		min-height: 100vh;
 		width: 100%;
+	}
+
+	.ball{
+		display: block;
+	}
+
+	.trend-prod:hover{
+		transform: scale(1.15);
+		filter: none;
+		transition: all 0.3s ease-in-out;
 	}
 
 	.arrival-img{

@@ -23,7 +23,7 @@ def create_app():
     
     
     # Global CSRF timeout setting
-    app.config['WTF_CSRF_TIME_LIMIT'] = 7000  # Timeout in seconds
+    # app.config['WTF_CSRF_TIME_LIMIT'] = 7000  # Timeout in seconds
     
     db.init_app(app)
     migrate = Migrate(app,db)
