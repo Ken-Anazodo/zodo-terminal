@@ -179,8 +179,13 @@
 								.then((res) => res.json())
 								.then((data) => {
 						
-									document.getElementById('fileName').innerHTML = data?.url;
-									const cloudFile = document.getElementById('image_url').value = data?.url;
+									function optimizeImage(url) {
+										const [base, file] = url.split('/upload/');
+										return `${base}/upload/c_scale,w_auto,q_auto,f_auto/${file}`;
+									}
+									
+									document.getElementById('fileName').innerHTML = optimizeImage(data?.url);
+									const cloudFile = document.getElementById('image_url').value = optimizeImage(data?.url);
 									document.getElementById('load').innerHTML = 'File Upload'
 									console.log(`image from cloudinary: ${cloudFile}`)
 										
