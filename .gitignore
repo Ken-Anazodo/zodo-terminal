@@ -1,3 +1,4 @@
 .vercel
 /vzodo
 /instance
+.env
