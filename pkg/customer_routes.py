@@ -973,7 +973,7 @@ def payment_success():
             headers = {"Authorization":f"Bearer {api_key}"} 
             rsp_json = requests.get(url,headers=headers)
             resp_dict = rsp_json.json()
-            print(resp_dict)
+            # print(resp_dict)
 
             """checking if the transcation was successfull"""
             payment = Payment.query.filter(Payment.pay_reference == ref).first()
