@@ -875,7 +875,7 @@ def proceed_to_payment():
     ord_ref = session.get('ord_ref')
     order = Order.query.filter(Order.order_reference==ord_ref).first()
     
-    print(f"Reference from session: {ord_ref}")
+    # print(f"Reference from session: {ord_ref}")
 
     # If reference is not found, redirect to start a new order
     if not ord_ref:

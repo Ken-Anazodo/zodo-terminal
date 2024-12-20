@@ -150,7 +150,11 @@
 						{% endblock %}
 
 						{% block customjs %}
-						<script>
+						<script type='module'>
+							import config from "/static/js/config.js";
+
+							const cloudName = config.CLOUD_NAME;
+
 							let filePicker=document.getElementById('filefield');
 	
 							filePicker.addEventListener('change', (e)=>{
@@ -160,7 +164,7 @@
 								imageFormData.append("file", file);
 								imageFormData.append("image", file);
 								imageFormData.append("upload_preset", "zodo-terminal");
-								imageFormData.append("cloud_name", "dkcbvgmcr");
+								imageFormData.append("cloud_name", cloudName);
 						
 						
 								let loader = document.getElementById('load').innerHTML = `
@@ -170,7 +174,7 @@
 									<li class="dots" id="dot-3"></li>
 								</div>`
 						
-								fetch("https://api.cloudinary.com/v1_1/dkcbvgmcr/image/upload", {
+								fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
 								method: "POST",
 								body: imageFormData,
 								})

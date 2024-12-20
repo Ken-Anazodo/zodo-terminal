@@ -2,3 +2,4 @@
 /vzodo
 /instance
 .env
+/pkg/static/js/config.js
